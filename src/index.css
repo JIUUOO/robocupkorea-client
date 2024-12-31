@@ -9,8 +9,6 @@
   font-weight: 400;
   font-display: swap;
   src:
-    url(./assets/fonts/Pretendard-Regular.ttf) format("ttf"),
-    url(./assets/fonts/Pretendard-Regular.otf) format("truetype"),
     url(./assets/fonts/Pretendard-Regular.woff) format("woff"),
     url(./assets/fonts/Pretendard-Regular.woff2) format("woff2");
 }
@@ -22,8 +20,6 @@
   font-weight: 500;
   font-display: swap;
   src:
-    url(./assets/fonts/Pretendard-Medium.ttf) format("ttf"),
-    url(./assets/fonts/Pretendard-Medium.otf) format("truetype"),
     url(./assets/fonts/Pretendard-Medium.ttf) format("woff"),
     url(./assets/fonts/Pretendard-Medium.woff2) format("woff2");
 }
@@ -35,8 +31,6 @@
   font-weight: 600;
   font-display: swap;
   src:
-    url(./assets/fonts/Pretendard-SemiBold.ttf) format("ttf"),
-    url(./assets/fonts/Pretendard-SemiBold.otf) format("truetype"),
     url(./assets/fonts/Pretendard-SemiBold.woff) format("woff"),
     url(./assets/fonts/Pretendard-SemiBold.woff2) format("woff2");
 }
@@ -48,8 +42,6 @@
   font-weight: 700;
   font-display: swap;
   src:
-    url(./assets/fonts/Pretendard-Bold.ttf) format("ttf"),
-    url(./assets/fonts/Pretendard-Bold.otf) format("truetype"),
     url(./assets/fonts/Pretendard-Bold.woff) format("woff"),
     url(./assets/fonts/Pretendard-Bold.woff2) format("woff2");
 }
