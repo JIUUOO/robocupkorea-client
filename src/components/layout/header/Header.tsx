@@ -6,34 +6,34 @@ export default function Header() {
   const navigate = useNavigate();
 
   return (
-    <header className="fixed top-0 w-full flex items-center h-24 border-b border-black-transparent">
+    <header className="fixed top-0 flex h-24 w-full items-center border-b border-black-transparent">
       <div className="container flex">
-        <div className="flex justify-center items-center">
-          <img onClick={() => navigate("/")} src={LogoRcka} className="cursor-pointer h-20 pr-14" alt="LogoRcka" />
+        <div className="flex items-center justify-center">
+          <img onClick={() => navigate("/")} src={LogoRcka} className="h-20 cursor-pointer pr-14" alt="LogoRcka" />
         </div>
         <div className="flex justify-between">
           <nav className="flex items-center gap-7 text-center">
-            <NavLink className="text-black text-lg font-medium uppercase p-1" to="/about">
+            <NavLink className="p-1 text-lg font-medium uppercase text-black" to="/about">
               {({ isActive }) => (
                 <span className={isActive ? "text-primary" : "hover:text-primary-inactive"}>about</span>
               )}
             </NavLink>
-            <NavLink className="text-black text-lg font-medium uppercase p-1" to="/leagues">
+            <NavLink className="p-1 text-lg font-medium uppercase text-black" to="/leagues">
               {({ isActive }) => (
                 <span className={isActive ? "text-primary" : "hover:text-primary-inactive"}>leagues</span>
               )}
             </NavLink>
-            <NavLink className="text-black text-lg font-medium uppercase p-1" to="/events">
+            <NavLink className="p-1 text-lg font-medium uppercase text-black" to="/events">
               {({ isActive }) => (
                 <span className={isActive ? "text-primary" : "hover:text-primary-inactive"}>events</span>
               )}
             </NavLink>
-            <NavLink className="text-black text-lg font-medium uppercase p-1" to="/news">
+            <NavLink className="p-1 text-lg font-medium uppercase text-black" to="/news">
               {({ isActive }) => (
                 <span className={isActive ? "text-primary" : "hover:text-primary-inactive"}>news</span>
               )}
             </NavLink>
-            <NavLink className="text-black text-lg font-medium uppercase p-1" to="/notice">
+            <NavLink className="p-1 text-lg font-medium uppercase text-black" to="/notice">
               {({ isActive }) => (
                 <span className={isActive ? "text-primary" : "hover:text-primary-inactive"}>notice</span>
               )}
