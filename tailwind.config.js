@@ -3,20 +3,28 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      pretendard: ["Pretendard"],
+      pretendard: ["Pretendard", "sans-serif"],
     },
-    colors: {
-      primary: "#1C68A6",
-      "primary-inactive": "#145D8C",
-      secondary: "",
-      black: "#080504",
-      "black-transparent": "#08050433",
-      white: "#ffffff",
+    screens: {
+      sm: "480px",
+      md: "768px",
+      lg: "976px",
+      xl: "1440px",
     },
     container: {
       center: true,
+      padding: "1.5rem",
     },
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#1C68A6",
+        accent: "#145D8C",
+        black: "#080504",
+        gray: "#e1e1e1",
+        neutral: "#F9F9F9",
+        white: "#ffffff",
+      },
+    },
   },
   plugins: [],
 };

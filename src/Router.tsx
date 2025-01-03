@@ -25,7 +25,7 @@ const router = createBrowserRouter(
           ),
         },
         {
-          path: "/about",
+          path: "about",
           element: (
             <Suspense fallback={<div>Loading...</div>}>
               <About />
@@ -33,7 +33,7 @@ const router = createBrowserRouter(
           ),
         },
         {
-          path: "/leagues",
+          path: "leagues",
           element: (
             <Suspense fallback={<div>Loading...</div>}>
               <Leagues />
@@ -41,7 +41,7 @@ const router = createBrowserRouter(
           ),
         },
         {
-          path: "/events",
+          path: "events",
           element: (
             <Suspense fallback={<div>Loading...</div>}>
               <Events />
@@ -49,7 +49,7 @@ const router = createBrowserRouter(
           ),
         },
         {
-          path: "/news",
+          path: "news",
           element: (
             <Suspense fallback={<div>Loading...</div>}>
               <News />
@@ -57,7 +57,7 @@ const router = createBrowserRouter(
           ),
         },
         {
-          path: "/notice",
+          path: "notice",
           element: (
             <Suspense fallback={<div>Loading...</div>}>
               <Notice />
