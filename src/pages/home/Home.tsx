@@ -3,14 +3,13 @@ import LandingSection from "@/components/about/LandingSection";
 import CardGroup from "@/components/common/card/CardGroup";
 import Card from "@/components/common/card/Card";
 import History from "@/components/about/History";
-import Institution from "@/components/about/Institution";
 
 export default function Home() {
   return (
     <>
       <LandingVideo />
       <LandingSection />
-      <div className="relative mt-[100vh] flex flex-col gap-10 bg-neutral pt-8">
+      <div className="relative mt-[100vh] flex flex-col gap-10 bg-neutral py-10">
         <CardGroup>
           <Card
             title="An Annual International Robotics Competition"
@@ -56,9 +55,6 @@ export default function Home() {
             to="/notice"
             label="공지사항 더보기"
           />
-        </CardGroup>
-        <CardGroup>
-          <Card title="Institutions" element={<Institution />} />
         </CardGroup>
         <CardGroup>
           <Card

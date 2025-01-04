@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
 import LogoRcka from "@/assets/images/logos/rcka.png";
+import LogoInstitution1 from "@/assets/images/logos/institution1.jpg";
+import LogoInstitution2 from "@/assets/images/logos/institution2.jpg";
+import LogoInstitution3 from "@/assets/images/logos/institution3.jpg";
 
 export default function Footer() {
   const nav = [
@@ -11,30 +14,46 @@ export default function Footer() {
     { to: "/notice", title: "notice" },
   ];
 
+  const institution = [
+    { src: LogoInstitution1, href: "https://www.motie.go.kr/" },
+    { src: LogoInstitution2, href: "https://www.nts.go.kr/" },
+    { src: LogoInstitution3, href: "https://www.acrc.go.kr/" },
+  ];
+
   return (
-    <footer className="relative bg-neutral pt-10">
-      <div className="rounded-[3px] border-t border-white bg-gray px-4 pb-10 pt-8">
-        <div className="container flex flex-col gap-8">
+    <footer className="relative w-full bg-neutral">
+      <div className="rounded-[3px] border-t border-gray bg-white px-4 py-10">
+        <div className="container flex flex-col gap-6">
           <div>
             <Link to="/" className="inline-block">
               <img src={LogoRcka} className="h-16" alt="LogoRcka" />
             </Link>
-            <div className="mt-2 w-96 break-keep">
+            <div className="max-w-100 mt-2 break-keep">
               사단법인 한국로보컵협회는 로봇을 연구하는 학생들을 위해 국가적 및 국제적 로봇 이벤트인 로보컵 리그를
               주최하며, 프로젝트 중심의 교육을 증진하는 비영리 단체입니다.
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="pb-1 uppercase">sitemap</div>
+            <div className="pb-1 text-sm font-medium uppercase">sitemap</div>
             {nav.map(({ to, title }) => (
               <div key={to}>
-                <Link to={to} className="text-sm uppercase hover:underline">
+                <Link to={to} className="inline text-sm uppercase hover:underline">
                   {title}
                 </Link>
               </div>
             ))}
           </div>
-          <div className="flex flex-col gap-2">
+
+          <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-0.5">
+              {institution.map(({ src, href }) => (
+                <div className="inline-flex" key={src}>
+                  <a href={href} className="inline" target="_blank">
+                    <img src={src} className="h-10" alt="logoInstitution" />
+                  </a>
+                </div>
+              ))}
+            </div>
             <div>
               <div className="text-sm">
                 <span className="font-semibold">한국로보컵협회</span> | Tel : 070-4247-7485

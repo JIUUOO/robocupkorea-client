@@ -24,7 +24,7 @@ export default function Card({
   label,
 }: CardProps) {
   return (
-    <div className={`${span} flex flex-col justify-between gap-3 rounded-[3px] border border-gray bg-white p-5`}>
+    <div className={`${span} flex w-full flex-col justify-between gap-3 rounded-[3px] border border-gray bg-white p-5`}>
       <div className={`${subtitle ? "mb-2 flex items-end justify-between border-b" : "flex flex-col gap-4"}`}>
         <div className="text-3xl font-semibold">{title}</div>
         {subtitle && <div className="text-lg font-medium">{subtitle}</div>}

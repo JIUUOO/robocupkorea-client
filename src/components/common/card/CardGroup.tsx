@@ -9,7 +9,9 @@ export default function CardGroup({ children }: CardGroupProps) {
 
   return (
     <div className="container">
-      <div className={`w-full ${cardCount > 1 ? "grid grid-cols-12 gap-10" : ""}`}>{children}</div>
+      <div className={`w-full gap-10 ${cardCount > 1 ? "max-md:flex max-md:flex-col md:grid md:grid-cols-12" : ""}`}>
+        {children}
+      </div>
     </div>
   );
 }

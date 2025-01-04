@@ -8,9 +8,9 @@ export default function Layout() {
   const { pathname } = useLocation();
 
   return (
-    <div className="h-full w-full bg-neutral font-pretendard">
+    <div className="h-full w-full min-w-[375px] bg-neutral font-pretendard">
       <Header />
-      <main className={`flex flex-col gap-6 ${pathname === "/" ? "" : "pt-24"}`}>
+      <main className={`flex h-full w-full flex-col gap-6 ${pathname === "/" ? "" : "pt-24"}`}>
         <Outlet />
       </main>
       <Footer />
