@@ -18,14 +18,14 @@ export default function Home() {
       </CardContainer>
 
       <CardContainer>
-        <CardGroup span={6}>
+        <CardGroup colspan="col-span-6">
           <Card
             title="Promoting AI and Robotics Research"
             description="양질의 다양한 AI·로봇 교육 제공에 뜻을 같이 하는 교육 관련 종사자와 자원봉사자들로 구성된 비영리 기관입니다."
           />
           <LinkButton to="/about" title="운영위원 소개" icon={true} />
         </CardGroup>
-        <CardGroup span={4}>
+        <CardGroup colspan="col-span-4">
           <Card
             title="Sponser"
             description="후원금은 로봇 꿈나무들을 양성하고 AI 및 로보틱스 교육의 증진을 위한 다양한 목적에 사용됩니다."
@@ -42,11 +42,11 @@ export default function Home() {
       </CardContainer>
 
       <CardContainer>
-        <CardGroup span={5}>
+        <CardGroup colspan="col-span-5">
           <Card title="News" subtitle="0" element={<div className="h-20"></div>} />
           <LinkButton to="/about" title="보도자료 더보기" icon={true} align="center" />
         </CardGroup>
-        <CardGroup span={5}>
+        <CardGroup colspan="col-span-5">
           <Card title="Notice" subtitle="0" element={<div className="h-20"></div>} />
           <LinkButton to="/about" title="공지사항 더보기" icon={true} align="center" />
         </CardGroup>
