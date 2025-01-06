@@ -5,23 +5,20 @@ interface CardProps {
   title?: string;
   subtitle?: string;
   description?: React.ReactNode;
-  element?: React.ReactNode;
 }
 
-export default function Card({ title, subtitle, description, element }: CardProps) {
+export default function Card({ title, subtitle, description }: CardProps) {
   return (
-    <>
-      <div
-        className={clsx({
-          "mb-2 flex items-end justify-between border-b": subtitle,
-          "flex flex-col": !subtitle,
-        })}
-      >
-        {title && <div className="r-text-3xl font-semibold">{title}</div>}
+    <div>
+      <div className={clsx("mb-1 flex items-end justify-between", { "mb-3 border-b-2 pb-0.5 xl:pb-1.5": subtitle })}>
+        {title && <div className="r-text-2xl font-semibold">{title}</div>}
         {subtitle && <div className="r-text-lg font-medium">{subtitle}</div>}
       </div>
-      {description && <div className="r-text-base mb-6">{description}</div>}
-      {element && <div className="mb-6">{element}</div>}
-    </>
+      {description && (
+        <div className={clsx("flex flex-col gap-6", { "r-text-base": typeof description === "string" })}>
+          {description}
+        </div>
+      )}
+    </div>
   );
 }

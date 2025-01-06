@@ -36,18 +36,18 @@ export default function Home() {
 
       <CardContainer>
         <CardGroup>
-          <Card title="History" subtitle="Since 2013" element={<History />} />
+          <Card title="History" subtitle="Since 2013" description={<History />} />
           <LinkButton to="/about" title="연혁 더보기" icon={true} />
         </CardGroup>
       </CardContainer>
 
       <CardContainer>
         <CardGroup colspan="col-span-5">
-          <Card title="News" subtitle="0" element={<div className="h-20"></div>} />
+          <Card title="News" subtitle="0" description={<div className="h-20"></div>} />
           <LinkButton to="/about" title="보도자료 더보기" icon={true} align="center" />
         </CardGroup>
         <CardGroup colspan="col-span-5">
-          <Card title="Notice" subtitle="0" element={<div className="h-20"></div>} />
+          <Card title="Notice" subtitle="0" description={<div className="h-20"></div>} />
           <LinkButton to="/about" title="공지사항 더보기" icon={true} align="center" />
         </CardGroup>
       </CardContainer>
