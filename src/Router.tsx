@@ -66,6 +66,7 @@ const router = createBrowserRouter(
         },
       ],
     },
+    {},
   ],
   {
     future: {

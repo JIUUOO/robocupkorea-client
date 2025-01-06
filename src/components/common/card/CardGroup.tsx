@@ -1,17 +1,22 @@
 import React from "react";
+import clsx from "clsx";
+
+type Span = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+type ColSpan = `col-span-${Span}`;
 
 interface CardGroupProps {
-  children: React.ReactNode;
+  span?: Span;
+  children?: React.ReactNode;
 }
 
-export default function CardGroup({ children }: CardGroupProps) {
-  const cardCount = React.Children.count(children);
+export default function CardGroup({ span, children }: CardGroupProps) {
+  const colSpan: ColSpan | undefined = span ? `col-span-${span}` : undefined;
 
   return (
-    <div className="container">
-      <div className={`w-full gap-10 ${cardCount > 1 ? "max-md:flex max-md:flex-col md:grid md:grid-cols-12" : ""}`}>
-        {children}
-      </div>
+    <div
+      className={clsx("flex w-full flex-col justify-between gap-2 rounded border border-gray bg-white p-5", colSpan)}
+    >
+      {children}
     </div>
   );
 }

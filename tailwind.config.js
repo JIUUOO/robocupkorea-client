@@ -16,6 +16,9 @@ export default {
       center: true,
       padding: "1rem",
     },
+    borderRadius: {
+      DEFAULT: "3px",
+    },
     extend: {
       colors: {
         primary: "#1C68A6",
