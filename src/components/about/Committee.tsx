@@ -20,7 +20,7 @@ export default function Committee() {
       <div className="r-text-base">
         양질의 다양한 AI·로봇 교육 제공에 뜻을 같이 하는 교육 관련 종사자와 자원봉사자들로 구성된 비영리 기관입니다.
       </div>
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 md:gap-y-5 lg:grid-cols-5 lg:gap-y-5 xl:grid-cols-7 xl:gap-y-6">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 md:gap-y-5 lg:grid-cols-5 lg:gap-y-5 xl:grid-cols-6 xl:gap-y-6">
         {committeeData.map((member) => (
           <div key={member.name} className="flex justify-center">
             <div className="flex w-36 flex-col justify-between gap-2 border border-gray bg-neutral px-2 py-3 lg:w-40">

@@ -12,13 +12,13 @@ export default function About() {
     <>
       <CardContainer>
         <CardGroup>
-          <Card title="An Annual International Robotics Competition" description={<Intro />} />
+          <Card title={["An Annual", "International", "Robotics Competition"]} description={<Intro />} />
         </CardGroup>
       </CardContainer>
 
       <CardContainer>
         <CardGroup>
-          <Card title="Promoting AI and Robotics Research" description={<Committee />} />
+          <Card title={["Promoting", "AI and Robotics", "Research"]} description={<Committee />} />
           <LinkButton
             to="https://www.1365.go.kr/vols/P9140/srvcinfo/volsDnttInfo.do?type=show&nanmmbyId=28584910"
             external={true}

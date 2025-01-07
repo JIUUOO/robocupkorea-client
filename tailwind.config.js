@@ -10,7 +10,6 @@ export default {
       md: "768px",
       lg: "992px",
       xl: "1200px",
-      "2xl": "1400px",
     },
     container: {
       center: true,
@@ -38,5 +37,18 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addBase }) {
+      addBase({
+        html: {
+          overscrollBehavior: "none",
+          height: "100%",
+        },
+        body: {
+          overscrollBehavior: "none",
+          height: "100%",
+        },
+      });
+    },
+  ],
 };

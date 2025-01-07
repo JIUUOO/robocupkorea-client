@@ -16,11 +16,6 @@ export default function Intro() {
         청소년들에게 전자, 하드웨어, 소프트웨어 활용 능력을 향상시킬 수 있는 기회를 제공하고자 시작되었으며, 그 노력은
         10년이 넘는 시간 동안 지속되었습니다.
       </div>
-      <div className="r-text-base">
-        RCKA는 다양한 참가자들이 우수한 로봇 개발이라는 공동의 목표를 위해 팀을 이루어 함께 연구하고 성장할 수 있는
-        기회를 제공합니다. 이 과정에서 참가자들은 기술뿐만 아니라 협력과 소통의 가치를 배우며, 미래의 로봇 기술을
-        이끌어갈 역량을 기르게 됩니다.
-      </div>
       <iframe
         className="aspect-video w-full rounded"
         src="https://www.youtube.com/embed/xeAO09prmV8?si=mb_LYKthwrrIIGcL&amp;controls=1&autoplay=1&mute=1"
@@ -29,6 +24,11 @@ export default function Intro() {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
+      <div className="r-text-base">
+        RCKA는 다양한 참가자들이 우수한 로봇 개발이라는 공동의 목표를 위해 팀을 이루어 함께 연구하고 성장할 수 있는
+        기회를 제공합니다. 이 과정에서 참가자들은 기술뿐만 아니라 협력과 소통의 가치를 배우며, 미래의 로봇 기술을
+        이끌어갈 역량을 기르게 됩니다.
+      </div>
     </>
   );
 }
