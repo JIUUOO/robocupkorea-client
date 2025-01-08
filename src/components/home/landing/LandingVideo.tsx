@@ -1,4 +1,4 @@
-import Landing from "@/assets/etc/landing.mp4";
+import Landing from "@/assets/videos/landing.mp4";
 
 export default function LandingVideo() {
   return (
