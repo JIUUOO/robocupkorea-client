@@ -1,6 +1,6 @@
 import Card from "@/components/common/card/Card";
 import CardContainer from "@/components/common/card/CardContainer";
-import CardGroup from "@/components/common/card/CardGroup";
+import CardGroup from "@/components/common/card/CardItem";
 
 import rcHumanoid from "@/assets/videos/rc-humanoid.mp4";
 import rcjSoccerLightweight from "@/assets/videos/rcj-soccer-lightweight.mp4";
@@ -26,19 +26,18 @@ export default function Leagues() {
         <div className="r-text-3xl font-semibold">RoboCup League</div>
       </div>
 
-      <CardContainer>
-        <CardGroup colspan="col-span-5">
+      <CardContainer gridcols="lg:grid-cols-2">
+        <CardGroup colspan="col-span-1">
           <Card
             title="Humanoid"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <div className="r-text-base">휴머노이드는...</div>
                 <Thumbnail src={rcHumanoid} />
               </>
             }
+            footer={<LinkButton to="/leagues/rc-humanoid" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/rc-humanoid" title="종목 살펴보기" icon={true} />
         </CardGroup>
       </CardContainer>
 
@@ -46,57 +45,53 @@ export default function Leagues() {
         <div className="r-text-3xl font-semibold">RoboCupJunior League</div>
       </div>
 
-      <CardContainer>
-        <CardGroup colspan="col-span-5">
+      <CardContainer gridcols="lg:grid-cols-2">
+        <CardGroup colspan="col-span-1">
           <Card
             title="Soccer LightWeight"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={rcjSoccerLightweight} />
               </>
             }
+            footer={<LinkButton to="/leagues/rcj-soccer-lightweight" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/rcj-soccer-lightweight" title="종목 살펴보기" icon={true} />
         </CardGroup>
 
-        <CardGroup colspan="col-span-5">
+        <CardGroup colspan="col-span-1">
           <Card
             title="Soccer Open"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={rcjSoccerOpen} />
               </>
             }
+            footer={<LinkButton to="/leagues/rcj-soccer-open" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/rcj-soccer-open" title="종목 살펴보기" icon={true} />
         </CardGroup>
 
-        <CardGroup colspan="col-span-5">
+        <CardGroup colspan="col-span-1">
           <Card
             title="Rescue Line"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={rcjRescueLine} />
               </>
             }
+            footer={<LinkButton to="/leagues/rcj-rescue-line" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/rcj-rescue-line" title="종목 살펴보기" icon={true} />
         </CardGroup>
 
-        <CardGroup colspan="col-span-5">
+        <CardGroup colspan="col-span-1">
           <Card
             title="OnStage"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={rcjOnstage} />
               </>
             }
+            footer={<LinkButton to="/leagues/rcj-onstage" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/rcj-onstage" title="종목 살펴보기" icon={true} />
         </CardGroup>
       </CardContainer>
 
@@ -104,57 +99,53 @@ export default function Leagues() {
         <div className="r-text-3xl font-semibold">RCAP League</div>
       </div>
 
-      <CardContainer>
-        <CardGroup colspan="col-span-5">
+      <CardContainer gridcols="lg:grid-cols-2">
+        <CardGroup colspan="col-span-1">
           <Card
             title="CoSpace Autonomous Driving, U12"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={rcapAutonomousDrivingU12} />
               </>
             }
+            footer={<LinkButton to="/leagues/rcap-cospace-autonomous-driving-u12" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/rcap-cospace-autonomous-driving-u12" title="종목 살펴보기" icon={true} />
         </CardGroup>
 
-        <CardGroup colspan="col-span-5">
+        <CardGroup colspan="col-span-1">
           <Card
             title="CoSpace Autonomous Driving, U19"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={rcapAutonomousDrivingU19} />
               </>
             }
+            footer={<LinkButton to="/leagues/rcap-cospace-autonomous-driving-u19" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/rcap-cospace-autonomous-driving-u19" title="종목 살펴보기" icon={true} />
         </CardGroup>
 
-        <CardGroup colspan="col-span-5">
+        <CardGroup colspan="col-span-1">
           <Card
             title="CoSpace Rescue, U12"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={rcapCospaceRescueU12} />
               </>
             }
+            footer={<LinkButton to="/leagues/rcap-cospace-rescue-u12" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/rcap-cospace-rescue-u12" title="종목 살펴보기" icon={true} />
         </CardGroup>
 
-        <CardGroup colspan="col-span-5">
+        <CardGroup colspan="col-span-1">
           <Card
             title="CoSpace Rescue, U19"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={rcapCospaceRescueU19} />
               </>
             }
+            footer={<LinkButton to="/leagues/rcap-cospace-rescue-u19" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/rcap-cospace-rescue-u19" title="종목 살펴보기" icon={true} />
         </CardGroup>
       </CardContainer>
 
@@ -162,57 +153,53 @@ export default function Leagues() {
         <div className="r-text-3xl font-semibold">Basic League</div>
       </div>
 
-      <CardContainer>
-        <CardGroup colspan="col-span-5">
+      <CardContainer gridcols="lg:grid-cols-2">
+        <CardGroup colspan="col-span-1">
           <Card
             title="Rescue Basic, U12"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={basicRescueBasicU12} />
               </>
             }
+            footer={<LinkButton to="/leagues/basic-rescue-basic-u12" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/basic-rescue-basic-u12" title="종목 살펴보기" icon={true} />
         </CardGroup>
 
-        <CardGroup colspan="col-span-5">
+        <CardGroup colspan="col-span-1">
           <Card
             title="Rescue Basic, U19"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={basicRescueBasicU19} />
               </>
             }
+            footer={<LinkButton to="/leagues/basic-rescue-basic-u19" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/basic-rescue-basic-u19" title="종목 살펴보기" icon={true} />
         </CardGroup>
 
-        <CardGroup colspan="col-span-5">
+        <CardGroup colspan="col-span-1">
           <Card
             title="Rescue MazeBasic, U12"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={basicMazebasicU12} />
               </>
             }
+            footer={<LinkButton to="/leagues/basic-rescue-mazebasic-u12" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/basic-rescue-mazebasic-u12" title="종목 살펴보기" icon={true} />
         </CardGroup>
 
-        <CardGroup colspan="col-span-5">
+        <CardGroup colspan="col-span-1">
           <Card
             title="Rescue MazeBasic, U19"
-            fontSize="2xl"
-            description={
+            content={
               <>
                 <Thumbnail src={basicMazebasicU19} />
               </>
             }
+            footer={<LinkButton to="/leagues/basic-rescue-mazebasic-u19" title="종목 살펴보기" icon={true} />}
           />
-          <LinkButton to="/leagues/basic-rescue-mazebasic-u19" title="종목 살펴보기" icon={true} />
         </CardGroup>
       </CardContainer>
     </>

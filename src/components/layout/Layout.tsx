@@ -21,7 +21,7 @@ export default function Layout() {
           "max-md:pt-16 md:pt-24": !isHome,
         })}
       >
-        <div className="flex flex-col gap-10 py-10">
+        <div className="flex flex-col gap-8 py-8">
           <Outlet />
         </div>
       </main>

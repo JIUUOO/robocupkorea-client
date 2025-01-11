@@ -1,7 +1,7 @@
 import LinkButton from "@/components/common/button/LinkButton";
 import Card from "@/components/common/card/Card";
 import CardContainer from "@/components/common/card/CardContainer";
-import CardGroup from "@/components/common/card/CardGroup";
+import CardGroup from "@/components/common/card/CardItem";
 
 export default function RcjRescueLine() {
   return (

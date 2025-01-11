@@ -83,16 +83,6 @@ export default function Header() {
                   className={({ isActive }) =>
                     `font-medium font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
                   }
-                  to="/news"
-                >
-                  news
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    `font-medium font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
-                  }
                   to="/notice"
                 >
                   notice
