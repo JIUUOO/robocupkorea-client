@@ -4,13 +4,9 @@ import { createBrowserRouter, RouterProvider, RouteObject } from "react-router-d
 import { Route, ROUTES } from "@/router/routes";
 
 function mapRoutesToRouter(routes: Route[]): RouteObject[] {
-  return routes.map(({ path, element: Component, children }) => ({
+  return routes.map(({ path, element, children }) => ({
     path,
-    element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Component />
-      </Suspense>
-    ),
+    element: <Suspense fallback={<div>Loading...</div>}>{element}</Suspense>,
     children: children ? mapRoutesToRouter(children) : undefined,
   }));
 }
