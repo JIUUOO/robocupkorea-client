@@ -3,7 +3,7 @@ import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faGlobe, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import LogoRcka from "@/assets/images/logos/rcka.png";
+import logoRcka from "@/assets/images/logos/rcka.png";
 
 export default function Header() {
   const [isOpened, setIsOpened] = useState(false);
@@ -35,9 +35,9 @@ export default function Header() {
       <div className="container flex w-full max-md:justify-between">
         <div className="flex items-center">
           <img
-            src={LogoRcka}
-            className="cursor-pointer max-md:h-14 md:mr-20 md:h-20"
-            alt="LogoRcka"
+            src={logoRcka}
+            className="aspect-[5/3] cursor-pointer object-contain max-md:h-14 md:mr-20 md:h-20"
+            alt=""
             onClick={() => navigate("/")}
           />
         </div>

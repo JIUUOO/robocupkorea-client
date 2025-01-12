@@ -62,7 +62,7 @@ export default function EventDetail() {
       </div>
       <CardContainer gridcols="lg:grid-cols-12">
         {data?.others.map((item) => (
-          <CardItem colspan="col-span-3">
+          <CardItem key={item.title} colspan="col-span-3">
             <Card title={item.title} content={item.description} compact={true} />
           </CardItem>
         ))}
