@@ -3,7 +3,7 @@ import CardGroup from "@/components/common/card/CardItem";
 import Card from "@/components/common/card/Card";
 
 import LinkButton from "@/components/common/button/LinkButton";
-import { useFetchEvents } from "@/hooks/useFetchEvents";
+import { useFetchEvents } from "@/hooks/events/useFetchEvents";
 import SectionHeader from "@/components/common/SectionHeader";
 
 export default function Events() {

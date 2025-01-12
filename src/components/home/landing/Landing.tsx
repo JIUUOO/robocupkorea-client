@@ -1,4 +1,4 @@
-import { useFetchEventLatest } from "@/hooks/useFetchEventLatest";
+import { useFetchEventLatest } from "@/hooks/events/useFetchEventLatest";
 
 import LandingVideo from "@/components/home/landing/LandingVideo";
 import LandingInfo from "@/components/home/landing/LandingInfo";

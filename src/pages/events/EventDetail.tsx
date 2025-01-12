@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Card from "@/components/common/card/Card";
 import CardContainer from "@/components/common/card/CardContainer";
 import CardItem from "@/components/common/card/CardItem";
-import { useFetchEventDetail } from "@/hooks/useFetchEventDetail";
+import { useFetchEventDetail } from "@/hooks/events/useFetchEventDetail";
 import Calendar from "@/components/events/Calendar";
 import LinkButton from "@/components/common/button/LinkButton";
 
