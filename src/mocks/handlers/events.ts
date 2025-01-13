@@ -1,6 +1,6 @@
 import { http, delay, HttpResponse } from "msw";
 
-export const eventsMockHandler = http.get("/api/events", async () => {
+export const eventsMockHandler = http.get("/api/events/", async () => {
   await delay(1000);
 
   return HttpResponse.json([
@@ -17,7 +17,7 @@ export const eventsMockHandler = http.get("/api/events", async () => {
   ]);
 });
 
-export const eventLatestMockHandler = http.get("/api/events/latest", async () => {
+export const eventLatestMockHandler = http.get("/api/events/latest/", async () => {
   await delay(1000);
 
   return HttpResponse.json({
@@ -28,7 +28,7 @@ export const eventLatestMockHandler = http.get("/api/events/latest", async () =>
   });
 });
 
-export const eventDetailMockHandler = http.get("/api/events/:id", () => {
+export const eventDetailMockHandler = http.get("/api/events/:id/", () => {
   return HttpResponse.json({
     id: "robocup-open-2025",
     title: "제13회 한국로보컵오픈",
