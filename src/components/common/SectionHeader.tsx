@@ -7,7 +7,7 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ title, children }: SectionHeaderProps) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2.5">
       <div className="container">
         <div className="r-text-3xl font-semibold">{title}</div>
       </div>

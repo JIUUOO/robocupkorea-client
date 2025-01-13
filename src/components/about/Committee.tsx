@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { committeeData } from "@/data/committeeData";
+import { committeeData } from "@/data/about/committeeData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faUser, faUserTie } from "@fortawesome/free-solid-svg-icons";
 

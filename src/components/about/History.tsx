@@ -1,4 +1,4 @@
-import { historyData } from "@/data/historyData";
+import { historyData } from "@/data/about/historyData";
 
 export default function History() {
   return (
