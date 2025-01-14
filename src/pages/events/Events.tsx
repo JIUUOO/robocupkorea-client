@@ -15,7 +15,7 @@ export default function Events() {
   return (
     <>
       <SectionHeader title="Upcoming Event">
-        <CardContainer gridcols="lg:grid-cols-2">
+        <CardContainer grid="md:grid" gridcols="sm:grid-cols-2">
           <CardGroup colspan="col-span-1">
             <Card
               title={data?.[0]?.title}
@@ -34,7 +34,7 @@ export default function Events() {
       </SectionHeader>
 
       <SectionHeader title="Past Events">
-        <CardContainer gridcols="lg:grid-cols-2">
+        <CardContainer grid="md:grid" gridcols="sm:grid-cols-2">
           {data?.slice(1).map((item) => (
             <Card
               title="제5회 한국창의코딩대회"
@@ -44,6 +44,7 @@ export default function Events() {
                 </>
               }
               compact={true}
+              varient="default"
             />
           ))}
         </CardContainer>
