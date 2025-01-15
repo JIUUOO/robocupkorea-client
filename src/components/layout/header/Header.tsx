@@ -83,9 +83,9 @@ export default function Header() {
                   className={({ isActive }) =>
                     `font-medium font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
                   }
-                  to="/notice"
+                  to="/notices"
                 >
-                  notice
+                  notices
                 </NavLink>
               </li>
             </ul>

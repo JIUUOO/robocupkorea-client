@@ -1,13 +1,9 @@
 import React from "react";
 import clsx from "clsx";
 
-type Breakpoints = "sm" | "lg";
-type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-type GridCols = `${Breakpoints}:grid-cols-${Cols}`;
-
 interface CardContainerProps {
   grid?: "md:grid" | "lg:grid";
-  gridcols?: GridCols;
+  gridcols?: string;
   children: React.ReactNode;
 }
 

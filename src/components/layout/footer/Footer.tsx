@@ -11,7 +11,7 @@ export default function Footer() {
     { to: "/leagues", title: "leagues" },
     { to: "/events", title: "events" },
     { to: "/news", title: "news" },
-    { to: "/notice", title: "notice" },
+    { to: "/notices", title: "notices" },
   ];
 
   const institution = [

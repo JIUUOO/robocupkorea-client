@@ -9,7 +9,7 @@ const Leagues = lazy(() => import("@/pages/leagues/Leagues"));
 const LeagueDetail = lazy(() => import("@/pages/leagues/LeaguesDetail"));
 const Events = lazy(() => import("@/pages/events/Events"));
 const EventDetail = lazy(() => import("@/pages/events/EventDetail"));
-const Notice = lazy(() => import("@/pages/notice/Notice"));
+const Notices = lazy(() => import("@/pages/notices/Notices"));
 
 export interface Route {
   path: string;
@@ -47,8 +47,8 @@ export const ROUTES: Route[] = [
         ],
       },
       {
-        path: "notice",
-        element: <Notice />,
+        path: "notices",
+        element: <Notices />,
       },
     ],
   },

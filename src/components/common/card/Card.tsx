@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 interface CardProps {
   title?: string | string[]; // 배열로 받게 될 경우 string 별로 text break가 일어나게 한다
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   content?: React.ReactNode;
   footer?: React.ReactNode;
   compact?: boolean;

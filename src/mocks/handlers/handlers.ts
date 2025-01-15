@@ -1,3 +1,4 @@
-import { eventsMockHandler, eventLatestMockHandler, eventDetailMockHandler } from "./events";
+import { eventsMockHandler, eventLatestMockHandler, eventDetailMockHandler } from "@/mocks/handlers/events";
+import { noticesMockHandler } from "@/mocks/handlers/notices";
 
-export const handlers = [eventsMockHandler, eventLatestMockHandler, eventDetailMockHandler];
+export const handlers = [eventsMockHandler, eventLatestMockHandler, eventDetailMockHandler, noticesMockHandler];
