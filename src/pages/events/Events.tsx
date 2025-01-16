@@ -5,6 +5,7 @@ import Card from "@/components/common/card/Card";
 import LinkButton from "@/components/common/button/LinkButton";
 import { useFetchEvents } from "@/hooks/events/useFetchEvents";
 import SectionHeader from "@/components/common/SectionHeader";
+import buildApiBaseUrl from "@/utils/buildApiBaseUrl";
 
 export default function Events() {
   const { data, isLoading, isError } = useFetchEvents();
@@ -18,11 +19,11 @@ export default function Events() {
         <CardContainer grid="md:grid" gridcols="sm:grid-cols-2">
           <CardGroup colspan="col-span-1">
             <Card
-              title={data?.[0]?.title}
+              title={data?.events[0]?.title}
               content={
                 <>
                   <div>
-                    <img src={data?.[0]?.images[0]} alt="" className="" />
+                    <img src={buildApiBaseUrl(data?.events[0]?.images[0])} alt="" className="" />
                   </div>
                 </>
               }
@@ -35,18 +36,20 @@ export default function Events() {
 
       <SectionHeader title="Past Events">
         <CardContainer grid="md:grid" gridcols="sm:grid-cols-2">
-          {data?.slice(1).map((item) => (
-            <Card
-              title="제5회 한국창의코딩대회"
-              content={
-                <>
-                  <img src={item.images[0]} />
-                </>
-              }
-              compact={true}
-              varient="default"
-            />
-          ))}
+          {data &&
+            data?.events.length > 1 &&
+            data.events.slice(1).map((item) => (
+              <Card
+                title="제5회 한국창의코딩대회"
+                content={
+                  <>
+                    <img src={buildApiBaseUrl(item.images[0])} />
+                  </>
+                }
+                compact={true}
+                varient="default"
+              />
+            ))}
         </CardContainer>
       </SectionHeader>
     </>

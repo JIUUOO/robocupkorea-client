@@ -18,7 +18,7 @@ export default function Calendar({ dates }: CalendarProps) {
   const renderCalendar = () => {
     const monthDays: string[] = [];
     const currentMonth = startDate.slice(0, 7); // YYYY-MM 형태로 현재 월을 추출
-    const [year, month] = currentMonth.split(".").map(Number);
+    const [year, month] = currentMonth.split("-").map(Number);
 
     // 해당 월의 첫 날과 마지막 날 계산
     const firstDayOfMonth = new Date(year, month - 1, 1);
@@ -31,13 +31,13 @@ export default function Calendar({ dates }: CalendarProps) {
 
     // 첫 번째 주 이전의 날짜를 이전 월 날짜로 채우기
     for (let i = prevMonthDays; i <= prevMonthLastDay; i++) {
-      const prevMonthDayString = `${year}.${String(month - 1).padStart(2, "0")}.${String(i).padStart(2, "0")}`;
+      const prevMonthDayString = `${year}-${String(month - 1).padStart(2, "0")}-${String(i).padStart(2, "0")}`;
       monthDays.push(prevMonthDayString); // 이전 월 날짜
     }
 
     // 현재 월의 모든 날짜를 배열에 추가
     for (let day = 1; day <= lastDayOfMonth; day++) {
-      const dayString = `${year}.${String(month).padStart(2, "0")}.${String(day).padStart(2, "0")}`;
+      const dayString = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
       monthDays.push(dayString);
     }
 
@@ -45,7 +45,7 @@ export default function Calendar({ dates }: CalendarProps) {
     const nextMonthDays = 7 - (monthDays.length % 7); // 다음 달 날짜로 채워야 할 날짜 수
 
     for (let i = 1; i <= nextMonthDays; i++) {
-      const nextMonthDayString = `${year}.${String(month + 1).padStart(2, "0")}.${String(i).padStart(2, "0")}`;
+      const nextMonthDayString = `${year}-${String(month + 1).padStart(2, "0")}-${String(i).padStart(2, "0")}`;
       monthDays.push(nextMonthDayString);
     }
 
@@ -58,7 +58,7 @@ export default function Calendar({ dates }: CalendarProps) {
     return weeks.map((week, weekIndex) => (
       <div key={weekIndex} className="grid grid-cols-7">
         {week.map((day, dayIndex) => {
-          const [, month, dayOfMonth] = day.split(".").map(Number);
+          const [, month, dayOfMonth] = day.split("-").map(Number);
 
           const formattedDay = dayOfMonth === 1 ? `${month}/${dayOfMonth}` : dayOfMonth; // "2/1" 형식으로 표시
 

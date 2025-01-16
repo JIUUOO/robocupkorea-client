@@ -7,3 +7,13 @@ export const instance = axios.create({
     Accept: "application/json",
   },
 });
+
+instance.interceptors.response.use(
+  function (response) {
+    console.log(response.data);
+    return response;
+  },
+  function (error) {
+    return Promise.reject(error);
+  },
+);

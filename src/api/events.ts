@@ -21,7 +21,6 @@ export async function fetchEventLatest() {
 export async function fetchEventDetail(id: string) {
   try {
     const response = await instance.get(`/api/events/${id}/`);
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);

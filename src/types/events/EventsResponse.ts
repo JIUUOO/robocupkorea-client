@@ -1,5 +1,7 @@
 export type EventsResponse = {
-  id: string;
-  title: string;
-  images: string[];
-}[];
+  events: {
+    id: string;
+    title: string;
+    images: string[];
+  }[];
+};
