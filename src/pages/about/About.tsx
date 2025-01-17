@@ -6,6 +6,8 @@ import MailtoButton from "@/components/common/button/MailtoButton";
 import Intro from "@/components/about/Intro";
 import Committee from "@/components/about/Committee";
 import History from "@/components/about/History";
+import News from "@/components/about/News";
+import { newsData } from "@/data/about/newsData";
 
 export default function About() {
   return (
@@ -43,6 +45,12 @@ export default function About() {
       <CardContainer>
         <CardGroup>
           <Card title="History" subtitle="Since 2013" content={<History />} divider={true} varient="introduce" />
+        </CardGroup>
+      </CardContainer>
+
+      <CardContainer>
+        <CardGroup colspan="col-span-1">
+          <Card title="News" subtitle={newsData.length} content={<News />} divider={true} varient="introduce" />
         </CardGroup>
       </CardContainer>
 

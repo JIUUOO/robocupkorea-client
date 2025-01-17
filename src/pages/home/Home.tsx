@@ -2,7 +2,9 @@ import CardContainer from "@/components/common/card/CardContainer";
 import CardGroup from "@/components/common/card/CardItem";
 import Card from "@/components/common/card/Card";
 import History from "@/components/home/History";
+import News from "@/components/home/News";
 import LinkButton from "@/components/common/button/LinkButton";
+import { newsDataCount } from "@/data/about/newsData";
 
 export default function Home() {
   return (
@@ -54,8 +56,8 @@ export default function Home() {
         <CardGroup colspan="col-span-1">
           <Card
             title="News"
-            subtitle="0"
-            content={<div className="h-20"></div>}
+            subtitle={newsDataCount}
+            content={<News />}
             divider={true}
             footer={<LinkButton to="/about" title="보도자료 더보기" icon={true} />}
             varient="introduce"
