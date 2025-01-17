@@ -4,9 +4,9 @@ export default function History() {
   return (
     <div className="flex flex-col gap-12 lg:gap-16">
       {historyData.slice(0, 2).map((record) => (
-        <div key={record.year} className="flex gap-8">
+        <div key={record.year} className="flex gap-8 lg:gap-16">
           <div className="r-text-2xl flex justify-end break-keep font-bold">{record.year}년</div>
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-8 lg:gap-16">
             {record.events.map((event) => (
               <div key={event.title} className="flex w-56 flex-col gap-1 md:w-64 xl:w-80">
                 <div className="r-text-base font-semibold">
