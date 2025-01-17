@@ -4,7 +4,7 @@ export type NoticeResponse = {
   author: string;
   title: string;
   content: string;
-  attachmentCount: number;
+  attachmentsCount: number;
 };
 
 export type NoticesResponse = {

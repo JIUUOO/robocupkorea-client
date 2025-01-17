@@ -21,7 +21,7 @@ export default function Notices() {
                 title={notice.title}
                 subtitle={
                   <div className="flex h-7 w-7 items-center justify-center rounded bg-black">
-                    <span className="text-white">{notice.attachmentCount}</span>
+                    <span className="text-white">{notice.attachmentsCount}</span>
                   </div>
                 }
                 content={

@@ -6,5 +6,5 @@ export type NoticeResponse = {
   author: string;
   title: string;
   content: string;
-  attachment: Attachment[];
+  attachments: Attachment[];
 };
