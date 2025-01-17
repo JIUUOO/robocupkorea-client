@@ -10,6 +10,16 @@ export default function Calendar({ dates }: CalendarProps) {
   const startDate = dates[0];
   const endDate = dates[1] || startDate; // endDate가 없으면 startDate와 동일하게 설정
 
+  // 날짜가 범위의 시작 날짜인지 확인
+  const isFirstDay = (date: string) => {
+    return date === startDate;
+  };
+
+  // 날짜가 범위의 끝 날짜인지 확인
+  const isLastDay = (date: string) => {
+    return date === endDate;
+  };
+
   // 날짜가 범위 안에 있는지 체크
   const isInRange = (date: string) => {
     return date >= startDate && date <= endDate;
@@ -68,6 +78,9 @@ export default function Calendar({ dates }: CalendarProps) {
               className={clsx("r-text-sm text-center font-medium max-lg:py-1.5 lg:py-2", {
                 "bg-primary text-white": day && isInRange(day),
                 "text-transparent": !day,
+                "rounded-bl rounded-tl": day && isInRange(day) && isFirstDay(day),
+                "rounded-br rounded-tr": day && isInRange(day) && isLastDay(day),
+                rounded: day && isInRange(day) && isFirstDay(day) && isLastDay(day),
               })}
             >
               {day && formattedDay}
@@ -79,7 +92,7 @@ export default function Calendar({ dates }: CalendarProps) {
   };
 
   return (
-    <div className="flex flex-col gap-1.5 rounded bg-gray">
+    <div className="flex flex-col gap-1.5 rounded bg-neutral">
       <div className="mb-2 grid grid-cols-7 justify-between">
         {WEEKDAYS.map((day) => (
           <div key={day} className="r-text-xs text-dark pt-2 text-center font-semibold">
