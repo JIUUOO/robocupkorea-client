@@ -6,13 +6,13 @@ import LogoInstitution2 from "@/assets/images/logos/institution2.jpg";
 import LogoInstitution3 from "@/assets/images/logos/institution3.jpg";
 
 export default function Footer() {
-  const nav = [
-    { to: "/about", title: "about" },
-    { to: "/leagues", title: "leagues" },
-    { to: "/events", title: "events" },
-    { to: "/news", title: "news" },
-    { to: "/notices", title: "notices" },
-  ];
+  // const nav = [
+  //   { to: "/about", title: "about" },
+  //   { to: "/leagues", title: "leagues" },
+  //   { to: "/events", title: "events" },
+  //   { to: "/news", title: "news" },
+  //   { to: "/notices", title: "notices" },
+  // ];
 
   const institution = [
     { src: LogoInstitution1, href: "https://www.motie.go.kr/" },
@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <footer className="relative w-full bg-neutral">
       <div className="rounded border-t border-gray bg-white px-4 pb-10 pt-8">
-        <div className="container flex flex-col max-lg:gap-6 lg:gap-10">
+        <div className="container flex flex-col max-lg:gap-12 lg:gap-16">
           <div>
             <Link to="/" className="inline-block">
               <img src={LogoRcka} className="h-16 xl:h-20" alt="LogoRcka" />
@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <div className="r-text-sm pb-1 font-medium uppercase">sitemap</div>
             {nav.map(({ to, title }) => (
               <div key={to}>
@@ -43,10 +43,10 @@ export default function Footer() {
                 </Link>
               </div>
             ))}
-          </div>
+          </div> */}
 
-          <div className="flex flex-col gap-2.5">
-            <div className="flex flex-col gap-0.5">
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-1">
               {institution.map(({ src, href }) => (
                 <div className="inline-flex" key={src}>
                   <a href={href} className="inline" target="_blank">
@@ -55,15 +55,17 @@ export default function Footer() {
                 </div>
               ))}
             </div>
-            <div>
-              <div className="r-text-sm">
-                <span className="font-semibold">한국로보컵협회</span> | Tel : 070-4247-7485
+            <div className="flex flex-col gap-2">
+              <div>
+                <div className="r-text-sm">
+                  <span className="font-semibold">한국로보컵협회</span> | Tel : 070-4247-7485
+                </div>
+                <div className="r-text-sm"> 주소: 서울시 서초구 서운로 13 중앙로얄 오피스텔 1308</div>
               </div>
-              <div className="r-text-sm"> 주소: 서울시 서초구 서운로 13 중앙로얄 오피스텔 1308</div>
-            </div>
-            <hr />
-            <div>
-              <div className="r-text-sm">Copyright ©한국로보컵협회. All rights reserved.</div>
+              <hr />
+              <div>
+                <div className="r-text-sm">Copyright ©한국로보컵협회. All rights reserved.</div>
+              </div>
             </div>
           </div>
         </div>
