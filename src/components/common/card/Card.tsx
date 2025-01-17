@@ -28,7 +28,7 @@ export default function Card({
             className={clsx("mb-1.5", {
               "flex items-end justify-between": subtitle,
               "mb-3.5 border-b md:pb-0.5 xl:pb-1": divider,
-              "mb-4": compact,
+              "mb-3": compact,
             })}
           >
             <div

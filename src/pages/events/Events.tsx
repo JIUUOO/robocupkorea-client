@@ -38,12 +38,13 @@ export default function Events() {
         <CardContainer grid="md:grid" gridcols="sm:grid-cols-2">
           {data &&
             data?.events.length > 1 &&
-            data.events.slice(1).map((item) => (
+            data.events.slice(1).map((event) => (
               <Card
+                key={event.id}
                 title="제5회 한국창의코딩대회"
                 content={
                   <>
-                    <img src={buildApiBaseUrl(item.images[0])} />
+                    <img src={buildApiBaseUrl(event.images[0])} />
                   </>
                 }
                 compact={true}

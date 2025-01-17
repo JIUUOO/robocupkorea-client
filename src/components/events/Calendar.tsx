@@ -66,7 +66,7 @@ export default function Calendar({ dates }: CalendarProps) {
             <div
               key={dayIndex}
               className={clsx("r-text-sm text-center font-medium max-lg:py-1.5 lg:py-2", {
-                "bg-accent text-white": day && isInRange(day),
+                "bg-primary text-white": day && isInRange(day),
                 "text-transparent": !day,
               })}
             >
@@ -79,10 +79,10 @@ export default function Calendar({ dates }: CalendarProps) {
   };
 
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-1.5 rounded bg-gray">
       <div className="mb-2 grid grid-cols-7 justify-between">
         {WEEKDAYS.map((day) => (
-          <div key={day} className="r-text-sm text-center font-medium">
+          <div key={day} className="r-text-xs text-dark pt-2 text-center font-semibold">
             {day}
           </div>
         ))}

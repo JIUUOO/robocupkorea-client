@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer utilities {
+  .r-text-xs {
+    @apply text-xs md:text-sm xl:text-base;
+  }
+
   .r-text-sm {
     @apply text-sm md:text-base xl:text-lg;
   }
