@@ -1,14 +1,24 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faGlobe, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCaretDown, faGlobe, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import logoRcka from "@/assets/images/logos/rcka.png";
 
 export default function Header() {
+  const [isEntered, setIsEntered] = useState(false);
   const [isOpened, setIsOpened] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const aboutMenu = [
+    { name: "Introduction", id: "introduction" },
+    { name: "Committee", id: "committee" },
+    { name: "History", id: "history" },
+    { name: "News", id: "news" },
+    { name: "Sponser", id: "sponser" },
+  ];
 
   useEffect(() => {
     if (isOpened) {
@@ -48,20 +58,41 @@ export default function Header() {
             <ul
               className={`py-8 md:flex md:gap-6 md:text-center ${isOpened ? "max-md:container max-md:space-y-2" : ""}`}
             >
-              <li>
+              <li onMouseEnter={() => setIsEntered(true)} onMouseLeave={() => setIsEntered(false)}>
                 <NavLink
+                  onClick={() => setIsEntered(false)}
                   className={({ isActive }) =>
-                    `font-medium font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
+                    `pl-[18px] font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
                   }
                   to="/about"
                 >
-                  about
+                  about <FontAwesomeIcon icon={faCaretDown} />
                 </NavLink>
+                <div
+                  className={clsx("", {
+                    "absolute pt-4": isEntered,
+                    hidden: !isEntered,
+                  })}
+                >
+                  <div className="flex flex-col gap-1.5 rounded-lg border border-gray bg-white px-4 py-3">
+                    {aboutMenu.map((menu) => (
+                      <div key={menu.id} className="text-left">
+                        <NavLink
+                          to={`/about/#${menu.id}`}
+                          onClick={() => setIsEntered(false)}
+                          className="r-text-sm cursor-pointer font-medium"
+                        >
+                          {menu.name}
+                        </NavLink>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </li>
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    `font-medium font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
+                    `font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
                   }
                   to="/leagues"
                 >
@@ -71,7 +102,7 @@ export default function Header() {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    `font-medium font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
+                    `font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
                   }
                   to="/events"
                 >
@@ -81,7 +112,7 @@ export default function Header() {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    `font-medium font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
+                    `font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
                   }
                   to="/notices"
                 >

@@ -14,7 +14,7 @@ export default function Home() {
           <Card
             title="An Annual International Robotics Competition"
             content="사단법인 한국로보컵협회(이하 RCKA)는 로봇을 연구하는 학생들을 위해 국가적 및 국제적 로봇 이벤트인 로보컵(RoboCup) 리그를 주최하며, 프로젝트 중심의 교육을 증진하는 비영리 단체입니다."
-            footer={<LinkButton to="/about" title="한국로보컵협회 소개" icon={true} />}
+            footer={<LinkButton to="/about#introduction" title="한국로보컵협회 소개" icon={true} />}
             varient="introduce"
           />
         </CardGroup>
@@ -25,7 +25,7 @@ export default function Home() {
           <Card
             title="Promoting AI and Robotics Research"
             content="양질의 다양한 AI·로봇 교육 제공에 뜻을 같이 하는 교육 관련 종사자와 자원봉사자들로 구성된 비영리 기관입니다."
-            footer={<LinkButton to="/about" title="운영위원 소개" icon={true} />}
+            footer={<LinkButton to="/about#committee" title="운영위원 소개" icon={true} />}
             varient="introduce"
           />
         </CardGroup>
@@ -33,7 +33,7 @@ export default function Home() {
           <Card
             title="Sponser"
             content="후원금은 로봇 꿈나무들을 양성하고 AI 및 로보틱스 교육의 증진을 위한 다양한 목적에 사용됩니다."
-            footer={<LinkButton to="/about" title="후원 문의" align="center" />}
+            footer={<LinkButton to="/about#sponser" title="후원 문의" align="center" />}
             varient="introduce"
           />
         </CardGroup>
@@ -46,7 +46,7 @@ export default function Home() {
             subtitle="Since 2013"
             content={<History />}
             divider={true}
-            footer={<LinkButton to="/about" title="연혁 더보기" icon={true} />}
+            footer={<LinkButton to="/about#history" title="연혁 더보기" icon={true} />}
             varient="introduce"
           />
         </CardGroup>
@@ -59,7 +59,7 @@ export default function Home() {
             subtitle={newsDataCount}
             content={<News />}
             divider={true}
-            footer={<LinkButton to="/about" title="보도자료 더보기" icon={true} />}
+            footer={<LinkButton to="/about#news" title="보도자료 더보기" icon={true} />}
             varient="introduce"
           />
         </CardGroup>
