@@ -54,14 +54,14 @@ export const eventDetailMockHandler = http.get("/api/events/:id/", async () => {
       },
     ],
     leagues: [
-      "RCJ_SOCCER_LW",
+      "RCJ_SOCCER_LIGHTWEIGHT",
       "RCJ_SOCCER_OPEN",
-      "RCJ_RESUE_LINE",
+      "RCJ_RESCUE_LINE",
       "RCJ_ONSTAGE",
-      "RCAP_AUTO_DRIVING",
-      "RCAP_COSPACE_RESCUE",
-      "RCJK_RESCUE_BASIC",
-      "RCJK_RESCUE_MAZE_BASIC",
+      "RCAP_COSPACE_AUTONOMOUS_DRIVING_FS",
+      "RCAP_COSPACE_AUTONOMOUS_DRIVING_U12",
+      "RCAP_COSPACE_AUTONOMOUS_DRIVING_U19",
+      "RCJK_RESCUE_MAZEBASIC_U12",
     ],
   });
 });

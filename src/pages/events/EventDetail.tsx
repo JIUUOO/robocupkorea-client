@@ -7,6 +7,9 @@ import { useFetchEventDetail } from "@/hooks/events/useFetchEventDetail";
 import Calendar from "@/components/events/Calendar";
 import LinkButton from "@/components/common/button/LinkButton";
 import buildApiBaseUrl from "@/utils/buildApiBaseUrl";
+import SectionHeader from "@/components/common/SectionHeader";
+import { LeagueKeys, leaguesData } from "@/data/leagues/leaguesData";
+import convertLeagueId from "@/utils/convertLeagueId";
 
 export default function EventDetail() {
   const { id } = useParams<{ id: string }>();
@@ -58,20 +61,44 @@ export default function EventDetail() {
         </CardItem>
       </CardContainer>
 
-      <div className="container">
-        <div className="r-text-3xl font-semibold">그 외</div>
-      </div>
-      <CardContainer gridcols="lg:grid-cols-12">
-        {data?.others.map((item) => (
-          <CardItem key={item.title} colspan="col-span-3">
-            <Card title={item.title} content={item.description} compact={true} />
-          </CardItem>
-        ))}
-      </CardContainer>
+      <SectionHeader title="그 외">
+        <CardContainer gridcols="lg:grid-cols-12">
+          {data?.others.map((other) => (
+            <CardItem key={other.title} colspan="col-span-3">
+              <Card title={other.title} content={other.description} compact={true} />
+            </CardItem>
+          ))}
+        </CardContainer>
+      </SectionHeader>
 
-      <div className="container">
-        <div className="r-text-3xl font-semibold">종목 소개</div>
-      </div>
+      <SectionHeader title="종목 개요">
+        <CardContainer grid="md:grid" gridcols="grid-cols-2">
+          {data?.leagues.map((leagueRawId) => {
+            const leagueId = convertLeagueId(leagueRawId);
+
+            if (leagueId in leaguesData) {
+              const league = leaguesData[leagueId as LeagueKeys];
+              return (
+                <CardItem>
+                  <Card
+                    title={league.title}
+                    content={<>{league.content}</>}
+                    footer={
+                      <>
+                        <div className="flex gap-2">
+                          <LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon={true} />
+                          <LinkButton to={`/leagues/${leagueId}`} title="종목 다운로드" icon={true} direction="down" />
+                        </div>
+                      </>
+                    }
+                  />
+                </CardItem>
+              );
+            }
+            return undefined;
+          })}
+        </CardContainer>
+      </SectionHeader>
     </>
   );
 }
