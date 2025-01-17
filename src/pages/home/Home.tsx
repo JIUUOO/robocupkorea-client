@@ -65,7 +65,7 @@ export default function Home() {
         </CardGroup>
       </CardContainer>
 
-      <CardContainer>
+      {/* <CardContainer>
         <CardGroup>
           <Card
             title="Notices"
@@ -76,7 +76,7 @@ export default function Home() {
             varient="introduce"
           />
         </CardGroup>
-      </CardContainer>
+      </CardContainer> */}
 
       {/* <CardContainer>
         <CardGroup>
