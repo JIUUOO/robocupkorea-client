@@ -79,7 +79,7 @@ export default function EventDetail() {
             if (leagueId in leaguesData) {
               const league = leaguesData[leagueId as LeagueKeys];
               return (
-                <CardItem>
+                <CardItem key={leagueId}>
                   <Card
                     title={league.title}
                     content={<>{league.content}</>}
