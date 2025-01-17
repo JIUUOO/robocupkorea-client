@@ -1,29 +1,26 @@
+import { historyData } from "@/data/about/historyData";
+
 export default function History() {
   return (
-    <div className="flex flex-col gap-6">
-      <div className="grid grid-cols-4">
-        <div className="r-text-2xl col-span-1 font-medium">RCKA 2024</div>
-        <div className="col-span-3 flex flex-col gap-3">
-          <div>
-            <div className="r-text-lg font-medium">2024.08.15</div>
-            <div className="r-text-lg">제5회 한국창의코딩대회</div>
-            <div className="r-text-sm">호반체육관</div>
-          </div>
-          <div>
-            <div className="r-text-lg font-medium">2024.02.16 - 2024.02.18 </div>
-            <div className="r-text-lg">제12회 한국로보컵오픈</div>
-            <div className="r-text-sm">알펜시아리조트 컨벤션센터</div>
+    <div className="flex flex-col gap-12 lg:gap-16">
+      {historyData.slice(0, 2).map((record) => (
+        <div key={record.year} className="flex gap-8">
+          <div className="r-text-2xl flex justify-end break-keep font-bold">{record.year}년</div>
+          <div className="flex flex-wrap gap-6">
+            {record.events.map((event) => (
+              <div key={event.title} className="flex w-56 flex-col gap-1 md:w-64 xl:w-80">
+                <div className="r-text-base font-semibold">
+                  <span className="r-text-2xl"></span>
+                  {event.date[0]}
+                  {event.date[1] && <span> - {event.date[1]}</span>}
+                </div>
+                <div className="r-text-lg">{event.title}</div>
+                <div className="r-text-sm">{event.location}</div>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-      <div className="grid grid-cols-4">
-        <div className="r-text-2xl col-span-1 font-medium">RCKA 2023</div>
-        <div className="col-span-3">
-          <div className="r-text-lg font-medium">2023.08.15</div>
-          <div className="r-text-lg">제4회 한국창의코딩대회</div>
-          <div className="r-text-sm">호반체육관</div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

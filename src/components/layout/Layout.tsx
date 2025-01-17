@@ -11,7 +11,7 @@ export default function Layout() {
   const isHome = pathname === "/";
 
   return (
-    <div className="flex h-full w-full min-w-[375px] flex-col bg-neutral font-pretendard">
+    <div className="flex h-full w-full min-w-[376px] flex-col bg-neutral font-pretendard">
       <Header />
       <ScrollToTop />
       {isHome && <Landing />}

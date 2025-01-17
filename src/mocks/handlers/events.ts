@@ -23,12 +23,14 @@ export const eventLatestMockHandler = http.get("/api/events/latest/", async () =
   return HttpResponse.json({
     id: "robocup-open-2025",
     title: "제13회 한국로보컵오픈",
-    dates: ["2025.02.14", "2025.02.16"],
+    dates: ["2025-02-14", "2025-02-16"],
     location: "강원특별자치도 평창군 알펜시아리조트 컨벤션센터",
   });
 });
 
-export const eventDetailMockHandler = http.get("/api/events/:id/", () => {
+export const eventDetailMockHandler = http.get("/api/events/:id/", async () => {
+  await delay(1000);
+
   return HttpResponse.json({
     id: "robocup-open-2025",
     title: "제13회 한국로보컵오픈",

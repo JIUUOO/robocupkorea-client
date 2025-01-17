@@ -31,7 +31,7 @@ export default function Header() {
   }, [location]);
 
   return (
-    <header className="fixed top-0 z-50 flex w-full min-w-[375px] items-center border-b border-gray bg-white max-md:h-16 md:h-24">
+    <header className="fixed top-0 z-50 flex w-full min-w-[376px] items-center border-b border-gray bg-white max-md:h-16 md:h-24">
       <div className="container flex w-full max-md:justify-between">
         <div className="flex items-center">
           <img

@@ -1,6 +1,8 @@
-import { http, HttpResponse } from "msw";
+import { http, delay, HttpResponse } from "msw";
 
 export const noticesMockHandler = http.get("/api/notices/", async () => {
+  await delay(1000);
+
   return HttpResponse.json({
     notices: [
       {
