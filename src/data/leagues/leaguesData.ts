@@ -36,6 +36,6 @@ export interface LeagueDetailData {
   parent: string;
   title: string;
   thumbnail: string;
-  content: string;
+  content: string[];
   rule: string;
 }

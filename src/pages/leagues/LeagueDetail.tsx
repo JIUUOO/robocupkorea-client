@@ -25,9 +25,13 @@ export default function LeagueDetail() {
               title={leagueDetailData.title}
               content={
                 <>
+                  <div className="r-text-xl font-semibold">개요</div>
                   <Thumbnail src={leagueDetailData.thumbnail} />
-                  {leagueDetailData.content}
-                  <div className="r-text-2xl font-semibold">규정</div>
+                  {leagueDetailData.content.map((item) => (
+                    <p>{item}</p>
+                  ))}
+
+                  <div className="r-text-xl font-semibold">규정</div>
                   <LinkButton to="" external={true} title="규정 살펴보기" />
                 </>
               }
