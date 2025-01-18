@@ -5,6 +5,6 @@ export const onstageData: LeagueDetailData = {
   parent: "RoboCupJunior",
   title: "OnStage",
   thumbnail: onstageThumbnail,
-  content: "",
+  content: [""],
   rule: "",
 };

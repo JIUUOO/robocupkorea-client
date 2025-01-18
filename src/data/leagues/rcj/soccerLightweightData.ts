@@ -5,6 +5,6 @@ export const soccerLightweightData: LeagueDetailData = {
   parent: "RoboCupJunior",
   title: "Soccer LightWeight",
   thumbnail: soccerLightweightThumbnail,
-  content: "",
+  content: [""],
   rule: "",
 };

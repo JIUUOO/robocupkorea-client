@@ -5,6 +5,6 @@ export const cospaceRescueU19Data: LeagueDetailData = {
   parent: "RoboCupAsiaPacific",
   title: "CoSpace Rescue, U19",
   thumbnail: cospaceRescueU19Thumbnail,
-  content: "",
+  content: [""],
   rule: "",
 };

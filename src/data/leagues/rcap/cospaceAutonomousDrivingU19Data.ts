@@ -5,6 +5,6 @@ export const cospaceAutonomousDrivingU19Data: LeagueDetailData = {
   parent: "RoboCupAsiaPacific",
   title: "CoSpace Autonomous Driving, U19",
   thumbnail: rcapAutonomousDrivingU19Thumbnail,
-  content: "",
+  content: [""],
   rule: "",
 };

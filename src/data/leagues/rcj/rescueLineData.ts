@@ -5,6 +5,6 @@ export const rescueLineData: LeagueDetailData = {
   parent: "RoboCupJunior",
   title: "Rescue Line",
   thumbnail: rsscueLineThumbnail,
-  content: "",
+  content: [""],
   rule: "",
 };
