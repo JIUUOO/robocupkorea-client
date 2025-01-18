@@ -5,6 +5,6 @@ export const rescueMazeBasicU12Data: LeagueDetailData = {
   parent: "RCJK Basic",
   title: "Rescue MazeBasic, U12",
   thumbnail: rescueMazebasicU12Thumbnail,
-  content: "",
+  content: [""],
   rule: "",
 };
