@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /
+Allow: /about/
+Allow: /leagues/
+Allow: /events/
+Allow: /news/
+Allow: /notices/
+Sitemap: https://robocupkorea.org/sitemap.xml
