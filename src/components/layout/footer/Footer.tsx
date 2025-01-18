@@ -50,7 +50,7 @@ export default function Footer() {
               {institution.map(({ src, href }) => (
                 <div className="inline-flex" key={src}>
                   <a href={href} className="inline" target="_blank">
-                    <img src={src} className="h-10 md:h-12 xl:h-14" alt="logoInstitution" />
+                    <img src={src} className="h-10 lg:h-12" alt="logoInstitution" />
                   </a>
                 </div>
               ))}

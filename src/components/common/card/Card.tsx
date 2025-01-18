@@ -21,7 +21,7 @@ export default function Card({
   varient = "default",
 }: CardProps) {
   return (
-    <div className="flex h-full w-full flex-col justify-between gap-8 rounded border border-gray bg-white p-6 md:p-7 xl:p-8">
+    <div className="flex h-full w-full flex-col justify-between gap-8 rounded border border-gray bg-white p-4 md:p-5 xl:p-6">
       <div className="flex h-full w-full flex-col">
         {title && (
           <div
@@ -33,8 +33,8 @@ export default function Card({
           >
             <div
               className={clsx("font-semibold", {
-                "r-text-2xl": varient === "default",
-                "r-text-3xl": varient === "introduce",
+                "text-2xl md:text-3xl": varient === "default",
+                "text-3xl xl:text-4xl": varient === "introduce",
               })}
             >
               {Array.isArray(title)

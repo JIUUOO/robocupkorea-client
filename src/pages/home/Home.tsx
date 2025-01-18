@@ -20,8 +20,8 @@ export default function Home() {
         </CardGroup>
       </CardContainer>
 
-      <CardContainer gridcols="lg:grid-cols-7">
-        <CardGroup colspan="col-span-4">
+      <CardContainer gridcols="lg:grid-cols-3">
+        <CardGroup colspan="col-span-2">
           <Card
             title="Promoting AI and Robotics Research"
             content="양질의 다양한 AI·로봇 교육 제공에 뜻을 같이 하는 교육 관련 종사자와 자원봉사자들로 구성된 비영리 기관입니다."
@@ -29,7 +29,7 @@ export default function Home() {
             varient="introduce"
           />
         </CardGroup>
-        <CardGroup colspan="col-span-3">
+        <CardGroup colspan="col-span-1">
           <Card
             title="Sponser"
             content="후원금은 로봇 꿈나무들을 양성하고 AI 및 로보틱스 교육의 증진을 위한 다양한 목적에 사용됩니다."
