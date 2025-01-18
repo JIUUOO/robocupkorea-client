@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,7 +21,7 @@ export default function Header() {
     { name: "Sponser", id: "sponser" },
   ];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isOpened) {
       // 스크롤 방지
       document.body.style.overflow = "hidden";
@@ -34,7 +34,7 @@ export default function Header() {
     };
   }, [isOpened]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isOpened) {
       setIsOpened(false);
     }
