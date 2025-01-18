@@ -1,0 +1,80 @@
+export const committeeData = [
+  {
+    name: "한상용",
+    position: "회장",
+    affiliation: "국민대학교 교수",
+    contact: "syhan@kookmin.ac.kr",
+  },
+  {
+    name: "김신택",
+    position: "공동 위원장",
+    affiliation: "대림대학교 교수",
+    contact: "stkim@daelim.ac.kr",
+  },
+  {
+    name: "고한",
+    position: "공동 위원장",
+    affiliation: ["Midwest Univ. 교수", "우사코그룹 대표"],
+    contact: "ceo@usakogroup.com",
+  },
+  {
+    name: "박장현",
+    position: "위원",
+    affiliation: "한양대학교 교수",
+    contact: "jpark@hanyang.ac.kr",
+  },
+  {
+    name: "한재권",
+    position: "위원",
+    affiliation: "한양대학교 교수",
+    contact: "jkhan@hanyang.ac.kr",
+  },
+  {
+    name: "조백규",
+    position: "위원",
+    affiliation: "국민대학교 교수",
+    contact: "BaekKyuCho@kookmin.ac.kr",
+  },
+  {
+    name: "김선영",
+    position: "위원",
+    affiliation: "국민대학교 교수",
+    contact: "sykim@kookmin.ac.kr",
+  },
+  {
+    name: "이학",
+    position: "위원",
+    affiliation: "경북대학교 교수",
+    contact: "yihak@knu.ac.kr",
+  },
+  {
+    name: "김성호",
+    position: "위원",
+    affiliation: "영남대학교 교수",
+    contact: "sunghokim@ynu.ac.kr",
+  },
+  {
+    name: "박상배",
+    position: "위원",
+    affiliation: ["한국폴리텍대학교", "교수"],
+    contact: "sb810park@kopo.ac.kr",
+  },
+  {
+    name: "이주형",
+    position: "위원",
+    affiliation: ["국방과학연구소", "선임연구원"],
+    contact: "addlh77@gmail.com",
+  },
+  {
+    name: "최영호",
+    position: "위원",
+    affiliation: ["한국로봇융합연구원", "박사"],
+    contact: "rockboy@kiro.re.kr",
+  },
+  {
+    name: "한동희",
+    position: "위원",
+    affiliation: "라이드플럭스",
+    contact: "dhhan@rideflux.com",
+  },
+] as const;
