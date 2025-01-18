@@ -8,7 +8,8 @@ import logoRcka from "@/assets/images/logos/rcka.png";
 
 export default function Header() {
   const [isEntered, setIsEntered] = useState(false);
-  const [isOpened, setIsOpened] = useState(false);
+  const [isOpened, setIsOpened] = useState(true);
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -37,8 +38,12 @@ export default function Header() {
     if (isOpened) {
       setIsOpened(false);
     }
+
+    if (isSubmenuOpen) {
+      setIsSubmenuOpen(false);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location]);
+  }, [location.pathname]);
 
   return (
     <header className="fixed top-0 z-50 flex w-full min-w-[376px] items-center border-b border-gray bg-white max-md:h-16 md:h-24">
@@ -56,22 +61,38 @@ export default function Header() {
             className={`flex md:items-center ${isOpened ? "max-md:absolute max-md:left-1/2 max-md:top-16 max-md:z-50 max-md:!block max-md:h-screen max-md:w-full max-md:translate-x-[-50%] max-md:bg-white" : "max-md:hidden"}`}
           >
             <ul
-              className={`py-8 md:flex md:gap-6 md:text-center ${isOpened ? "max-md:container max-md:space-y-2" : ""}`}
+              className={`mt-3 md:flex md:gap-6 md:text-center ${isOpened ? "max-md:container max-md:space-y-2" : ""}`}
             >
               <li onMouseEnter={() => setIsEntered(true)} onMouseLeave={() => setIsEntered(false)}>
                 <NavLink
                   onClick={() => setIsEntered(false)}
                   className={({ isActive }) =>
-                    `pl-[18px] font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
+                    clsx("font-semibold uppercase max-md:text-2xl md:pl-5 md:text-xl md:hover:text-accent", {
+                      "text-primary": isActive,
+                      "text-black": !isActive,
+                    })
                   }
                   to="/about"
                 >
-                  about <FontAwesomeIcon icon={faCaretDown} />
+                  about
+                  <FontAwesomeIcon
+                    icon={faCaretDown}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      event.stopPropagation();
+                      setIsSubmenuOpen((prev) => !prev);
+                    }}
+                    className="relative z-20 px-2 max-md:text-2xl md:text-xl"
+                  />
                 </NavLink>
+
+                {/* Submenu */}
                 <div
                   className={clsx("", {
-                    "absolute pt-4": isEntered,
-                    hidden: !isEntered,
+                    "md:absolute md:pt-4": isEntered,
+                    "md:hidden": !isEntered,
+                    "max-md:block": isSubmenuOpen,
+                    "max-md:hidden": !isSubmenuOpen,
                   })}
                 >
                   <div className="flex flex-col gap-1.5 rounded-lg border border-gray bg-white px-4 py-3">
@@ -80,7 +101,7 @@ export default function Header() {
                         <NavLink
                           to={`/about/#${menu.id}`}
                           onClick={() => setIsEntered(false)}
-                          className="r-text-sm cursor-pointer font-medium"
+                          className="r-text-base cursor-pointer font-medium hover:text-accent"
                         >
                           {menu.name}
                         </NavLink>
@@ -92,7 +113,10 @@ export default function Header() {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    `font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
+                    clsx("font-semibold uppercase max-md:text-2xl md:text-xl md:hover:text-accent", {
+                      "text-primary": isActive,
+                      "text-black": !isActive,
+                    })
                   }
                   to="/leagues"
                 >
@@ -102,7 +126,10 @@ export default function Header() {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    `font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
+                    clsx("font-semibold uppercase max-md:text-2xl md:text-xl md:hover:text-accent", {
+                      "text-primary": isActive,
+                      "text-black": !isActive,
+                    })
                   }
                   to="/events"
                 >
@@ -112,7 +139,10 @@ export default function Header() {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    `font-semibold uppercase hover:text-accent max-md:text-2xl md:text-xl ${isActive ? "text-primary" : "text-black"}`
+                    clsx("font-semibold uppercase max-md:text-2xl md:text-xl md:hover:text-accent", {
+                      "text-primary": isActive,
+                      "text-black": !isActive,
+                    })
                   }
                   to="/notices"
                 >
@@ -123,10 +153,10 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-4">
-            <FontAwesomeIcon icon={faGlobe} className="max-md:text-3xl md:text-3xl md:hover:text-accent" />
+            <FontAwesomeIcon icon={faGlobe} className="max-md:text-3xl md:text-3xl md:md:hover:text-accent" />
             <FontAwesomeIcon
               icon={isOpened ? faTimes : faBars}
-              className="w-7 text-3xl md:hidden md:hover:text-accent"
+              className="w-7 text-3xl md:hidden md:md:hover:text-accent"
               onClick={() => setIsOpened((prev) => !prev)}
             />
           </div>
