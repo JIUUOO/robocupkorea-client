@@ -32,6 +32,7 @@ export default {
         112: "28rem",
         116: "29rem",
         120: "30rem",
+        "safe-bottom": "env(safe-area-inset-bottom)",
       },
       borderRadius: {
         DEFAULT: "3px",
