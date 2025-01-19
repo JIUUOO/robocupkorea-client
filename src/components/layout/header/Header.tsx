@@ -43,7 +43,7 @@ export default function Header() {
       setIsSubmenuOpen(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return (
     <header className="fixed top-0 z-50 flex w-full min-w-[376px] items-center border-b border-gray bg-white max-md:h-16 md:h-24">
