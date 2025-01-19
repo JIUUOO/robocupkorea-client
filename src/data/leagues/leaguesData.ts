@@ -32,12 +32,12 @@ export const leaguesData = {
   "rci-robocup-at-work": roboCupAtWorkData,
   "rci-logistics": logisticsData,
   "rcj-soccer": soccerData,
-  "rcj-on-stage": onStageData,
+  "rcj-onstage": onStageData,
   "rcj-rescue": rescueData,
   "rcap-cospace-autonomous-driving-data": cospaceAutonomousDrivingData,
   "rcap-cospace-rescue-data": cospaceResuceData,
   "rcap-rescuebasic-data": rescuebasicData,
-  "rcap-rescue-maze-basic-data": rescueMazebasicData,
+  "rcap-rescue-mazebasic-data": rescueMazebasicData,
 };
 
 export type LeagueKeys = keyof typeof leaguesData;
