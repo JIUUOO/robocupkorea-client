@@ -17,7 +17,7 @@ export default function Layout() {
       {isHome && <Landing />}
       <main
         className={clsx("h-full w-full bg-neutral", {
-          "relative mt-[100vh]": isHome,
+          "relative mt-[100svh]": isHome,
           "max-md:pt-16 md:pt-24": !isHome,
         })}
       >

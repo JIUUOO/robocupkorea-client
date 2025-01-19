@@ -5,7 +5,6 @@ import CardContainer from "@/components/common/card/CardContainer";
 import CardGroup from "@/components/common/card/CardItem";
 import { leaguesData, LeagueKeys, LeagueDetailData } from "@/data/leagues/leaguesData";
 import SectionHeader from "@/components/common/SectionHeader";
-import Thumbnail from "@/components/leagues/Thumbnail";
 
 export default function LeagueDetail() {
   const { id } = useParams<{ id: LeagueKeys }>();
@@ -26,13 +25,13 @@ export default function LeagueDetail() {
               content={
                 <>
                   <div className="r-text-xl font-semibold">개요</div>
-                  <Thumbnail src={leagueDetailData.thumbnail} />
+                  <img src={leagueDetailData.image} />
                   {leagueDetailData.content.map((item) => (
                     <p>{item}</p>
                   ))}
 
                   <div className="r-text-xl font-semibold">규정</div>
-                  <LinkButton to="" external={true} title="규정 살펴보기" />
+                  <LinkButton to="" external={true} title="규정 다운로드" icon={true} direction="down" />
                 </>
               }
             />
