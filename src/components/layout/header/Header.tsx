@@ -51,7 +51,7 @@ export default function Header() {
         <div className="flex items-center">
           <img
             src={logoRcka}
-            className="aspect-[5/3] cursor-pointer object-contain max-md:h-14 md:mr-20 md:h-20"
+            className="aspect-[5/3] cursor-pointer object-contain max-md:h-16 md:mr-14 md:h-20"
             alt=""
             onClick={() => navigate("/")}
           />
@@ -73,7 +73,7 @@ export default function Header() {
                 <NavLink
                   onClick={() => setIsEntered(false)}
                   className={({ isActive }) =>
-                    clsx("font-semibold uppercase max-md:text-2xl md:pl-5 md:text-xl md:hover:text-accent", {
+                    clsx("font-semibold uppercase max-md:text-2xl md:pl-7 md:text-xl md:hover:text-accent", {
                       "text-primary": isActive,
                       "text-black": !isActive,
                     })
@@ -107,7 +107,7 @@ export default function Header() {
                         <NavLink
                           to={`/about/#${menu.id}`}
                           onClick={() => setIsEntered(false)}
-                          className="r-text-xl cursor-pointer font-medium hover:text-accent"
+                          className="cursor-pointer text-xl font-medium hover:text-accent"
                         >
                           {menu.name}
                         </NavLink>
