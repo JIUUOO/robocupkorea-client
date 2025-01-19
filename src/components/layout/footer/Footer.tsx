@@ -26,7 +26,7 @@ export default function Footer() {
         <div className="container flex flex-col max-lg:gap-12 lg:gap-16">
           <div>
             <Link to="/" className="inline-block">
-              <img src={LogoRcka} className="h-16 xl:h-20" alt="LogoRcka" />
+              <img src={LogoRcka} className="h-14 xl:h-20" alt="LogoRcka" />
             </Link>
             <div className="r-text-base mt-2 max-w-96 break-keep lg:max-w-108">
               사단법인 한국로보컵협회는 로봇을 연구하는 학생들을 위해 국가적 및 국제적 로봇 이벤트인 로보컵 리그를

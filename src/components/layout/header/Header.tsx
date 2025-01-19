@@ -51,7 +51,7 @@ export default function Header() {
         <div className="flex items-center">
           <img
             src={logoRcka}
-            className="aspect-[5/3] cursor-pointer object-contain max-md:h-16 md:mr-14 md:h-20"
+            className="aspect-[5/3] cursor-pointer object-contain max-md:h-14 md:mr-14 md:h-20"
             alt=""
             onClick={() => navigate("/")}
           />
