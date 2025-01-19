@@ -5,7 +5,7 @@ export default function News() {
     <>
       <div className="flex flex-col gap-8">
         {newsData.slice(0, 2).map((item) => (
-          <div>
+          <div key={item.title}>
             <a href={item.reference} target="_blank" className="hover:underline hover:underline-offset-2">
               <span className="r-text-base font-medium">{item.title}</span>
               <br />
