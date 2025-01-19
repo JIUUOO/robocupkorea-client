@@ -4,9 +4,27 @@ import CardGroup from "@/components/common/card/CardItem";
 import LinkButton from "@/components/common/button/LinkButton";
 import Thumbnail from "@/components/leagues/Thumbnail";
 import { leaguesData, LeagueDetailData } from "@/data/leagues/leaguesData";
-import SectionHeader from "@/components/common/SectionHeader";
+import SectionToggle from "@/components/common/SectionToggle";
+import { useState } from "react";
 
 export default function Leagues() {
+  const initialToggleStates = Object.values(leaguesData).reduce(
+    (acc, { parent }) => {
+      acc[parent] = false;
+      return acc;
+    },
+    {} as Record<string, boolean>,
+  );
+
+  const [toggleStates, setToggleStates] = useState(initialToggleStates);
+
+  const handleToggle = (parent: string) => {
+    setToggleStates((prev) => ({
+      ...prev,
+      [parent]: !prev[parent],
+    }));
+  };
+
   const groupedLeagues: Record<string, Array<[string, LeagueDetailData]>> = {};
 
   Object.entries(leaguesData).forEach(([leagueId, leagueDetailData]) => {
@@ -20,7 +38,7 @@ export default function Leagues() {
   return (
     <>
       {Object.entries(groupedLeagues).map(([parent, items]) => (
-        <SectionHeader key={parent} title={parent}>
+        <SectionToggle key={parent} title={parent} isOpen={toggleStates[parent]} onClick={() => handleToggle(parent)}>
           <CardContainer gridcols="lg:grid-cols-2">
             {items.map(([leagueId, leagueDetailData]) => (
               <CardGroup key={leagueId} colspan="col-span-1">
@@ -28,7 +46,6 @@ export default function Leagues() {
                   title={leagueDetailData.title}
                   content={
                     <>
-                      <div className="text-base">{leagueDetailData.content}</div>
                       <Thumbnail src={leagueDetailData.thumbnail} />
                     </>
                   }
@@ -37,7 +54,7 @@ export default function Leagues() {
               </CardGroup>
             ))}
           </CardContainer>
-        </SectionHeader>
+        </SectionToggle>
       ))}
     </>
   );
