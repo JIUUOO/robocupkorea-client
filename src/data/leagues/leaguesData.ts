@@ -11,7 +11,7 @@ import { socialStandardPlatformData } from "@/data/leagues/rch/socialStandardPla
 import { roboCupAtWorkData } from "@/data/leagues/rci/roboCupAtWorkData";
 import { logisticsData } from "@/data/leagues/rci/logisticsData";
 import { soccerData } from "@/data/leagues/rcj/soccerData";
-import { onstageData } from "@/data/leagues/rcj/ontageData";
+import { onstageData } from "@/data/leagues/rcj/onstageData";
 import { rescueData } from "@/data/leagues/rcj/rescueData";
 import { cospaceAutonomousDrivingData } from "@/data/leagues/rcap/cospaceAutonomousDrivingData";
 import { cospaceResuceData } from "@/data/leagues/rcap/cospaceResuceData";
