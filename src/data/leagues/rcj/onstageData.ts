@@ -1,10 +1,9 @@
-import { LeagueDetailData } from "@/data/leagues/leaguesData";
-import onstageThumbnail from "@/assets/videos/leagues/rcj/onstage.mp4";
+import onStageImage from "@/assets/images/leagues/rcj/onStage.webp";
 
-export const onstageData: LeagueDetailData = {
+export const onStageData = {
   parent: "RoboCupJunior",
   title: "OnStage",
-  thumbnail: onstageThumbnail,
+  image: onStageImage,
   content: [""],
   rule: "",
 };

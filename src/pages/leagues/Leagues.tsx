@@ -2,7 +2,6 @@ import Card from "@/components/common/card/Card";
 import CardContainer from "@/components/common/card/CardContainer";
 import CardGroup from "@/components/common/card/CardItem";
 import LinkButton from "@/components/common/button/LinkButton";
-import Thumbnail from "@/components/leagues/Thumbnail";
 import { leaguesData, LeagueDetailData } from "@/data/leagues/leaguesData";
 import SectionToggle from "@/components/common/SectionToggle";
 import { useState } from "react";
@@ -46,7 +45,7 @@ export default function Leagues() {
                   title={leagueDetailData.title}
                   content={
                     <>
-                      <Thumbnail src={leagueDetailData.thumbnail} />
+                      <img src={leagueDetailData.image} />
                     </>
                   }
                   footer={<LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon={true} />}
