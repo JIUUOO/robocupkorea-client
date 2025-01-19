@@ -11,7 +11,7 @@ import { socialStandardPlatformData } from "@/data/leagues/rch/socialStandardPla
 import { roboCupAtWorkData } from "@/data/leagues/rci/roboCupAtWorkData";
 import { logisticsData } from "@/data/leagues/rci/logisticsData";
 import { soccerData } from "@/data/leagues/rcj/soccerData";
-import { onStageData } from "@/data/leagues/rcj/onStageData";
+import { onstageData } from "@/data/leagues/rcj/ontageData";
 import { rescueData } from "@/data/leagues/rcj/rescueData";
 import { cospaceAutonomousDrivingData } from "@/data/leagues/rcap/cospaceAutonomousDrivingData";
 import { cospaceResuceData } from "@/data/leagues/rcap/cospaceResuceData";
@@ -32,7 +32,7 @@ export const leaguesData = {
   "rci-robocup-at-work": roboCupAtWorkData,
   "rci-logistics": logisticsData,
   "rcj-soccer": soccerData,
-  "rcj-onstage": onStageData,
+  "rcj-onstage": onstageData,
   "rcj-rescue": rescueData,
   "rcap-cospace-autonomous-driving-data": cospaceAutonomousDrivingData,
   "rcap-cospace-rescue-data": cospaceResuceData,
