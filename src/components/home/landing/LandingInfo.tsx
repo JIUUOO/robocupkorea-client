@@ -8,24 +8,18 @@ interface LandingInfoProps {
 
 export default function LandingInfo({ data }: LandingInfoProps) {
   return (
-    <div className="fixed bottom-10 left-0 w-full min-w-[376px]">
-      <div className="container flex flex-col gap-2">
-        <div
-          className="text-4xl font-bold text-white md:text-6xl lg:text-7xl xl:text-8xl"
-          style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)" }}
-        >
+    <div className="fixed left-0 top-0 h-svh w-screen min-w-[376px]">
+      <div className="container flex h-full w-full flex-col justify-end pb-6 md:pb-8">
+        <div className="text-shadow text-4xl font-bold text-white md:text-6xl lg:text-7xl xl:text-8xl">
           {data.title}
         </div>
         <div className="flex max-md:flex-col max-md:gap-2 md:items-center md:justify-between">
-          <div
-            className="text-lg font-bold text-white md:text-xl lg:text-2xl"
-            style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)" }}
-          >
-            <span className="max-sm:block">
+          <div className="text-lg font-bold text-white md:text-xl lg:text-2xl">
+            <span className="text-shadow max-sm:block">
               {data.dates[0].replaceAll("-", ".")}
               {`${data.dates[1] ? `-${data.dates[1].split("-").pop()}` : ""} `}
             </span>
-            <span className="max-sm:block">{data.location}</span>
+            <span className="text-shadow max-sm:block">{data.location}</span>
           </div>
           <div className="flex items-end">
             <div className="flex gap-4 max-md:justify-center">
