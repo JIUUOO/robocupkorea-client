@@ -58,10 +58,16 @@ export default function Header() {
         </div>
         <nav className="flex justify-between md:w-full">
           <div
-            className={`flex md:items-center ${isOpened ? "max-md:absolute max-md:left-1/2 max-md:top-16 max-md:z-50 max-md:!block max-md:h-screen max-md:w-full max-md:translate-x-[-50%] max-md:bg-white" : "max-md:hidden"}`}
+            className={clsx("flex md:items-center", {
+              "max-md:absolute max-md:left-1/2 max-md:top-16 max-md:z-50 max-md:!block max-md:h-screen max-md:w-full max-md:translate-x-[-50%] max-md:bg-white":
+                isOpened,
+              "max-md:hidden": !isOpened,
+            })}
           >
             <ul
-              className={`mt-3 md:flex md:gap-6 md:text-center ${isOpened ? "max-md:container max-md:space-y-2" : ""}`}
+              className={clsx("max-md:mt-3 md:flex md:gap-6 md:text-center", {
+                "max-md:container max-md:space-y-3": isOpened,
+              })}
             >
               <li onMouseEnter={() => setIsEntered(true)} onMouseLeave={() => setIsEntered(false)}>
                 <NavLink
@@ -101,7 +107,7 @@ export default function Header() {
                         <NavLink
                           to={`/about/#${menu.id}`}
                           onClick={() => setIsEntered(false)}
-                          className="r-text-base cursor-pointer font-medium hover:text-accent"
+                          className="r-text-xl cursor-pointer font-medium hover:text-accent"
                         >
                           {menu.name}
                         </NavLink>
