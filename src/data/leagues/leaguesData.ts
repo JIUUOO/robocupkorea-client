@@ -13,23 +13,31 @@ import { logisticsData } from "@/data/leagues/rci/logisticsData";
 import { soccerData } from "@/data/leagues/rcj/soccerData";
 import { onStageData } from "@/data/leagues/rcj/onStageData";
 import { rescueData } from "@/data/leagues/rcj/rescueData";
+import { cospaceAutonomousDrivingData } from "@/data/leagues/rcap/cospaceAutonomousDrivingData";
+import { cospaceResuceData } from "@/data/leagues/rcap/cospaceResuceData";
+import { rescuebasicData } from "@/data/leagues/rcjk/rescuebasicData";
+import { rescueMazebasicData } from "@/data/leagues/rcjk/rescueMazebasicData";
 
 export const leaguesData = {
   "rcs-humanoid": humanoidData,
-  "rcs-standardPlatform": standardPlatformData,
-  "rcs-middleSize": middleSizeData,
-  "rcs-smallSize": smallSizeData,
+  "rcs-standard-platform": standardPlatformData,
+  "rcs-middle-size": middleSizeData,
+  "rcs-small-size": smallSizeData,
   "rcs-simulation": rcsSimulationData,
   "rcr-robot": robotData,
   "rcr-simulation": rcrSimulationData,
-  "rch-openPlatform": openPlatformData,
-  "rch-domesticStandardPlatform": domesticStandardPlatformData,
-  "rch-socialStandardPlatform": socialStandardPlatformData,
-  "rci-roboCupAtWork": roboCupAtWorkData,
+  "rch-open-platform": openPlatformData,
+  "rch-domestic-standard-platform": domesticStandardPlatformData,
+  "rch-social-standard-platform": socialStandardPlatformData,
+  "rci-robocup-at-work": roboCupAtWorkData,
   "rci-logistics": logisticsData,
   "rcj-soccer": soccerData,
-  "rcj-onStage": onStageData,
+  "rcj-on-stage": onStageData,
   "rcj-rescue": rescueData,
+  "rcap-cospace-autonomous-driving-data": cospaceAutonomousDrivingData,
+  "rcap-cospace-rescue-data": cospaceResuceData,
+  "rcap-rescuebasic-data": rescuebasicData,
+  "rcap-rescue-maze-basic-data": rescueMazebasicData,
 };
 
 export type LeagueKeys = keyof typeof leaguesData;
