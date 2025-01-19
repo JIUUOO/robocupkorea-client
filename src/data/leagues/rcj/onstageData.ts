@@ -1,4 +1,4 @@
-import onStageImage from "@/assets/images/leagues/rcj/onStage.webp";
+import onStageImage from "@/assets/images/leagues/rcj/onstage.webp";
 
 export const onStageData = {
   parent: "RoboCupJunior",
