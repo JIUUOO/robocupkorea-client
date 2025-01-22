@@ -5,7 +5,6 @@ import Card from "@/components/common/card/Card";
 import LinkButton from "@/components/common/button/LinkButton";
 import { useFetchEvents } from "@/hooks/events/useFetchEvents";
 import SectionHeader from "@/components/common/SectionHeader";
-import buildApiBaseUrl from "@/utils/buildApiBaseUrl";
 
 export default function Events() {
   const { data, isLoading, isError } = useFetchEvents();
@@ -23,7 +22,7 @@ export default function Events() {
               content={
                 <>
                   <div>
-                    <img src={buildApiBaseUrl(data?.events[0]?.images[0])} alt="" className="" />
+                    <img src={data?.events[0]?.images[0]} alt="" className="" />
                   </div>
                 </>
               }
@@ -44,7 +43,7 @@ export default function Events() {
                 title="제5회 한국창의코딩대회"
                 content={
                   <>
-                    <img src={buildApiBaseUrl(event.images[0])} />
+                    <img src={event.images[0]} />
                   </>
                 }
                 compact={true}
