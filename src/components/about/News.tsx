@@ -12,7 +12,10 @@ export default function News() {
               <span className="r-text-sm">{item.subtitle}</span>
             </a>
 
-            <div className="r-text-xs text-dark pt-1">{item.date}</div>
+            <div className="r-text-xs pt-1.5 text-dark">
+              <span>{item.press}</span>
+              <span className="ml-2">{item.date}</span>
+            </div>
           </div>
         ))}
       </div>

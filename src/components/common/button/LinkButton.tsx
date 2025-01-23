@@ -18,5 +18,9 @@ export default function LinkButton({ to, external = false, ...props }: LinkButto
     }
   };
 
+  if (!to) {
+    return;
+  }
+
   return <Button onClick={handleClick} {...props} />;
 }

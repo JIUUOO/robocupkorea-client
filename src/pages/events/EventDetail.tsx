@@ -6,7 +6,6 @@ import CardItem from "@/components/common/card/CardItem";
 import { useFetchEventDetail } from "@/hooks/events/useFetchEventDetail";
 import Calendar from "@/components/events/Calendar";
 import LinkButton from "@/components/common/button/LinkButton";
-import buildApiBaseUrl from "@/utils/buildApiBaseUrl";
 import SectionHeader from "@/components/common/SectionHeader";
 import { LeagueKeys, leaguesData } from "@/data/leagues/leaguesData";
 import convertLeagueId from "@/utils/convertLeagueId";
@@ -22,7 +21,7 @@ export default function EventDetail() {
     <>
       <CardContainer gridcols="lg:grid-cols-12">
         <CardItem colspan="col-span-7">
-          <img className="w-full" src={buildApiBaseUrl(data?.images[0])} alt="" />
+          <img className="w-full" src={data?.images[0]} alt="" />
         </CardItem>
         <CardItem colspan="col-span-5">
           <Card title="Schedule" content={<Calendar dates={data?.dates ?? []} />} compact={true} />

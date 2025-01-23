@@ -15,7 +15,7 @@ export default function SectionToggle({ title, isOpen, onClick, children }: Sect
     <div className="flex flex-col gap-2.5 xl:gap-3">
       <div className="container flex flex-col items-center">
         <div className="w-full cursor-pointer rounded border border-gray bg-white p-4 lg:p-6" onClick={onClick}>
-          <div className="r-text-3xl flex justify-between font-semibold">
+          <div className="flex justify-between text-2xl font-semibold md:text-3xl">
             <span>{title}</span>
             <FontAwesomeIcon
               icon={faCaretDown}

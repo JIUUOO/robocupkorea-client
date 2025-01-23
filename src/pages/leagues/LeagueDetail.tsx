@@ -27,7 +27,7 @@ export default function LeagueDetail() {
                   <div className="r-text-xl font-semibold">개요</div>
                   <img src={leagueDetailData.image} />
                   {leagueDetailData.content.map((item) => (
-                    <p>{item}</p>
+                    <p key={item}>{item}</p>
                   ))}
 
                   <div className="r-text-xl font-semibold">규정</div>
