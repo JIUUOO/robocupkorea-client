@@ -8,7 +8,7 @@ export default function LandingVideo({ setIsVideoLoaded }: LandingVideoProps) {
   return (
     <div className="pointer-events-none fixed -z-10 flex w-full justify-center">
       <video
-        className="h-svh w-full object-cover"
+        className="h-lvh w-full object-cover"
         autoPlay
         playsInline
         muted
