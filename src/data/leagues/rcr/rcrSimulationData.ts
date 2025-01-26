@@ -1,4 +1,4 @@
-import simulationImage from "@/assets/images/leagues/rcs/simulation.webp";
+import simulationImage from "@/assets/images/leagues/rcr/simulation.webp";
 
 export const rcrSimulationData = {
   parent: "RoboCupRescue",

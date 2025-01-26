@@ -1,6 +1,6 @@
 export const cospaceResuceData = {
   parent: "RoboCupAsiaPacific",
-  title: "CoSpace Autonomous Driving",
+  title: "CoSpace Resuce",
   image: "",
   content: [""],
   rule: "",
