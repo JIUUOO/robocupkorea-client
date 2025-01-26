@@ -10,12 +10,15 @@ import logoRobocup from "@/assets/images/logos/robocup.png";
 import logoRobocupJunior from "@/assets/images/logos/robocup-junior.png";
 import logoRcap from "@/assets/images/logos/rcap.png";
 import useWindowWidth from "@/hooks/useWindowWidth";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export default function Header() {
   const [isEntered, setIsEntered] = useState(false);
   const [isMainMenuOpen, setIsMainMenuOpen] = useState(true);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const { setLanguage } = useLanguage();
   const windowWidth = useWindowWidth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -116,7 +119,7 @@ export default function Header() {
                     "max-md:hidden": !isSubmenuOpen,
                   })}
                 >
-                  <div className="flex flex-col gap-1.5 rounded-lg border border-gray bg-white px-4 py-3 max-md:mt-1.5">
+                  <div className="flex flex-col gap-1.5 rounded-xl border border-gray bg-white px-4 py-3 max-md:mt-1.5">
                     {aboutMenu.map((menu) => (
                       <div key={menu.id} className="text-left">
                         <NavLink
@@ -184,7 +187,11 @@ export default function Header() {
                   "flex w-7 cursor-pointer justify-center max-md:text-3xl md:text-3xl md:md:hover:text-accent",
                   { "text-accent": isMoreOpen },
                 )}
-                onClick={() => setIsMoreOpen((prev) => !prev)}
+                onClick={() => {
+                  setIsMainMenuOpen(false);
+                  setIsLangOpen(false);
+                  setIsMoreOpen((prev) => !prev);
+                }}
               />
 
               <motion.div
@@ -194,7 +201,7 @@ export default function Header() {
               >
                 <div
                   className={clsx(
-                    "flex flex-col items-center gap-3 rounded-lg border border-gray bg-white p-3 md:p-3.5",
+                    "flex flex-col items-center gap-3 rounded-xl border border-gray bg-white p-3 shadow md:p-3.5",
                   )}
                 >
                   <a href="https://www.robocup.org/" target="_blank">
@@ -210,14 +217,51 @@ export default function Header() {
               </motion.div>
             </div>
 
-            <FontAwesomeIcon
-              icon={faGlobe}
-              className="flex w-7 cursor-pointer justify-center max-md:text-3xl md:text-3xl md:md:hover:text-accent"
-            />
+            <div
+              onMouseEnter={() => windowWidth >= 768 && setIsLangOpen(true)}
+              onMouseLeave={() => windowWidth >= 768 && setIsLangOpen(false)}
+            >
+              <FontAwesomeIcon
+                icon={faGlobe}
+                className={clsx(
+                  "flex w-7 cursor-pointer justify-center max-md:text-3xl md:text-3xl md:md:hover:text-accent",
+                  { "text-accent": isLangOpen },
+                )}
+                onClick={() => {
+                  setIsMainMenuOpen(false);
+                  setIsMoreOpen(false);
+                  setIsLangOpen((prev) => !prev);
+                }}
+              />
+
+              <motion.div
+                className={clsx("absolute max-md:ml-[-16px] max-md:pt-3 md:ml-[-20px] md:pt-4", {
+                  hidden: !isLangOpen,
+                })}
+              >
+                <div
+                  className={clsx(
+                    "flex flex-col items-center gap-3 rounded-xl border border-gray bg-white p-3 font-semibold uppercase shadow md:p-3.5",
+                  )}
+                >
+                  <div className="cursor-pointer" onClick={() => setLanguage("ko-KR")}>
+                    kor
+                  </div>
+                  <div className="cursor-pointer" onClick={() => setLanguage("en-US")}>
+                    eng
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
             <FontAwesomeIcon
               icon={isMainMenuOpen ? faTimes : faBars}
               className="flex w-7 cursor-pointer justify-center text-3xl md:hidden md:md:hover:text-accent"
-              onClick={() => setIsMainMenuOpen((prev) => !prev)}
+              onClick={() => {
+                setIsMoreOpen(false);
+                setIsLangOpen(false);
+                setIsMainMenuOpen((prev) => !prev);
+              }}
             />
           </div>
         </nav>
