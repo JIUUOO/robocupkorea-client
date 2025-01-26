@@ -43,11 +43,11 @@ export default {
     function ({ addBase }) {
       addBase({
         html: {
-          overscrollBehavior: "none",
+          overscrollBehaviorY: "none",
           height: "100%",
         },
         body: {
-          overscrollBehavior: "none",
+          overscrollBehaviorY: "none",
           height: "100%",
         },
       });
