@@ -43,11 +43,7 @@ export default function Leagues() {
               <CardGroup key={leagueId} colspan="col-span-1">
                 <Card
                   title={leagueDetailData.title}
-                  content={
-                    <>
-                      <img src={leagueDetailData.image} alt={leagueDetailData.image} />
-                    </>
-                  }
+                  content={leagueDetailData.preview}
                   footer={<LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon={true} />}
                 />
               </CardGroup>

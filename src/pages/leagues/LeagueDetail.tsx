@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import LinkButton from "@/components/common/button/LinkButton";
 import Card from "@/components/common/card/Card";
 import CardContainer from "@/components/common/card/CardContainer";
 import CardGroup from "@/components/common/card/CardItem";
@@ -25,13 +24,9 @@ export default function LeagueDetail() {
               content={
                 <>
                   <div className="r-text-xl font-semibold">개요</div>
-                  <img src={leagueDetailData.image} />
-                  {leagueDetailData.content.map((item) => (
-                    <p key={item}>{item}</p>
-                  ))}
-
+                  {leagueDetailData.preview}
+                  {leagueDetailData.content}
                   <div className="r-text-xl font-semibold">규정</div>
-                  <LinkButton to="" external={true} title="규정 다운로드" icon={true} direction="down" />
                 </>
               }
             />
