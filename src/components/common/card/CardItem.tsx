@@ -7,8 +7,13 @@ type Colspan = `col-span-${Span}`;
 interface CardItemProps {
   colspan?: Colspan;
   children?: React.ReactNode;
+  gap?: "sm" | "md";
 }
 
-export default function CardItem({ colspan, children }: CardItemProps) {
-  return <div className={clsx("flex h-full w-full flex-col gap-8", colspan)}>{children}</div>;
+export default function CardItem({ colspan, children, gap = "md" }: CardItemProps) {
+  return (
+    <div className={clsx("flex h-full w-full flex-col", colspan, { "gap-8": gap === "md", "gap-3": gap === "sm" })}>
+      {children}
+    </div>
+  );
 }

@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import clsx from "clsx";
-import { motion } from "framer-motion"; // "motion/react" 대신 "framer-motion" 사용
+import { motion } from "framer-motion";
 
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";

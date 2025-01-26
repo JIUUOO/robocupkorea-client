@@ -2,14 +2,21 @@ import { useLayoutEffect, useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCaretDown, faGlobe, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCaretDown, faEllipsis, faGlobe, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 import logoRcka from "@/assets/images/logos/rcka.png";
+import logoRobocup from "@/assets/images/logos/robocup.png";
+import logoRobocupJunior from "@/assets/images/logos/robocup-junior.png";
+import logoRcap from "@/assets/images/logos/rcap.png";
+import useWindowWidth from "@/hooks/useWindowWidth";
 
 export default function Header() {
   const [isEntered, setIsEntered] = useState(false);
-  const [isOpened, setIsOpened] = useState(true);
+  const [isMainMenuOpen, setIsMainMenuOpen] = useState(true);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const windowWidth = useWindowWidth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -22,7 +29,7 @@ export default function Header() {
   ];
 
   useLayoutEffect(() => {
-    if (isOpened) {
+    if (isMainMenuOpen) {
       // 스크롤 방지
       document.body.style.overflow = "hidden";
     } else {
@@ -32,11 +39,11 @@ export default function Header() {
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [isOpened]);
+  }, [isMainMenuOpen]);
 
   useLayoutEffect(() => {
-    if (isOpened) {
-      setIsOpened(false);
+    if (isMainMenuOpen) {
+      setIsMainMenuOpen(false);
     }
 
     if (isSubmenuOpen) {
@@ -57,16 +64,24 @@ export default function Header() {
           />
         </div>
         <nav className="flex justify-between md:w-full">
-          <div
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: windowWidth >= 768 || isMainMenuOpen ? 1 : 0,
+              transition: {
+                duration: 0.1,
+                ease: "easeOut",
+              },
+            }}
             className={clsx("flex md:items-center", {
               "max-md:absolute max-md:left-1/2 max-md:top-16 max-md:z-50 max-md:!block max-md:h-screen max-md:w-full max-md:translate-x-[-50%] max-md:bg-white":
-                isOpened,
-              "max-md:hidden": !isOpened,
+                isMainMenuOpen,
+              "max-md:hidden": !isMainMenuOpen,
             })}
           >
             <ul
               className={clsx("max-md:mt-3 md:flex md:gap-6 md:text-center", {
-                "max-md:container max-md:space-y-3": isOpened,
+                "max-md:container max-md:space-y-3": isMainMenuOpen,
               })}
             >
               <li onMouseEnter={() => setIsEntered(true)} onMouseLeave={() => setIsEntered(false)}>
@@ -101,7 +116,7 @@ export default function Header() {
                     "max-md:hidden": !isSubmenuOpen,
                   })}
                 >
-                  <div className="flex flex-col gap-1.5 rounded-lg border border-gray bg-white px-4 py-3">
+                  <div className="flex flex-col gap-1.5 rounded-lg border border-gray bg-white px-4 py-3 max-md:mt-1.5">
                     {aboutMenu.map((menu) => (
                       <div key={menu.id} className="text-left">
                         <NavLink
@@ -156,14 +171,53 @@ export default function Header() {
                 </NavLink>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           <div className="flex items-center gap-4">
-            <FontAwesomeIcon icon={faGlobe} className="max-md:text-3xl md:text-3xl md:md:hover:text-accent" />
+            <div
+              onMouseEnter={() => windowWidth >= 768 && setIsMoreOpen(true)}
+              onMouseLeave={() => windowWidth >= 768 && setIsMoreOpen(false)}
+            >
+              <FontAwesomeIcon
+                icon={faEllipsis}
+                className={clsx(
+                  "flex w-7 cursor-pointer justify-center max-md:text-3xl md:text-3xl md:md:hover:text-accent",
+                  { "text-accent": isMoreOpen },
+                )}
+                onClick={() => setIsMoreOpen((prev) => !prev)}
+              />
+
+              <motion.div
+                className={clsx("absolute max-md:ml-[-40px] max-md:pt-3 md:ml-[-48px] md:pt-4", {
+                  hidden: !isMoreOpen,
+                })}
+              >
+                <div
+                  className={clsx(
+                    "flex flex-col items-center gap-3 rounded-lg border border-gray bg-white p-3 md:p-3.5",
+                  )}
+                >
+                  <a href="https://www.robocup.org/" target="_blank">
+                    <img src={logoRobocup} alt="robocup" className="h-12 md:h-14" />
+                  </a>
+                  <a href="https://junior.robocup.org/" target="_blank">
+                    <img src={logoRobocupJunior} alt="robocup-junior" className="h-12 md:h-14" />
+                  </a>
+                  <a href="https://robocupap.org/" target="_blank">
+                    <img src={logoRcap} alt="rcap" className="h-12 md:h-14" />
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+
             <FontAwesomeIcon
-              icon={isOpened ? faTimes : faBars}
-              className="w-7 text-3xl md:hidden md:md:hover:text-accent"
-              onClick={() => setIsOpened((prev) => !prev)}
+              icon={faGlobe}
+              className="flex w-7 cursor-pointer justify-center max-md:text-3xl md:text-3xl md:md:hover:text-accent"
+            />
+            <FontAwesomeIcon
+              icon={isMainMenuOpen ? faTimes : faBars}
+              className="flex w-7 cursor-pointer justify-center text-3xl md:hidden md:md:hover:text-accent"
+              onClick={() => setIsMainMenuOpen((prev) => !prev)}
             />
           </div>
         </nav>

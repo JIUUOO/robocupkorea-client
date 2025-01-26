@@ -52,15 +52,16 @@ export default function Leagues() {
             exit={{ opacity: 0 }}
           >
             <CardContainer gridcols="lg:grid-cols-2">
-              {items.map(([leagueId, leagueDetailData]) => (
-                <CardGroup key={leagueId} colspan="col-span-1">
+              <CardGroup colspan="col-span-1" gap="sm">
+                {items.map(([leagueId, leagueDetailData]) => (
                   <Card
+                    key={leagueId}
                     title={leagueDetailData.title}
                     content={leagueDetailData.preview}
                     footer={<LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon={true} />}
                   />
-                </CardGroup>
-              ))}
+                ))}
+              </CardGroup>
             </CardContainer>
           </motion.div>
         </SectionToggle>
