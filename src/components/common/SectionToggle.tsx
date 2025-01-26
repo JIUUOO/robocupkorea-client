@@ -25,7 +25,7 @@ export default function SectionToggle({ title, isOpen, onClick, children }: Sect
             />
           </div>
         </div>
-        {isOpen && <div className="relative px-1 pt-4">{children}</div>}
+        {isOpen && <div className="relative pt-4">{children}</div>}
       </div>
     </div>
   );
