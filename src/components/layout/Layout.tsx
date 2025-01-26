@@ -21,7 +21,7 @@ export default function Layout() {
           ease: "easeInOut",
         },
       }}
-      className="flex w-full min-w-[376px] flex-col bg-neutral font-pretendard"
+      className="flex w-full min-w-[376px] flex-col font-pretendard"
     >
       <Header />
       <ScrollToTop />
@@ -37,7 +37,7 @@ export default function Layout() {
           },
         }}
         className={clsx("h-full min-h-[100lvh] w-full bg-neutral", {
-          "relative mt-[100lvh]": isHome,
+          "mt-[100lvh]": isHome,
           "max-md:pt-16 md:pt-24": !isHome,
         })}
       >
