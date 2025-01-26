@@ -6,13 +6,20 @@ import Card from "@/components/common/card/Card";
 import { useFetchNoticeDetail } from "@/hooks/notices/useFetchNoticeDetail";
 import LinkButton from "@/components/common/button/LinkButton";
 import buildApiBaseUrl from "@/utils/buildApiBaseUrl";
+import Skeleton from "react-loading-skeleton";
 
 export default function NoticeDetail() {
   const { id } = useParams();
   const { data, isLoading, isError } = useFetchNoticeDetail(id!);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading event details</div>;
+  if (isLoading || isError)
+    return (
+      <>
+        <CardContainer>
+          <Skeleton className="h-52 w-full rounded" enableAnimation={!isError} />
+        </CardContainer>
+      </>
+    );
 
   return (
     <>
