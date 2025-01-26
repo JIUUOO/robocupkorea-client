@@ -6,9 +6,9 @@ interface LandingVideoProps {
 
 export default function LandingVideo({ setIsVideoLoaded }: LandingVideoProps) {
   return (
-    <div className="pointer-events-none fixed flex w-full justify-center">
+    <div className="pointer-events-none fixed -z-10 flex w-full justify-center">
       <video
-        className="h-screen w-full object-cover"
+        className="h-svh w-full object-cover"
         autoPlay
         playsInline
         muted
@@ -16,6 +16,7 @@ export default function LandingVideo({ setIsVideoLoaded }: LandingVideoProps) {
         preload="auto"
         webkit-playsinline="true"
         onCanPlayThrough={() => setIsVideoLoaded(true)}
+        style={{ overflowClipMargin: "content-box 0px" }}
       >
         <source src={landing} type="video/mp4" />
         Your browser does not support the video tag.

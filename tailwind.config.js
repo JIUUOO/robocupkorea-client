@@ -39,18 +39,5 @@ export default {
       },
     },
   },
-  plugins: [
-    function ({ addBase }) {
-      addBase({
-        html: {
-          overscrollBehaviorY: "none",
-          height: "100%",
-        },
-        body: {
-          overscrollBehaviorY: "none",
-          height: "100%",
-        },
-      });
-    },
-  ],
+  plugins: [],
 };

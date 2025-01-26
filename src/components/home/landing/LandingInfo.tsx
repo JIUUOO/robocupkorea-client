@@ -8,7 +8,7 @@ interface LandingInfoProps {
 
 export default function LandingInfo({ data }: LandingInfoProps) {
   return (
-    <div className="fixed left-0 top-0 h-svh w-screen min-w-[376px]">
+    <div className="fixed left-0 top-0 -z-10 h-svh w-screen min-w-[376px]">
       <div className="container flex h-full w-full flex-col justify-end pb-6 md:pb-8">
         <div className="text-shadow text-4xl font-bold text-white md:text-6xl lg:text-7xl xl:text-8xl">
           {data.title}
