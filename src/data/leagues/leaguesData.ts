@@ -45,7 +45,6 @@ export type LeagueKeys = keyof typeof leaguesData;
 export interface LeagueDetailData {
   parent: string;
   title: string;
-  image: string;
-  content: string[];
-  rule: string;
+  preview: React.ReactNode;
+  content: React.ReactNode;
 }

@@ -1,25 +1,43 @@
+import { useState } from "react";
 import { useFetchEventLatest } from "@/hooks/events/useFetchEventLatest";
+import { motion } from "framer-motion";
 
 import LandingVideo from "@/components/home/landing/LandingVideo";
 import LandingInfo from "@/components/home/landing/LandingInfo";
-import LandingInfoDefault from "./LadingInfoDefault";
+import LandingInfoDefault from "@/components/home/landing/LadingInfoDefault";
 
 export default function Landing() {
   const { data, isLoading, isError } = useFetchEventLatest();
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <></>;
+
   if (isError)
     return (
-      <>
-        <LandingVideo />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isVideoLoaded ? { opacity: 1 } : { opacity: 0 }}
+        transition={{
+          duration: 0.4,
+          ease: "easeInOut",
+        }}
+      >
+        <LandingVideo setIsVideoLoaded={setIsVideoLoaded} />
         <LandingInfoDefault />
-      </>
+      </motion.div>
     );
 
   return (
-    <>
-      <LandingVideo />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={isVideoLoaded ? { opacity: 1 } : { opacity: 0 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeInOut",
+      }}
+    >
+      <LandingVideo setIsVideoLoaded={setIsVideoLoaded} />
       <LandingInfo data={data!} />
-    </>
+    </motion.div>
   );
 }

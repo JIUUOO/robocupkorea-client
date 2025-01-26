@@ -1,3 +1,6 @@
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 import LinkButton from "@/components/common/button/LinkButton";
 import Card from "@/components/common/card/Card";
 import CardContainer from "@/components/common/card/CardContainer";
@@ -8,8 +11,17 @@ import { useFetchNotices } from "@/hooks/notices/useFetchNotices";
 export default function Notices() {
   const { data, isLoading, isError } = useFetchNotices();
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading</div>;
+  if (isLoading || isError)
+    return (
+      <>
+        <SectionHeader title="Notices">
+          <CardContainer grid="md:grid" gridcols="md:grid-cols-2 lg:grid-cols-3">
+            <Skeleton className="h-52 w-full rounded" enableAnimation={!isError} />
+            <Skeleton className="h-52 w-full rounded" enableAnimation={!isError} />
+          </CardContainer>
+        </SectionHeader>
+      </>
+    );
 
   return (
     <>

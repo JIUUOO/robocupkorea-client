@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import clsx from "clsx";
+import { motion } from "framer-motion"; // "motion/react" 대신 "framer-motion" 사용
 
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
@@ -11,12 +12,31 @@ export default function Layout() {
   const isHome = pathname === "/";
 
   return (
-    <div className="flex h-full w-full min-w-[376px] flex-col bg-neutral font-pretendard">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 0.4,
+          ease: "easeInOut",
+        },
+      }}
+      className="flex w-full min-w-[376px] flex-col bg-neutral font-pretendard"
+    >
       <Header />
       <ScrollToTop />
       {isHome && <Landing />}
-      <main
-        className={clsx("h-full w-full bg-neutral", {
+      <motion.main
+        key={pathname}
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: {
+            duration: 0.4,
+            ease: "easeOut",
+          },
+        }}
+        className={clsx("h-full min-h-[100lvh] w-full bg-neutral", {
           "relative mt-[100lvh]": isHome,
           "max-md:pt-16 md:pt-24": !isHome,
         })}
@@ -24,8 +44,8 @@ export default function Layout() {
         <div className="flex flex-col gap-8 py-8">
           <Outlet />
         </div>
-      </main>
+      </motion.main>
       <Footer />
-    </div>
+    </motion.div>
   );
 }

@@ -1,7 +1,9 @@
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 import CardContainer from "@/components/common/card/CardContainer";
 import CardGroup from "@/components/common/card/CardItem";
 import Card from "@/components/common/card/Card";
-
 import LinkButton from "@/components/common/button/LinkButton";
 import { useFetchEvents } from "@/hooks/events/useFetchEvents";
 import SectionHeader from "@/components/common/SectionHeader";
@@ -9,8 +11,24 @@ import SectionHeader from "@/components/common/SectionHeader";
 export default function Events() {
   const { data, isLoading, isError } = useFetchEvents();
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading event details</div>;
+  if (isLoading || isError)
+    return (
+      <>
+        <SectionHeader title="Upcoming Event">
+          <CardContainer grid="md:grid" gridcols="md:grid-cols-2">
+            <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+            <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+          </CardContainer>
+        </SectionHeader>
+
+        <SectionHeader title="Past Events">
+          <CardContainer grid="md:grid" gridcols="md:grid-cols-2">
+            <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+            <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+          </CardContainer>
+        </SectionHeader>
+      </>
+    );
 
   return (
     <>
@@ -21,7 +39,7 @@ export default function Events() {
               title={data?.events[0]?.title}
               content={
                 <>
-                  <div>
+                  <div className="aspect-[210/297]">
                     <img src={data?.events[0]?.images[0]} alt="" className="" />
                   </div>
                 </>
@@ -40,10 +58,10 @@ export default function Events() {
             data.events.slice(1).map((event) => (
               <Card
                 key={event.id}
-                title="제5회 한국창의코딩대회"
+                title={event.title}
                 content={
                   <>
-                    <img src={event.images[0]} />
+                    <img src={data?.events[0]?.images[0]} alt="" className="" />
                   </>
                 }
                 compact={true}
