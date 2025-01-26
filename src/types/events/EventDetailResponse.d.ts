@@ -4,10 +4,11 @@ export interface EventDetailResponse {
   dates: string[];
   location: string;
   map: string;
-  images: string[];
+  register: string;
   others: {
     title: string;
     description: string;
   }[];
+  images: string[];
   leagues: string[];
 }

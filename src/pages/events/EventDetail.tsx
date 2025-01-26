@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+import clsx from "clsx";
 
 import Card from "@/components/common/card/Card";
 import CardContainer from "@/components/common/card/CardContainer";
@@ -12,16 +15,32 @@ import convertLeagueId from "@/utils/convertLeagueId";
 
 export default function EventDetail() {
   const { id } = useParams<{ id: string }>();
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const { data, isLoading, isError } = useFetchEventDetail(id!);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading event details</div>;
+  if (isLoading || isError)
+    return (
+      <>
+        <CardContainer>
+          <Skeleton className="aspect-[210/297] w-full rounded" />
+        </CardContainer>
+      </>
+    );
 
   return (
     <>
       <CardContainer gridcols="lg:grid-cols-12">
         <CardItem colspan="col-span-7">
-          <img className="w-full" src={data?.images[0]} alt="" />
+          {!isImageLoaded && <Skeleton className="aspect-[210/297] w-full rounded" />}
+          <img
+            className={clsx("w-full transition-opacity duration-500", {
+              "opacity-100": isImageLoaded,
+              "m-0 hidden p-0 opacity-0": !isImageLoaded,
+            })}
+            src={data?.images[0]}
+            alt=""
+            onLoad={() => setIsImageLoaded(true)}
+          />
         </CardItem>
         <CardItem colspan="col-span-5">
           <Card title="Schedule" content={<Calendar dates={data?.dates ?? []} />} compact={true} />
@@ -55,12 +74,20 @@ export default function EventDetail() {
         <CardItem>
           <Card
             title="참가 신청"
-            footer={<LinkButton to="" external={true} title="참가 신청" icon={true} direction="up-right" />}
+            footer={
+              <LinkButton
+                to={data?.register ? data.register : ""}
+                external={true}
+                title="참가 신청"
+                icon={true}
+                direction="up-right"
+              />
+            }
           />
         </CardItem>
       </CardContainer>
 
-      <SectionHeader title="그 외">
+      <SectionHeader title="한국로보컵협회 인증센터">
         <CardContainer gridcols="lg:grid-cols-12">
           {data?.others.map((other) => (
             <CardItem key={other.title} colspan="col-span-3">

@@ -37,7 +37,7 @@ export default function Layout() {
           },
         }}
         className={clsx("h-full min-h-[100lvh] w-full bg-neutral", {
-          "mt-[100lvh]": isHome,
+          "z-10 mt-[100lvh]": isHome,
           "max-md:pt-16 md:pt-24": !isHome,
         })}
       >
