@@ -2,11 +2,16 @@ import { Suspense } from "react";
 import { createBrowserRouter, RouterProvider, RouteObject } from "react-router-dom";
 
 import { Route, ROUTES } from "@/router/routes";
+import LanguageRedirect from "@/router/LanguageRedirect";
 
 function mapRoutesToRouter(routes: Route[]): RouteObject[] {
   return routes.map(({ path, element, children }) => ({
     path,
-    element: <Suspense fallback={<></>}>{element}</Suspense>,
+    element: (
+      <LanguageRedirect>
+        <Suspense fallback={<></>}>{element}</Suspense>
+      </LanguageRedirect>
+    ),
     children: children ? mapRoutesToRouter(children) : undefined,
   }));
 }
