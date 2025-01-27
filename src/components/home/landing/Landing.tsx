@@ -3,7 +3,7 @@ import { useFetchEventLatest } from "@/hooks/events/useFetchEventLatest";
 import { motion } from "framer-motion";
 
 import LandingVideo from "@/components/home/landing/LandingVideo";
-import LandingInfo from "@/components/home/landing/LandingInfo";
+import LandingText from "@/components/home/landing/LandingText";
 import LandingInfoDefault from "@/components/home/landing/LadingInfoDefault";
 
 export default function Landing() {
@@ -37,7 +37,7 @@ export default function Landing() {
       }}
     >
       <LandingVideo setIsVideoLoaded={setIsVideoLoaded} />
-      <LandingInfo data={data!} />
+      <LandingText data={data!} />
     </motion.div>
   );
 }

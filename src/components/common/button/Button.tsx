@@ -34,7 +34,7 @@ export default function Button({
       <button
         onClick={onClick}
         className={clsx(
-          "r-text-base flex cursor-pointer items-center justify-center rounded px-3 py-1.5 font-semibold", // 공통 클래스
+          "r-text-base flex cursor-pointer items-center justify-center break-keep rounded px-3 py-2 font-semibold", // 공통 클래스
           {
             "bg-primary text-white": theme === "primary",
             "bg-white text-primary": theme === "white",
