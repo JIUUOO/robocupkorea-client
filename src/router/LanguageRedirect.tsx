@@ -1,9 +1,16 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import { useLanguage } from "@/hooks/useLanguage";
+import { Lang } from "@/types/Lang";
 import isValidLang from "@/utils/isValidLang";
 
-export default function LanguageRedirect({ children }: { children: JSX.Element }) {
+interface LanguageRedirectProps {
+  children: JSX.Element;
+}
+
+export default function LanguageRedirect({ children }: LanguageRedirectProps) {
+  const { language, setLanguage } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -12,19 +19,14 @@ export default function LanguageRedirect({ children }: { children: JSX.Element }
     const lang = params.get("lang");
 
     if (!isValidLang(lang)) {
-      // 브라우저 언어 감지
-      const browserLanguage = navigator.language.startsWith("ko") ? "ko-KR" : "en-US";
-
-      // 쿼리 스트링에 언어 추가
+      const browserLanguage: Lang = navigator.language.startsWith("ko") ? "ko-KR" : "en-US";
+      setLanguage(browserLanguage); // Zustand로 상태 업데이트
       params.set("lang", browserLanguage);
-
-      // 중복 리다이렉션 방지 (현재 URL이 이미 변경될 URL과 동일한지 확인)
-      const newUrl = `${location.pathname}?${params.toString()}`;
-      if (newUrl !== `${location.pathname}${location.search}`) {
-        navigate(newUrl, { replace: true });
-      }
+      navigate(`${location.pathname}?${params.toString()}`, { replace: true });
+    } else {
+      setLanguage(lang); // 쿼리 스트링의 언어를 Zustand 상태에 반영
     }
-  }, [location.pathname, location.search, navigate]);
+  }, [language, location, navigate, setLanguage]);
 
   return children;
 }

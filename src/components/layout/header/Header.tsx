@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCaretDown, faEllipsis, faGlobe, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -11,6 +11,7 @@ import logoRobocupJunior from "@/assets/images/logos/robocup-junior.png";
 import logoRcap from "@/assets/images/logos/rcap.png";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import { useLanguage } from "@/hooks/useLanguage";
+import { Lang } from "@/types/Lang";
 
 export default function Header() {
   const [isEntered, setIsEntered] = useState(false);
@@ -18,9 +19,8 @@ export default function Header() {
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const { setLanguage } = useLanguage();
+  const { language, setLanguage } = useLanguage();
   const windowWidth = useWindowWidth();
-  const navigate = useNavigate();
   const location = useLocation();
 
   const aboutMenu = [
@@ -30,6 +30,15 @@ export default function Header() {
     { name: "News", id: "news" },
     { name: "Sponser", id: "sponser" },
   ];
+
+  const handleLanguageChange = (langTo: Lang) => {
+    if (language !== langTo) {
+      setLanguage(langTo);
+      const params = new URLSearchParams(window.location.search);
+      params.set("lang", langTo);
+      window.location.href = `/?${params.toString()}`;
+    }
+  };
 
   useLayoutEffect(() => {
     if (isMainMenuOpen) {
@@ -59,12 +68,13 @@ export default function Header() {
     <header className="fixed top-0 z-50 flex w-full min-w-[376px] items-center border-b border-gray bg-white max-md:h-16 md:h-24">
       <div className="container flex w-full max-md:justify-between">
         <div className="flex items-center">
-          <img
-            src={logoRcka}
-            className="aspect-[5/3] cursor-pointer object-contain max-md:h-14 md:mr-14 md:h-20"
-            alt=""
-            onClick={() => navigate("/")}
-          />
+          <NavLink to={`/${location.search}`}>
+            <img
+              src={logoRcka}
+              className="aspect-[5/3] cursor-pointer object-contain max-md:h-14 md:mr-14 md:h-20"
+              alt="RCKA"
+            />
+          </NavLink>
         </div>
         <nav className="flex justify-between md:w-full">
           <motion.div
@@ -96,7 +106,7 @@ export default function Header() {
                       "text-black": !isActive,
                     })
                   }
-                  to="/about"
+                  to={`/about${location.search}`}
                 >
                   about
                   <FontAwesomeIcon
@@ -123,7 +133,7 @@ export default function Header() {
                     {aboutMenu.map((menu) => (
                       <div key={menu.id} className="text-left">
                         <NavLink
-                          to={`/about/#${menu.id}`}
+                          to={`/about/#${menu.id}${location.search}`}
                           onClick={() => setIsEntered(false)}
                           className="cursor-pointer text-xl font-medium hover:text-accent"
                         >
@@ -136,39 +146,39 @@ export default function Header() {
               </li>
               <li>
                 <NavLink
+                  to={`/leagues${location.search}`}
                   className={({ isActive }) =>
                     clsx("font-semibold uppercase max-md:text-2xl md:text-xl md:hover:text-accent", {
                       "text-primary": isActive,
                       "text-black": !isActive,
                     })
                   }
-                  to="/leagues"
                 >
                   leagues
                 </NavLink>
               </li>
               <li>
                 <NavLink
+                  to={`/events${location.search}`}
                   className={({ isActive }) =>
                     clsx("font-semibold uppercase max-md:text-2xl md:text-xl md:hover:text-accent", {
                       "text-primary": isActive,
                       "text-black": !isActive,
                     })
                   }
-                  to="/events"
                 >
                   events
                 </NavLink>
               </li>
               <li>
                 <NavLink
+                  to={`/notices${location.search}`}
                   className={({ isActive }) =>
                     clsx("font-semibold uppercase max-md:text-2xl md:text-xl md:hover:text-accent", {
                       "text-primary": isActive,
                       "text-black": !isActive,
                     })
                   }
-                  to="/notices"
                 >
                   notices
                 </NavLink>
@@ -244,10 +254,22 @@ export default function Header() {
                     "flex flex-col items-center gap-3 rounded-xl border border-gray bg-white p-3 font-semibold uppercase shadow md:p-3.5",
                   )}
                 >
-                  <div className="cursor-pointer" onClick={() => setLanguage("ko-KR")}>
+                  <div
+                    className={clsx({
+                      "cursor-default text-primary": language === "ko-KR",
+                      "cursor-pointer": language !== "ko-KR",
+                    })}
+                    onClick={() => handleLanguageChange("ko-KR")}
+                  >
                     kor
                   </div>
-                  <div className="cursor-pointer" onClick={() => setLanguage("en-US")}>
+                  <div
+                    className={clsx({
+                      "cursor-default text-primary": language === "en-US",
+                      "cursor-pointer": language !== "en-US",
+                    })}
+                    onClick={() => handleLanguageChange("en-US")}
+                  >
                     eng
                   </div>
                 </div>
