@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-// import LanguageRedirect from "@/router/LanguageRedirect";
+import LanguageRedirect from "@/router/LanguageRedirect";
 import Layout from "@/components/layout/Layout";
 import NotFound from "@/components/notfound/NotFound";
 
@@ -19,9 +19,9 @@ const router = createBrowserRouter(
     {
       path: "/",
       element: (
-        // <LanguageRedirect>
-        <Layout />
-        // </LanguageRedirect>
+        <LanguageRedirect>
+          <Layout />
+        </LanguageRedirect>
       ),
       children: [
         {
