@@ -15,12 +15,16 @@ export default function LanguageRedirect({ children }: { children: JSX.Element }
       // 브라우저 언어 감지
       const browserLanguage = navigator.language.startsWith("ko") ? "ko-KR" : "en-US";
 
+      // 쿼리 스트링에 언어 추가
       params.set("lang", browserLanguage);
 
-      // 쿼리 스트링을 추가한 URL로 리다이렉팅
-      navigate(`${location.pathname}?${params.toString()}`, { replace: true });
+      // 중복 리다이렉션 방지 (현재 URL이 이미 변경될 URL과 동일한지 확인)
+      const newUrl = `${location.pathname}?${params.toString()}`;
+      if (newUrl !== `${location.pathname}${location.search}`) {
+        navigate(newUrl, { replace: true });
+      }
     }
-  }, [location, navigate]);
+  }, [location.pathname, location.search, navigate]);
 
   return children;
 }
