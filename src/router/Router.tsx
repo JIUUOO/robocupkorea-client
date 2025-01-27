@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 // import LanguageRedirect from "@/router/LanguageRedirect";
@@ -25,34 +25,84 @@ const router = createBrowserRouter(
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: (
+            <Suspense fallback={<></>}>
+              <Home />
+            </Suspense>
+          ),
         },
         {
           path: "about",
-          element: <About />,
+          element: (
+            <Suspense fallback={<></>}>
+              <About />
+            </Suspense>
+          ),
         },
         {
           path: "leagues",
           element: <Outlet />,
           children: [
-            { path: "", element: <Leagues /> },
-            { path: ":id", element: <LeagueDetail /> },
+            {
+              path: "",
+              element: (
+                <Suspense fallback={<></>}>
+                  <Leagues />
+                </Suspense>
+              ),
+            },
+            {
+              path: ":id",
+              element: (
+                <Suspense fallback={<></>}>
+                  <LeagueDetail />
+                </Suspense>
+              ),
+            },
           ],
         },
         {
           path: "events",
           element: <Outlet />,
           children: [
-            { path: "", element: <Events /> },
-            { path: ":id", element: <EventDetail /> },
+            {
+              path: "",
+              element: (
+                <Suspense fallback={<></>}>
+                  <Events />
+                </Suspense>
+              ),
+            },
+            {
+              path: ":id",
+              element: (
+                <Suspense fallback={<></>}>
+                  <EventDetail />
+                </Suspense>
+              ),
+            },
           ],
         },
         {
           path: "notices",
           element: <Outlet />,
           children: [
-            { path: "", element: <Notices /> },
-            { path: ":id", element: <NoticeDetail /> },
+            {
+              path: "",
+              element: (
+                <Suspense fallback={<></>}>
+                  <Notices />
+                </Suspense>
+              ),
+            },
+            {
+              path: ":id",
+              element: (
+                <Suspense fallback={<></>}>
+                  <NoticeDetail />
+                </Suspense>
+              ),
+            },
           ],
         },
       ],
