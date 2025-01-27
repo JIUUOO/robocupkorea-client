@@ -205,14 +205,12 @@ export default function Header() {
               />
 
               <motion.div
-                className={clsx("absolute max-md:ml-[-40px] max-md:pt-3 md:ml-[-48px] md:pt-4", {
+                className={clsx("absolute max-md:ml-[-212px] max-md:pt-3 md:ml-[-242px] md:pt-4", {
                   hidden: !isMoreOpen,
                 })}
               >
                 <div
-                  className={clsx(
-                    "flex flex-col items-center gap-3 rounded-xl border border-gray bg-white p-3 shadow md:p-3.5",
-                  )}
+                  className={clsx("flex items-center gap-3 rounded-xl border border-gray bg-white p-3 shadow md:p-3.5")}
                 >
                   <a href="https://www.robocup.org/" target="_blank">
                     <img src={logoRobocup} alt="robocup" className="h-12 md:h-14" />
