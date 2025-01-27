@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 // import LanguageRedirect from "@/router/LanguageRedirect";
 import Layout from "@/components/layout/Layout";
+import NotFound from "@/components/notfound/NotFound";
 
 const Home = lazy(() => import("@/pages/home/Home"));
 const About = lazy(() => import("@/pages/about/About"));
@@ -104,6 +105,10 @@ const router = createBrowserRouter(
               ),
             },
           ],
+        },
+        {
+          path: "*",
+          element: <NotFound />,
         },
       ],
     },
