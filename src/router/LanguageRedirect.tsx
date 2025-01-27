@@ -19,7 +19,7 @@ export default function LanguageRedirect({ children }: LanguageRedirectProps) {
     const lang = params.get("lang");
 
     if (!isValidLang(lang)) {
-      const browserLanguage: Lang = navigator.language.startsWith("ko") ? "ko-KR" : "en-US";
+      const browserLanguage: Lang = navigator.language.startsWith("en") ? "en-US" : "ko-KR";
       setLanguage(browserLanguage); // Zustand로 상태 업데이트
       params.set("lang", browserLanguage);
       navigate(`${location.pathname}?${params.toString()}`, { replace: true });
