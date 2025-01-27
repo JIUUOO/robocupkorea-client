@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-import LanguageRedirect from "@/router/LanguageRedirect";
+// import LanguageRedirect from "@/router/LanguageRedirect";
 import Layout from "@/components/layout/Layout";
 
 const Home = lazy(() => import("@/pages/home/Home"));
@@ -18,9 +18,9 @@ const router = createBrowserRouter(
     {
       path: "/",
       element: (
-        <LanguageRedirect>
-          <Layout />
-        </LanguageRedirect>
+        // <LanguageRedirect>
+        <Layout />
+        // </LanguageRedirect>
       ),
       children: [
         {
