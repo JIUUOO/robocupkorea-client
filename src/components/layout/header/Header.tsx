@@ -54,13 +54,13 @@ export default function Header() {
   }, [isMainMenuOpen]);
 
   useLayoutEffect(() => {
-    if (isMainMenuOpen) {
-      setIsMainMenuOpen(false);
-    }
+    if (isMainMenuOpen) setIsMainMenuOpen(false);
 
-    if (isSubmenuOpen) {
-      setIsSubmenuOpen(false);
-    }
+    if (isSubmenuOpen) setIsSubmenuOpen(false);
+
+    if (isMoreOpen) setIsMoreOpen(false);
+
+    if (isLangOpen) setIsLangOpen(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname, location.hash]);
 
