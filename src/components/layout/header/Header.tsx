@@ -121,7 +121,15 @@ export default function Header() {
                 </NavLink>
 
                 {/* Submenu */}
-                <div
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: windowWidth >= 768 || isSubmenuOpen ? 1 : 0,
+                    transition: {
+                      duration: 0.4,
+                      ease: "easeOut",
+                    },
+                  }}
                   className={clsx("", {
                     "md:absolute md:pt-4": isEntered,
                     "md:hidden": !isEntered,
@@ -142,7 +150,7 @@ export default function Header() {
                       </div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               </li>
               <li>
                 <NavLink
@@ -205,6 +213,14 @@ export default function Header() {
               />
 
               <motion.div
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: windowWidth >= 768 || isMoreOpen ? 1 : 0,
+                  transition: {
+                    duration: 0.2,
+                    ease: "easeOut",
+                  },
+                }}
                 className={clsx("absolute max-md:ml-[-212px] max-md:pt-3 md:ml-[-242px] md:pt-4", {
                   hidden: !isMoreOpen,
                 })}
@@ -243,6 +259,14 @@ export default function Header() {
               />
 
               <motion.div
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: windowWidth >= 768 || isLangOpen ? 1 : 0,
+                  transition: {
+                    duration: 0.2,
+                    ease: "easeOut",
+                  },
+                }}
                 className={clsx("absolute max-md:ml-[-16px] max-md:pt-3 md:ml-[-20px] md:pt-4", {
                   hidden: !isLangOpen,
                 })}
