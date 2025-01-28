@@ -37,7 +37,7 @@ export default function About() {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [location.hash]);
 
   if (language === "ko-KR")
     return (
