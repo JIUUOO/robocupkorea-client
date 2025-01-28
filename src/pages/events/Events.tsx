@@ -26,15 +26,23 @@ export default function Events() {
       <>
         <SectionHeader title="Upcoming Event">
           <CardContainer grid="md:grid" gridcols="md:grid-cols-2">
-            <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
-            <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+            <CardGroup colspan="col-span-1">
+              <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+            </CardGroup>
+            <CardGroup colspan="col-span-1">
+              <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+            </CardGroup>
           </CardContainer>
         </SectionHeader>
 
         <SectionHeader title="Past Events">
           <CardContainer grid="md:grid" gridcols="md:grid-cols-2">
-            <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
-            <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+            <CardGroup colspan="col-span-1">
+              <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+            </CardGroup>
+            <CardGroup colspan="col-span-1">
+              <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+            </CardGroup>
           </CardContainer>
         </SectionHeader>
       </>
