@@ -17,7 +17,7 @@ export default function ImageReferenced({ src, origin }: ImageReferencedProps) {
 
   return (
     <div className="relative h-full w-full">
-      {!isLoaded && <Skeleton className="absolute left-0 top-0 h-full w-full rounded" />}
+      {!isLoaded && <Skeleton className="absolute left-0 top-0 aspect-[109/48] w-full rounded" />}
       <img
         src={src}
         alt={src}
