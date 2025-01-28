@@ -1,4 +1,5 @@
 import LinkButton from "@/components/common/button/LinkButton";
+import { useLanguage } from "@/hooks/useLanguage";
 
 import { EventLatestResponse } from "@/types/events/EventLatestResponse";
 
@@ -7,6 +8,8 @@ interface LandingTextProps {
 }
 
 export default function LandingText({ data }: LandingTextProps) {
+  const { language } = useLanguage();
+
   return (
     <div className="fixed left-0 top-0 h-svh w-screen min-w-[376px]">
       <div className="container flex h-full w-full flex-col justify-end pb-6 md:pb-8">
@@ -23,7 +26,11 @@ export default function LandingText({ data }: LandingTextProps) {
           </div>
           <div className="flex items-end">
             <div className="flex gap-4 max-md:justify-center">
-              <LinkButton to={`/events/${data.id}`} title="자세히 알아보기" icon={true} />
+              <LinkButton
+                to={`/events/${data.id}`}
+                title={language === "ko-KR" ? "자세히 알아보기" : "Read More"}
+                icon={true}
+              />
               {/* <NavigateButton to="" title="규정 확인하기" color="white" /> */}
             </div>
           </div>
