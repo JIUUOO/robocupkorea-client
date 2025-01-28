@@ -16,13 +16,15 @@ export default function SectionToggle({ title, isOpen, onClick, children }: Sect
       <div className="container flex flex-col items-center">
         <div className="w-full cursor-pointer rounded border border-gray bg-white p-4 lg:p-6" onClick={onClick}>
           <div className="flex justify-between text-2xl font-semibold md:text-3xl">
-            <span>{title}</span>
-            <FontAwesomeIcon
-              icon={faCaretDown}
-              className={clsx("aspect-square cursor-pointer transition-transform duration-300", {
-                "rotate-180": isOpen,
-              })}
-            />
+            <div>{title}</div>
+            <div className="flex items-center justify-center">
+              <FontAwesomeIcon
+                icon={faCaretDown}
+                className={clsx("aspect-square cursor-pointer transition-transform duration-300", {
+                  "rotate-180": isOpen,
+                })}
+              />
+            </div>
           </div>
         </div>
         {isOpen && <div className="relative pt-4">{children}</div>}

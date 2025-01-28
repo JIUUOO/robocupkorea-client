@@ -16,12 +16,12 @@ export default function ImageReferenced({ src, origin }: ImageReferencedProps) {
   };
 
   return (
-    <div className="relative aspect-[109/48] w-full">
+    <div className="relative h-full w-full">
       {!isLoaded && <Skeleton className="absolute left-0 top-0 h-full w-full rounded" />}
       <img
         src={src}
         alt={src}
-        className={clsx("w-full rounded transition-opacity duration-500", {
+        className={clsx("h-full w-full rounded transition-opacity duration-500", {
           "opacity-100": isLoaded,
           "opacity-0": !isLoaded,
         })}
