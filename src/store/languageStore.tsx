@@ -8,6 +8,6 @@ interface LanguageState {
 }
 
 export const useLanguageStore = create<LanguageState>((set) => ({
-  language: "en-US", // 언어 초기화
+  language: "ko-KR", // 언어 초기화
   setLanguage: (language: Lang) => set({ language }),
 }));
