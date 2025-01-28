@@ -28,7 +28,7 @@ export default function Header() {
     { name: "Committee", id: "committee" },
     { name: "History", id: "history" },
     { name: "News", id: "news" },
-    { name: "Sponser", id: "sponser" },
+    { name: "Sponsor", id: "sponsor" },
   ];
 
   const handleLanguageChange = (langTo: Lang) => {
@@ -82,7 +82,7 @@ export default function Header() {
             animate={{
               opacity: windowWidth >= 768 || isMainMenuOpen ? 1 : 0,
               transition: {
-                duration: 0.1,
+                duration: 0.2,
                 ease: "easeOut",
               },
             }}
@@ -133,9 +133,9 @@ export default function Header() {
                     {aboutMenu.map((menu) => (
                       <div key={menu.id} className="text-left">
                         <NavLink
-                          to={`/about/#${menu.id}${location.search}`}
+                          to={`/about${location.search}#${menu.id}`}
                           onClick={() => setIsEntered(false)}
-                          className="cursor-pointer text-xl font-medium hover:text-accent"
+                          className="cursor-pointer text-xl font-medium md:hover:text-accent"
                         >
                           {menu.name}
                         </NavLink>

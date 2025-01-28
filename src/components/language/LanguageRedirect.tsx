@@ -22,7 +22,9 @@ export default function LanguageRedirect({ children }: LanguageRedirectProps) {
       const browserLanguage: Lang = navigator.language.startsWith("en") ? "en-US" : "ko-KR";
       setLanguage(browserLanguage); // Zustand로 상태 업데이트
       params.set("lang", browserLanguage);
-      navigate(`${location.pathname}?${params.toString()}`, { replace: true });
+
+      const hash = location.hash || ""; // hash 처리
+      navigate(`${location.pathname}?${params.toString()}${hash}`, { replace: true });
     } else {
       setLanguage(lang); // 쿼리 스트링의 언어를 Zustand 상태에 반영
     }
