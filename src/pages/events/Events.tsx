@@ -27,10 +27,10 @@ export default function Events() {
         <SectionHeader title="Upcoming Event">
           <CardContainer grid="md:grid" gridcols="md:grid-cols-2">
             <CardGroup colspan="col-span-1">
-              <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+              <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
             </CardGroup>
             <CardGroup colspan="col-span-1">
-              <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+              <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
             </CardGroup>
           </CardContainer>
         </SectionHeader>
@@ -38,10 +38,10 @@ export default function Events() {
         <SectionHeader title="Past Events">
           <CardContainer grid="md:grid" gridcols="md:grid-cols-2">
             <CardGroup colspan="col-span-1">
-              <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+              <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
             </CardGroup>
             <CardGroup colspan="col-span-1">
-              <Skeleton className="aspect-[177/297] max-h-[900px] w-full rounded" enableAnimation={!isError} />
+              <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
             </CardGroup>
           </CardContainer>
         </SectionHeader>
@@ -56,7 +56,7 @@ export default function Events() {
             <Card
               title={data?.events[0]?.title}
               content={
-                <div className="aspect-[210/297]">
+                <div className="aspect-[210/297] w-full">
                   {!isImageLoaded(0) && <Skeleton className="h-full w-full rounded" />}
                   <img
                     src={data?.events[0]?.images[0]}
@@ -81,26 +81,27 @@ export default function Events() {
           {data &&
             data?.events.length > 1 &&
             data.events.slice(1).map((event, index) => (
-              <Card
-                key={event.id}
-                title={event.title}
-                content={
-                  <div className="aspect-[210/297]">
-                    {!isImageLoaded(index + 1) && <Skeleton className="h-full w-full rounded" />}
-                    <img
-                      src={event.images[0]}
-                      alt=""
-                      className={clsx("h-full w-full rounded object-cover transition-opacity duration-500", {
-                        "opacity-100": isImageLoaded(0),
-                        "opacity-0": !isImageLoaded(0),
-                      })}
-                      onLoad={() => handleImageLoad(index + 1)}
-                    />
-                  </div>
-                }
-                compact={true}
-                varient="default"
-              />
+              <CardGroup key={event.id} colspan="col-span-1">
+                <Card
+                  title={event.title}
+                  content={
+                    <div className="aspect-[210/297] w-full">
+                      {!isImageLoaded(index + 1) && <Skeleton className="h-full w-full rounded" />}
+                      <img
+                        src={event.images[0]}
+                        alt=""
+                        className={clsx("h-full w-full rounded object-cover transition-opacity duration-500", {
+                          "opacity-100": isImageLoaded(0),
+                          "opacity-0": !isImageLoaded(0),
+                        })}
+                        onLoad={() => handleImageLoad(index + 1)}
+                      />
+                    </div>
+                  }
+                  compact={true}
+                  varient="default"
+                />
+              </CardGroup>
             ))}
         </CardContainer>
       </SectionHeader>
