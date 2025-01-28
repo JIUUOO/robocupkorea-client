@@ -41,9 +41,9 @@ export default function Home() {
           </CardGroup>
           <CardGroup colspan="col-span-1">
             <Card
-              title="Sponser"
+              title="Sponsor"
               content="후원금은 로봇 꿈나무들을 양성하고 AI 및 로보틱스 교육의 증진을 위한 다양한 목적에 사용됩니다."
-              footer={<LinkButton to="/about#sponser" title="후원 문의" align="center" />}
+              footer={<LinkButton to="/about#sponsor" title="후원 문의" align="center" />}
               varient="introduce"
             />
           </CardGroup>
@@ -113,7 +113,7 @@ export default function Home() {
             <Card
               title="An Annual International Robotics Competition"
               content="RoboCup Korea Association (RCKA) is a non-profit organization that hosts national and international RoboCup League events, fostering project-based robotics education for students."
-              footer={<LinkButton to="/about#introduction" title="Introducing RCKA" icon={true} />}
+              footer={<LinkButton to={`/about${location.search}#introduction`} title="Introducing RCKA" icon={true} />}
               varient="introduce"
             />
           </CardGroup>
@@ -124,15 +124,17 @@ export default function Home() {
             <Card
               title="Promoting AI and Robotics Research"
               content="We are a non-profit organization of educators and volunteers committed to delivering high-quality and diverse AI and robotics education."
-              footer={<LinkButton to="/about#committee" title="Introducing Committee" icon={true} />}
+              footer={
+                <LinkButton to={`/about${location.search}#committee`} title="Introducing Committee" icon={true} />
+              }
               varient="introduce"
             />
           </CardGroup>
           <CardGroup colspan="col-span-1">
             <Card
-              title="Sponser"
+              title="Sponsor"
               content="Sponsorship funds are dedicated to nurturing future roboticists and advancing AI and robotics education."
-              footer={<LinkButton to="/about#sponser" title="Become a Sponsor" align="center" />}
+              footer={<LinkButton to={`/about${location.search}#sponsor`} title="Become a Sponsor" align="center" />}
               varient="introduce"
             />
           </CardGroup>
@@ -145,7 +147,7 @@ export default function Home() {
               subtitle="Since 2013"
               content={<History />}
               divider={true}
-              footer={<LinkButton to="/about#history" title="View History" icon={true} />}
+              footer={<LinkButton to={`/about${location.search}#history`} title="View History" icon={true} />}
               varient="introduce"
             />
           </CardGroup>

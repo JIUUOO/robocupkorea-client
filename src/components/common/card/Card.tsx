@@ -51,7 +51,7 @@ export default function Card({
 
         {content && (
           <div
-            className={clsx("flex h-full flex-col", {
+            className={clsx("flex h-full w-full flex-col", {
               "r-text-base": typeof content === "string",
               "gap-6": !compact,
             })}

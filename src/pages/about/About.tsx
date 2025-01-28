@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useLenis } from "lenis/react";
 
 import CardContainer from "@/components/common/card/CardContainer";
 import CardGroup from "@/components/common/card/CardItem";
@@ -13,26 +14,30 @@ import History from "@/components/about/History";
 import News from "@/components/about/News";
 import { newsData } from "@/data/about/newsData";
 import { useLanguage } from "@/hooks/useLanguage";
+import useWindowWidth from "@/hooks/useWindowWidth";
 
 export default function About() {
   const { language } = useLanguage();
   const location = useLocation();
+  const windowWidth = useWindowWidth();
+  const lenis = useLenis();
 
   useEffect(() => {
-    if (window.location.hash) {
-      window.scrollTo(0, 0);
-
-      const hash = window.location.hash.substring(1);
+    if (lenis && location.hash) {
+      const hash = location.hash.substring(1);
       const targetElement = document.getElementById(hash);
+
       if (targetElement) {
-        const offsetTop = targetElement.offsetTop - 125;
+        const offsetTop = windowWidth >= 768 ? targetElement.offsetTop - 125 : targetElement.offsetTop - 90;
+        lenis.stop();
         window.scrollTo({
           top: offsetTop,
-          // behavior: "smooth",
         });
+        lenis.start();
       }
     }
-  }, [location]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (language === "ko-KR")
     return (
@@ -95,12 +100,12 @@ export default function About() {
           </CardContainer>
         </div>
 
-        {/* Sponser */}
-        <div id="sponser">
+        {/* Sponsor */}
+        <div id="sponsor">
           <CardContainer>
             <CardGroup>
               <Card
-                title="Sponser"
+                title="Sponsor"
                 content="후원금은 로봇 꿈나무들을 양성하고 AI 및 로보틱스 교육의 증진을 위한 다양한 목적에 사용됩니다."
                 footer={<MailtoButton email="x_iah@naver.com" title="후원 문의" align="center" />}
                 varient="introduce"
@@ -119,7 +124,7 @@ export default function About() {
         </Helmet>
 
         {/* Introduction */}
-        <div id="introduction">
+        <div id="introduction" className="h-full w-full">
           <CardContainer>
             <CardGroup>
               <Card
@@ -132,7 +137,7 @@ export default function About() {
         </div>
 
         {/* Committee */}
-        <div id="committee">
+        <div id="committee" className="h-full w-full">
           <CardContainer>
             <CardGroup>
               <Card
@@ -155,7 +160,7 @@ export default function About() {
         </div>
 
         {/* History */}
-        <div id="history">
+        <div id="history" className="h-full w-full">
           <CardContainer>
             <CardGroup>
               <Card title="History" subtitle="Since 2013" content={<History />} divider={true} varient="introduce" />
@@ -164,7 +169,7 @@ export default function About() {
         </div>
 
         {/* News */}
-        <div id="news">
+        <div id="news" className="h-full w-full">
           <CardContainer>
             <CardGroup colspan="col-span-1">
               <Card title="News" subtitle={newsData.length} content={<News />} divider={true} varient="introduce" />
@@ -172,12 +177,12 @@ export default function About() {
           </CardContainer>
         </div>
 
-        {/* Sponser */}
-        <div id="sponser">
+        {/* Sponsor */}
+        <div id="sponsor" className="h-full w-full">
           <CardContainer>
             <CardGroup>
               <Card
-                title="Sponser"
+                title="Sponsor"
                 content="Sponsorship funds are dedicated to nurturing future roboticists and advancing AI and robotics education."
                 footer={<MailtoButton email="x_iah@naver.com" title="후원 문의" align="center" />}
                 varient="introduce"
