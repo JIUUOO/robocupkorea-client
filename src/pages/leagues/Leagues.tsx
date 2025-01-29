@@ -59,6 +59,7 @@ export default function Leagues() {
                 },
               }}
               exit={{ opacity: 0 }}
+              className="h-full w-full"
             >
               <CardContainer gridcols="lg:grid-cols-2">
                 {items.map(([leagueId, leagueDetailData]) => (
@@ -97,6 +98,7 @@ export default function Leagues() {
                 },
               }}
               exit={{ opacity: 0 }}
+              className="h-full w-full"
             >
               <CardContainer gridcols="lg:grid-cols-2">
                 {items.map(([leagueId, leagueDetailData]) => (
