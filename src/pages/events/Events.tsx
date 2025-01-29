@@ -10,6 +10,7 @@ import LinkButton from "@/components/common/button/LinkButton";
 import { useFetchEvents } from "@/hooks/events/useFetchEvents";
 import SectionHeader from "@/components/common/SectionHeader";
 import { useLanguage } from "@/hooks/useLanguage";
+import LanguageHelmetTitle from "@/components/language/LanguageHelmetTitle";
 
 export default function Events() {
   const { data, isLoading, isError } = useFetchEvents();
@@ -26,6 +27,8 @@ export default function Events() {
   if (isLoading || isError)
     return (
       <>
+        <LanguageHelmetTitle title="Events" />
+
         <SectionHeader title="Upcoming Event">
           <CardContainer grid="md:grid" gridcols="md:grid-cols-2">
             <CardGroup colspan="col-span-1">
@@ -52,6 +55,8 @@ export default function Events() {
 
   return (
     <>
+      <LanguageHelmetTitle title="Events" />
+
       <SectionHeader title="Upcoming Event">
         <CardContainer grid="md:grid" gridcols="sm:grid-cols-2">
           <CardGroup colspan="col-span-1">

@@ -5,20 +5,19 @@ import CardGroup from "@/components/common/card/CardItem";
 import { leaguesData, LeagueKeys, LeagueDetailData } from "@/data/leagues/leaguesData";
 import SectionHeader from "@/components/common/SectionHeader";
 import { useLanguage } from "@/hooks/useLanguage";
+import LanguageHelmetTitle from "@/components/language/LanguageHelmetTitle";
 
 export default function LeagueDetail() {
   const { id } = useParams<{ id: LeagueKeys }>();
   const { language } = useLanguage();
 
-  if (!id) {
-    return <div>Page not found</div>;
-  }
-
-  const leagueDetailData: LeagueDetailData = leaguesData[id];
+  const leagueDetailData: LeagueDetailData = leaguesData[id!];
 
   if (language === "ko-KR")
     return (
       <>
+        <LanguageHelmetTitle title={leagueDetailData.title} />
+
         <SectionHeader title={leagueDetailData.parent}>
           <CardContainer>
             <CardGroup>
@@ -42,6 +41,8 @@ export default function LeagueDetail() {
   if (language === "en-US")
     return (
       <>
+        <LanguageHelmetTitle title={leagueDetailData.title} />
+
         <SectionHeader title={leagueDetailData.parent}>
           <CardContainer>
             <CardGroup>

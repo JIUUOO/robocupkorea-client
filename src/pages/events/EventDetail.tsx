@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import clsx from "clsx";
+import { Helmet } from "react-helmet-async";
 
 import Card from "@/components/common/card/Card";
 import CardContainer from "@/components/common/card/CardContainer";
@@ -13,6 +14,7 @@ import SectionHeader from "@/components/common/SectionHeader";
 import { LeagueKeys, leaguesData } from "@/data/leagues/leaguesData";
 import convertLeagueId from "@/utils/convertLeagueId";
 import { useLanguage } from "@/hooks/useLanguage";
+import LanguageHelmetTitle from "@/components/language/LanguageHelmetTitle";
 
 export default function EventDetail() {
   const { id } = useParams<{ id: string }>();
@@ -23,6 +25,8 @@ export default function EventDetail() {
   if (isLoading || isError)
     return (
       <>
+        <LanguageHelmetTitle title="Events" />
+
         <CardContainer>
           <Skeleton className="aspect-[210/297] w-full rounded" />
         </CardContainer>
@@ -32,6 +36,10 @@ export default function EventDetail() {
   if (language === "ko-KR")
     return (
       <>
+        <Helmet>
+          <title>{data?.title} | 한국로보컵협회</title>
+        </Helmet>
+
         <CardContainer gridcols="lg:grid-cols-12">
           <CardItem colspan="col-span-7">
             {!isImageLoaded && <Skeleton className="aspect-[210/297] w-full rounded" />}
@@ -147,6 +155,10 @@ export default function EventDetail() {
   if (language === "en-US")
     return (
       <>
+        <Helmet>
+          <title>{data?.title} | RCKA</title>
+        </Helmet>
+
         <CardContainer gridcols="lg:grid-cols-12">
           <CardItem colspan="col-span-7">
             {!isImageLoaded && <Skeleton className="aspect-[210/297] w-full rounded" />}
