@@ -9,10 +9,13 @@ import Card from "@/components/common/card/Card";
 import LinkButton from "@/components/common/button/LinkButton";
 import { useFetchEvents } from "@/hooks/events/useFetchEvents";
 import SectionHeader from "@/components/common/SectionHeader";
+import { useLanguage } from "@/hooks/useLanguage";
+import LanguageHelmetTitle from "@/components/language/LanguageHelmetTitle";
 
 export default function Events() {
   const { data, isLoading, isError } = useFetchEvents();
   const [loadedImages, setLoadedImages] = useState<number[]>([]);
+  const { language } = useLanguage();
 
   // 모든 이미지 로드 완료 여부를 확인하는 함수
   const isImageLoaded = (index: number) => loadedImages.includes(index);
@@ -24,6 +27,8 @@ export default function Events() {
   if (isLoading || isError)
     return (
       <>
+        <LanguageHelmetTitle title="Events" />
+
         <SectionHeader title="Upcoming Event">
           <CardContainer grid="md:grid" gridcols="md:grid-cols-2">
             <CardGroup colspan="col-span-1">
@@ -50,6 +55,8 @@ export default function Events() {
 
   return (
     <>
+      <LanguageHelmetTitle title="Events" />
+
       <SectionHeader title="Upcoming Event">
         <CardContainer grid="md:grid" gridcols="sm:grid-cols-2">
           <CardGroup colspan="col-span-1">
@@ -69,7 +76,13 @@ export default function Events() {
                   />
                 </div>
               }
-              footer={<LinkButton to="/events/robocup-open-2025" title="자세히 보기" icon={true} />}
+              footer={
+                <LinkButton
+                  to={`/events/robocup-open-2025${location.search}`}
+                  title={language === "ko-KR" ? "자세히 보기" : "Read More"}
+                  icon="arrow-right"
+                />
+              }
               compact={true}
             />
           </CardGroup>

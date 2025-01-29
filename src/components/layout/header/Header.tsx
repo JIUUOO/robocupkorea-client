@@ -14,9 +14,9 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { Lang } from "@/types/Lang";
 
 export default function Header() {
-  const [isEntered, setIsEntered] = useState(false);
+  const [isMainMenuEntered, setIsMainMenuEntered] = useState(false);
   const [isMainMenuOpen, setIsMainMenuOpen] = useState(true);
-  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const [isAboutMenuOpen, setIsAboutMenuOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
@@ -56,7 +56,7 @@ export default function Header() {
   useLayoutEffect(() => {
     if (isMainMenuOpen) setIsMainMenuOpen(false);
 
-    if (isSubmenuOpen) setIsSubmenuOpen(false);
+    if (isAboutMenuOpen) setIsAboutMenuOpen(false);
 
     if (isMoreOpen) setIsMoreOpen(false);
 
@@ -97,9 +97,22 @@ export default function Header() {
                 "max-md:container max-md:space-y-3": isMainMenuOpen,
               })}
             >
-              <li onMouseEnter={() => setIsEntered(true)} onMouseLeave={() => setIsEntered(false)}>
+              <li
+                onMouseEnter={() => {
+                  if (windowWidth >= 768) {
+                    setIsMainMenuEntered(true);
+                    setIsAboutMenuOpen(true);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (windowWidth >= 768) {
+                    setIsMainMenuEntered(false);
+                    setIsAboutMenuOpen(false);
+                  }
+                }}
+              >
                 <NavLink
-                  onClick={() => setIsEntered(false)}
+                  onClick={() => setIsMainMenuEntered(false)}
                   className={({ isActive }) =>
                     clsx("font-semibold uppercase max-md:text-2xl md:pl-7 md:text-xl md:hover:text-accent", {
                       "text-primary": isActive,
@@ -112,9 +125,11 @@ export default function Header() {
                   <FontAwesomeIcon
                     icon={faCaretDown}
                     onClick={(event) => {
-                      event.preventDefault();
-                      event.stopPropagation();
-                      setIsSubmenuOpen((prev) => !prev);
+                      if (windowWidth < 768) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        setIsAboutMenuOpen((prev) => !prev);
+                      }
                     }}
                     className="relative z-20 px-2 max-md:text-2xl md:text-xl"
                   />
@@ -124,17 +139,17 @@ export default function Header() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{
-                    opacity: windowWidth >= 768 || isSubmenuOpen ? 1 : 0,
+                    opacity: isAboutMenuOpen ? 1 : 0,
                     transition: {
-                      duration: 0.4,
+                      duration: 0.2,
                       ease: "easeOut",
                     },
                   }}
                   className={clsx("", {
-                    "md:absolute md:pt-4": isEntered,
-                    "md:hidden": !isEntered,
-                    "max-md:block": isSubmenuOpen,
-                    "max-md:hidden": !isSubmenuOpen,
+                    "md:absolute md:pt-4": isMainMenuEntered,
+                    "md:hidden": !isMainMenuEntered,
+                    "max-md:block": isAboutMenuOpen,
+                    "max-md:hidden": !isAboutMenuOpen,
                   })}
                 >
                   <div className="flex flex-col gap-1.5 rounded-xl border border-gray bg-white px-4 py-3 max-md:mt-1.5">
@@ -142,7 +157,7 @@ export default function Header() {
                       <div key={menu.id} className="text-left">
                         <NavLink
                           to={`/about${location.search}#${menu.id}`}
-                          onClick={() => setIsEntered(false)}
+                          onClick={() => setIsMainMenuEntered(false)}
                           className="cursor-pointer text-xl font-medium md:hover:text-accent"
                         >
                           {menu.name}
@@ -206,16 +221,18 @@ export default function Header() {
                   { "text-accent": isMoreOpen },
                 )}
                 onClick={() => {
-                  setIsMainMenuOpen(false);
-                  setIsLangOpen(false);
-                  setIsMoreOpen((prev) => !prev);
+                  if (windowWidth < 768) {
+                    setIsMainMenuOpen(false);
+                    setIsLangOpen(false);
+                    setIsMoreOpen((prev) => !prev);
+                  }
                 }}
               />
 
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{
-                  opacity: windowWidth >= 768 || isMoreOpen ? 1 : 0,
+                  opacity: isMoreOpen ? 1 : 0,
                   transition: {
                     duration: 0.2,
                     ease: "easeOut",
@@ -252,16 +269,18 @@ export default function Header() {
                   { "text-accent": isLangOpen },
                 )}
                 onClick={() => {
-                  setIsMainMenuOpen(false);
-                  setIsMoreOpen(false);
-                  setIsLangOpen((prev) => !prev);
+                  if (windowWidth < 768) {
+                    setIsMainMenuOpen(false);
+                    setIsMoreOpen(false);
+                    setIsLangOpen((prev) => !prev);
+                  }
                 }}
               />
 
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{
-                  opacity: windowWidth >= 768 || isLangOpen ? 1 : 0,
+                  opacity: isLangOpen ? 1 : 0,
                   transition: {
                     duration: 0.2,
                     ease: "easeOut",

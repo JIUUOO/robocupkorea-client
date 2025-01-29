@@ -11,7 +11,7 @@ export async function fetchNotices() {
 
 export async function fetchNoticeDetail(id: string) {
   try {
-    const response = await instance.get(`/api/notices/${id}/`);
+    const response = await instance.get(`/api/notices/${id}`);
     return response.data;
   } catch (error) {
     console.log(error);

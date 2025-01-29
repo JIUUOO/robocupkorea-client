@@ -7,6 +7,7 @@ import { useFetchNoticeDetail } from "@/hooks/notices/useFetchNoticeDetail";
 import LinkButton from "@/components/common/button/LinkButton";
 import buildApiBaseUrl from "@/utils/buildApiBaseUrl";
 import Skeleton from "react-loading-skeleton";
+import LanguageHelmetTitle from "@/components/language/LanguageHelmetTitle";
 
 export default function NoticeDetail() {
   const { id } = useParams();
@@ -15,6 +16,8 @@ export default function NoticeDetail() {
   if (isLoading || isError)
     return (
       <>
+        <LanguageHelmetTitle title="Notice" />
+
         <CardContainer>
           <Skeleton className="h-52 w-full rounded" enableAnimation={!isError} />
         </CardContainer>
@@ -23,6 +26,8 @@ export default function NoticeDetail() {
 
   return (
     <>
+      <LanguageHelmetTitle title="Notice" />
+
       <CardContainer>
         <CardItem>
           <Card

@@ -7,9 +7,11 @@ import CardContainer from "@/components/common/card/CardContainer";
 import CardItem from "@/components/common/card/CardItem";
 import SectionHeader from "@/components/common/SectionHeader";
 import { useFetchNotices } from "@/hooks/notices/useFetchNotices";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export default function Notices() {
   const { data, isLoading, isError } = useFetchNotices();
+  const { language } = useLanguage();
 
   if (isLoading || isError)
     return (
@@ -42,7 +44,13 @@ export default function Notices() {
                     {notice.content}
                   </>
                 }
-                footer={<LinkButton title="자세히 보기" to={notice.id} align="center" />}
+                footer={
+                  <LinkButton
+                    title={language === "ko-KR" ? "자세히 보기" : "Read More"}
+                    to={`/notices/${notice.id}${location.search}`}
+                    align="center"
+                  />
+                }
               />
             </CardItem>
           ))}
