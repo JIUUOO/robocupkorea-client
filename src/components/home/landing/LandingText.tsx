@@ -29,7 +29,7 @@ export default function LandingText({ data }: LandingTextProps) {
               <LinkButton
                 to={`/events/${data.id}`}
                 title={language === "ko-KR" ? "자세히 알아보기" : "Read More"}
-                icon={true}
+                icon="arrow-right"
               />
               {/* <NavigateButton to="" title="규정 확인하기" color="white" /> */}
             </div>

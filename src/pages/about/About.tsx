@@ -68,8 +68,7 @@ export default function About() {
                     to="https://www.1365.go.kr/vols/P9140/srvcinfo/volsDnttInfo.do?type=show&nanmmbyId=28584910"
                     external={true}
                     title="자원봉사 모집 확인하기"
-                    icon={true}
-                    direction="up-right"
+                    icon="arrow-up-right"
                     align="center"
                   />
                 }
@@ -145,8 +144,7 @@ export default function About() {
                     to="https://www.1365.go.kr/vols/P9140/srvcinfo/volsDnttInfo.do?type=show&nanmmbyId=28584910"
                     external={true}
                     title="Check Volunteer Opportunities"
-                    icon={true}
-                    direction="up-right"
+                    icon="arrow-up-right"
                     align="center"
                   />
                 }
@@ -166,13 +164,13 @@ export default function About() {
         </div>
 
         {/* News */}
-        <div id="news" className="h-full w-full">
+        {/* <div id="news" className="h-full w-full">
           <CardContainer>
             <CardGroup colspan="col-span-1">
               <Card title="News" subtitle={newsData.length} content={<News />} divider={true} varient="introduce" />
             </CardGroup>
           </CardContainer>
-        </div>
+        </div> */}
 
         {/* Sponsor */}
         <div id="sponsor" className="h-full w-full">
@@ -181,7 +179,7 @@ export default function About() {
               <Card
                 title="Sponsor"
                 content="Sponsorship funds are dedicated to nurturing future roboticists and advancing AI and robotics education."
-                footer={<MailtoButton email="x_iah@naver.com" title="후원 문의" align="center" />}
+                footer={<MailtoButton email="x_iah@naver.com" title="Become a Sponsor" align="center" />}
                 varient="introduce"
               />
             </CardGroup>

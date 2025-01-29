@@ -68,7 +68,7 @@ export default function Leagues() {
                       key={leagueId}
                       title={leagueDetailData.title}
                       content={leagueDetailData.preview}
-                      footer={<LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon={true} />}
+                      footer={<LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon="arrow-right" />}
                     />
                   </CardItem>
                 ))}
@@ -107,7 +107,7 @@ export default function Leagues() {
                       key={leagueId}
                       title={leagueDetailData.title}
                       content={leagueDetailData.preview}
-                      footer={<LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon={true} />}
+                      footer={<LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon="arrow-right" />}
                     />
                   </CardItem>
                 ))}

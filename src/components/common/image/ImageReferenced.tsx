@@ -21,7 +21,7 @@ export default function ImageReferenced({ src, origin }: ImageReferencedProps) {
       <img
         src={src}
         alt={src}
-        className={clsx("h-full w-full rounded transition-opacity duration-500", {
+        className={clsx("w-full rounded transition-opacity duration-500", {
           "opacity-100": isLoaded,
           "opacity-0": !isLoaded,
         })}

@@ -24,7 +24,7 @@ export default function Home() {
             <Card
               title="An Annual International Robotics Competition"
               content="사단법인 한국로보컵협회(이하 RCKA)는 로봇을 연구하는 학생들을 위해 국가적 및 국제적 로봇 이벤트인 로보컵(RoboCup) 리그를 주최하며, 프로젝트 중심의 교육을 증진하는 비영리 단체입니다."
-              footer={<LinkButton to="/about#introduction" title="한국로보컵협회 소개" icon={true} />}
+              footer={<LinkButton to="/about#introduction" title="한국로보컵협회 소개" icon="arrow-right" />}
               varient="introduce"
             />
           </CardGroup>
@@ -35,7 +35,7 @@ export default function Home() {
             <Card
               title="Promoting AI and Robotics Research"
               content="양질의 다양한 AI·로봇 교육 제공에 뜻을 같이 하는 교육 관련 종사자와 자원봉사자들로 구성된 비영리 기관입니다."
-              footer={<LinkButton to="/about#committee" title="운영위원 소개" icon={true} />}
+              footer={<LinkButton to="/about#committee" title="운영위원 소개" icon="arrow-right" />}
               varient="introduce"
             />
           </CardGroup>
@@ -56,7 +56,7 @@ export default function Home() {
               subtitle="Since 2013"
               content={<History />}
               divider={true}
-              footer={<LinkButton to="/about#history" title="연혁 더보기" icon={true} />}
+              footer={<LinkButton to="/about#history" title="연혁 더보기" icon="arrow-right" />}
               varient="introduce"
             />
           </CardGroup>
@@ -69,7 +69,7 @@ export default function Home() {
               subtitle={newsDataCount}
               content={<News />}
               divider={true}
-              footer={<LinkButton to="/about#news" title="보도자료 더보기" icon={true} />}
+              footer={<LinkButton to="/about#news" title="보도자료 더보기" icon="arrow-right" />}
               varient="introduce"
             />
           </CardGroup>
@@ -82,7 +82,7 @@ export default function Home() {
             subtitle="0"
             content={<div className="h-20"></div>}
             divider={true}
-            footer={<LinkButton to="/about" title="공지사항 더보기" icon={true} />}
+            footer={<LinkButton to="/about" title="공지사항 더보기" icon="arrow-right" />}
             varient="introduce"
           />
         </CardGroup>
@@ -93,7 +93,7 @@ export default function Home() {
           <Card
             title="Contact"
             content="중요 업데이트와 공지사항 정보를 알려드립니다."
-            footer={<LinkButton to="" external={true} title="이메일 등록하기" icon={true} direction="up-right" />}
+            footer={<LinkButton to="" external={true} title="이메일 등록하기" icon="arrow-right" direction="up-right" />}
             varient="introduce"
           />
         </CardGroup>
@@ -113,7 +113,9 @@ export default function Home() {
             <Card
               title="An Annual International Robotics Competition"
               content="RoboCup Korea Association (RCKA) is a non-profit organization that hosts national and international RoboCup League events, fostering project-based robotics education for students."
-              footer={<LinkButton to={`/about${location.search}#introduction`} title="Introducing RCKA" icon={true} />}
+              footer={
+                <LinkButton to={`/about${location.search}#introduction`} title="Introducing RCKA" icon="arrow-right" />
+              }
               varient="introduce"
             />
           </CardGroup>
@@ -125,7 +127,11 @@ export default function Home() {
               title="Promoting AI and Robotics Research"
               content="We are a non-profit organization of educators and volunteers committed to delivering high-quality and diverse AI and robotics education."
               footer={
-                <LinkButton to={`/about${location.search}#committee`} title="Introducing Committee" icon={true} />
+                <LinkButton
+                  to={`/about${location.search}#committee`}
+                  title="Introducing Committee"
+                  icon="arrow-right"
+                />
               }
               varient="introduce"
             />
@@ -147,7 +153,7 @@ export default function Home() {
               subtitle="Since 2013"
               content={<History />}
               divider={true}
-              footer={<LinkButton to={`/about${location.search}#history`} title="View History" icon={true} />}
+              footer={<LinkButton to={`/about${location.search}#history`} title="View History" icon="arrow-right" />}
               varient="introduce"
             />
           </CardGroup>
@@ -160,7 +166,7 @@ export default function Home() {
               subtitle={newsDataCount}
               content={<News />}
               divider={true}
-              footer={<LinkButton to="/about#news" title="View Press Releases" icon={true} />}
+              footer={<LinkButton to="/about#news" title="View Press Releases" icon="arrow-right" />}
               varient="introduce"
             />
           </CardGroup>
@@ -173,7 +179,7 @@ export default function Home() {
             subtitle="0"
             content={<div className="h-20"></div>}
             divider={true}
-            footer={<LinkButton to="/about" title="공지사항 더보기" icon={true} />}
+            footer={<LinkButton to="/about" title="공지사항 더보기" icon="arrow-right" />}
             varient="introduce"
           />
         </CardGroup>
@@ -184,7 +190,7 @@ export default function Home() {
           <Card
             title="Contact"
             content="중요 업데이트와 공지사항 정보를 알려드립니다."
-            footer={<LinkButton to="" external={true} title="이메일 등록하기" icon={true} direction="up-right" />}
+            footer={<LinkButton to="" external={true} title="이메일 등록하기" icon="arrow-right" direction="up-right" />}
             varient="introduce"
           />
         </CardGroup>
