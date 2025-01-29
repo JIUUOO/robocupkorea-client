@@ -221,9 +221,11 @@ export default function Header() {
                   { "text-accent": isMoreOpen },
                 )}
                 onClick={() => {
-                  setIsMainMenuOpen(false);
-                  setIsLangOpen(false);
-                  setIsMoreOpen((prev) => !prev);
+                  if (windowWidth < 768) {
+                    setIsMainMenuOpen(false);
+                    setIsLangOpen(false);
+                    setIsMoreOpen((prev) => !prev);
+                  }
                 }}
               />
 
@@ -267,9 +269,11 @@ export default function Header() {
                   { "text-accent": isLangOpen },
                 )}
                 onClick={() => {
-                  setIsMainMenuOpen(false);
-                  setIsMoreOpen(false);
-                  setIsLangOpen((prev) => !prev);
+                  if (windowWidth < 768) {
+                    setIsMainMenuOpen(false);
+                    setIsMoreOpen(false);
+                    setIsLangOpen((prev) => !prev);
+                  }
                 }}
               />
 
