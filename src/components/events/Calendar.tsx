@@ -66,7 +66,8 @@ export default function Calendar({ dates }: CalendarProps) {
     }
 
     return weeks.map((week, weekIndex) => (
-      <div key={weekIndex} className="grid grid-cols-7">
+      // 날짜
+      <div key={weekIndex} className="grid h-full grid-cols-7">
         {week.map((day, dayIndex) => {
           const [, month, dayOfMonth] = day.split("-").map(Number);
 
@@ -75,13 +76,16 @@ export default function Calendar({ dates }: CalendarProps) {
           return (
             <div
               key={dayIndex}
-              className={clsx("r-text-sm text-center font-medium max-lg:py-1.5 lg:py-2", {
-                "bg-primary text-white": day && isInRange(day),
-                "text-transparent": !day,
-                "rounded-bl rounded-tl": day && isInRange(day) && isFirstDay(day),
-                "rounded-br rounded-tr": day && isInRange(day) && isLastDay(day),
-                rounded: day && isInRange(day) && isFirstDay(day) && isLastDay(day),
-              })}
+              className={clsx(
+                "flex items-center justify-center text-center text-sm font-medium sm:text-base md:text-lg lg:text-sm xl:text-base",
+                {
+                  "bg-primary text-white": day && isInRange(day),
+                  "text-transparent": !day,
+                  "rounded-bl rounded-tl": day && isInRange(day) && isFirstDay(day),
+                  "rounded-br rounded-tr": day && isInRange(day) && isLastDay(day),
+                  rounded: day && isInRange(day) && isFirstDay(day) && isLastDay(day),
+                },
+              )}
             >
               {day && formattedDay}
             </div>
@@ -92,15 +96,21 @@ export default function Calendar({ dates }: CalendarProps) {
   };
 
   return (
-    <div className="flex flex-col gap-1.5 rounded bg-neutral">
-      <div className="mb-2 grid grid-cols-7 justify-between">
-        {WEEKDAYS.map((day) => (
-          <div key={day} className="r-text-xs text-dark pt-2 text-center font-semibold">
-            {day}
-          </div>
-        ))}
+    <div className="aspect-[12/6] md:aspect-[12/5] lg:aspect-[12/8] xl:aspect-[12/8]">
+      <div className="flex h-full w-full flex-col rounded bg-neutral p-1">
+        <div className="grid grid-cols-7 justify-between">
+          {/* 요일 */}
+          {WEEKDAYS.map((day) => (
+            <div
+              key={day}
+              className="text-center text-xs font-medium text-dark sm:text-sm md:text-base lg:pt-1 lg:text-xs xl:pt-2 xl:text-sm"
+            >
+              {day}
+            </div>
+          ))}
+        </div>
+        {renderCalendar()}
       </div>
-      {renderCalendar()}
     </div>
   );
 }

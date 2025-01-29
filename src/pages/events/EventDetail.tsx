@@ -33,7 +33,7 @@ export default function EventDetail() {
         <CardItem colspan="col-span-7">
           {!isImageLoaded && <Skeleton className="aspect-[210/297] w-full rounded" />}
           <img
-            className={clsx("w-full transition-opacity duration-500", {
+            className={clsx("w-full rounded transition-opacity duration-500", {
               "opacity-100": isImageLoaded,
               "m-0 hidden p-0 opacity-0": !isImageLoaded,
             })}
@@ -43,12 +43,12 @@ export default function EventDetail() {
           />
         </CardItem>
         <CardItem colspan="col-span-5">
-          <Card title="Schedule" content={<Calendar dates={data?.dates ?? []} />} compact={true} />
+          <Card title="Schedule" content={<Calendar dates={data?.dates ?? []} />} compact={true} nostretch={true} />
           <Card
             title="Location"
             content={
               <iframe
-                className="h-full max-lg:aspect-video"
+                className="h-full rounded max-lg:aspect-video"
                 referrerPolicy="no-referrer-when-downgrade"
                 src={data?.map}
               ></iframe>

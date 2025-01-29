@@ -9,6 +9,7 @@ interface CardProps {
   compact?: boolean;
   divider?: boolean;
   varient?: "default" | "introduce";
+  nostretch?: boolean;
 }
 
 export default function Card({
@@ -19,9 +20,15 @@ export default function Card({
   compact = false,
   divider = false,
   varient = "default",
+  nostretch = false,
 }: CardProps) {
   return (
-    <div className="flex h-full w-full flex-col justify-between gap-8 rounded border border-gray bg-white p-4 md:p-5 xl:p-6">
+    <div
+      className={clsx(
+        "flex w-full flex-col justify-between gap-8 rounded border border-gray bg-white p-4 md:p-5 xl:p-6",
+        { "h-full": !nostretch },
+      )}
+    >
       <div className="flex h-full w-full flex-col">
         {title && (
           <div
