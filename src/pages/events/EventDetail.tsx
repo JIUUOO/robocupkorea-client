@@ -122,14 +122,14 @@ export default function EventDetail() {
                       content={
                         <>
                           {league.preview}
-                          <p>{league.content.props.children?.[0]?.props.children.slice(0, 52)}...</p>
+                          <p>{league.content[language].props.children?.[0]?.props.children.slice(0, 52)}...</p>
                         </>
                       }
                       footer={
                         <>
                           <div className="flex gap-2">
                             <LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon="arrow-right" />
-                            <LinkButton to={`/leagues/${leagueId}`} title="규정 다운로드" icon="file-pdf" />
+                            {/* <LinkButton to={`/leagues/${leagueId}`} title="규정 다운로드" icon="file-pdf" /> */}
                           </div>
                         </>
                       }
@@ -233,13 +233,18 @@ export default function EventDetail() {
                 return (
                   <CardItem key={leagueId}>
                     <Card
-                      title={league.title}
-                      content={<>{league.content}</>}
+                      title={`${league.parent}-${league.title}`}
+                      content={
+                        <>
+                          {league.preview}
+                          <p>{league.content[language].props.children?.[0]?.props.children.slice(0, 52)}...</p>
+                        </>
+                      }
                       footer={
                         <>
                           <div className="flex gap-2">
                             <LinkButton to={`/leagues/${leagueId}`} title="Explore More" icon="arrow-right" />
-                            <LinkButton to={`/leagues/${leagueId}`} title="Download Rules" icon="file-pdf" />
+                            {/* <LinkButton to={`/leagues/${leagueId}`} title="Download Rules" icon="file-pdf" /> */}
                           </div>
                         </>
                       }

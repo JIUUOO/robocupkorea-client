@@ -9,5 +9,16 @@ export const rescuebasicData = {
       <Image src={rescuebasicImage} />
     </>
   ),
-  content: <></>,
+  content: {
+    "ko-KR": (
+      <>
+        <p className="r-text-base"></p>
+      </>
+    ),
+    "en-US": (
+      <>
+        <p className="r-text-base"></p>
+      </>
+    ),
+  },
 };

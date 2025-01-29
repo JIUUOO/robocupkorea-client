@@ -42,9 +42,14 @@ export const leaguesData = {
 
 export type LeagueKeys = keyof typeof leaguesData;
 
+interface Content {
+  "ko-KR": React.ReactNode;
+  "en-US": React.ReactNode;
+}
+
 export interface LeagueDetailData {
   parent: string;
   title: string;
   preview: React.ReactNode;
-  content: React.ReactNode;
+  content: Content;
 }

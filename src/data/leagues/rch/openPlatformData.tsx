@@ -9,9 +9,16 @@ export const openPlatformData = {
       <ImageReferenced src={openPlatformImage} origin="" />
     </>
   ),
-  content: (
-    <>
-      <p className="r-text-base">Open Platform League에서는 모든 커스텀 플랫폼이 허용됩니다.</p>
-    </>
-  ),
+  content: {
+    "ko-KR": (
+      <>
+        <p className="r-text-base">Open Platform League에서는 모든 커스텀 플랫폼이 허용됩니다.</p>
+      </>
+    ),
+    "en-US": (
+      <>
+        <p className="r-text-base">In the Open Platform League, all custom platforms are allowed.</p>
+      </>
+    ),
+  },
 };

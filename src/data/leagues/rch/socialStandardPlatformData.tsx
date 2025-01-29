@@ -9,11 +9,20 @@ export const socialStandardPlatformData = {
       <ImageReferenced src={socialStandardPlatformImage} origin="" />
     </>
   ),
-  content: (
-    <>
-      <p className="r-text-base">
-        Social Standard Platform League는 Softbank Robotics Pepper 표준 플랫폼을 사용합니다.
-      </p>
-    </>
-  ),
+  content: {
+    "ko-KR": (
+      <>
+        <p className="r-text-base">
+          Social Standard Platform League는 Softbank Robotics Pepper 표준 플랫폼을 사용합니다.
+        </p>
+      </>
+    ),
+    "en-US": (
+      <>
+        <p className="r-text-base">
+          The Social Standard Platform League uses the SoftBank Robotics Pepper as its standard platform.
+        </p>
+      </>
+    ),
+  },
 };

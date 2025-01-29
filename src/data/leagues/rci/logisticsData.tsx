@@ -9,5 +9,16 @@ export const logisticsData = {
       <ImageReferenced src={logisticsImage} origin="" />
     </>
   ),
-  content: <></>,
+  content: {
+    "ko-KR": (
+      <>
+        <p className="r-text-base"></p>
+      </>
+    ),
+    "en-US": (
+      <>
+        <p className="r-text-base"></p>
+      </>
+    ),
+  },
 };

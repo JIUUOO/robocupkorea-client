@@ -12,15 +12,28 @@ export const cospaceAutonomousDrivingData = {
       />
     </>
   ),
-  content: (
-    <>
-      <p className="r-text-base">
-        RCAP CoSpace 자율주행 챌린지는 스마트 시티에서의 경로 계획(path planning)에 초점을 맞춘 대회입니다.
-      </p>
-      <p className="r-text-base">
-        이 대회에서 팀들은 자율주행 차량을 프로그래밍하여 스마트 시티의 실제 환경과 가상 환경(CoSpace)을 모두 탐색하도록
-        해야 합니다.
-      </p>
-    </>
-  ),
+  content: {
+    "ko-KR": (
+      <>
+        <p className="r-text-base">
+          RCAP CoSpace 자율주행 챌린지는 스마트 시티에서의 경로 계획(path planning)에 초점을 맞춘 대회입니다.
+        </p>
+        <p className="r-text-base">
+          이 대회에서 팀들은 자율주행 차량을 프로그래밍하여 스마트 시티의 실제 환경과 가상 환경(CoSpace)을 모두
+          탐색하도록 해야 합니다.
+        </p>
+      </>
+    ),
+    "en-US": (
+      <>
+        <p className="r-text-base">
+          RCAP CoSpace 자율주행 챌린지는 스마트 시티에서의 경로 계획(path planning)에 초점을 맞춘 대회입니다.
+        </p>
+        <p className="r-text-base">
+          이 대회에서 팀들은 자율주행 차량을 프로그래밍하여 스마트 시티의 실제 환경과 가상 환경(CoSpace)을 모두
+          탐색하도록 해야 합니다.
+        </p>
+      </>
+    ),
+  },
 };
