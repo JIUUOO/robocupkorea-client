@@ -42,7 +42,9 @@ export default function Notices() {
                     {notice.content}
                   </>
                 }
-                footer={<LinkButton title="자세히 보기" to={notice.id} align="center" />}
+                footer={
+                  <LinkButton title="자세히 보기" to={`/notices/${notice.id}${location.search}`} align="center" />
+                }
               />
             </CardItem>
           ))}

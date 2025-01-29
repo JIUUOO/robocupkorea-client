@@ -80,7 +80,13 @@ export default function Leagues() {
                             <p>{league.content[language].props?.children?.[0]?.props?.children.slice(0, 52)}...</p>
                           </>
                         }
-                        footer={<LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon="arrow-right" />}
+                        footer={
+                          <LinkButton
+                            to={`/leagues/${leagueId}${location.search}`}
+                            title="종목 살펴보기"
+                            icon="arrow-right"
+                          />
+                        }
                       />
                     </CardItem>
                   );
@@ -127,7 +133,13 @@ export default function Leagues() {
                             <p>{league.content[language].props?.children?.[0]?.props?.children.slice(0, 52)}...</p>
                           </>
                         }
-                        footer={<LinkButton to={`/leagues/${leagueId}`} title="Explore League" icon="arrow-right" />}
+                        footer={
+                          <LinkButton
+                            to={`/leagues/${leagueId}${location.search}`}
+                            title="Explore League"
+                            icon="arrow-right"
+                          />
+                        }
                       />
                     </CardItem>
                   );
