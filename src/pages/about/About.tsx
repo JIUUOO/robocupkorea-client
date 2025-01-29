@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { useLenis } from "lenis/react";
 
 import CardContainer from "@/components/common/card/CardContainer";
 import CardGroup from "@/components/common/card/CardItem";
@@ -20,20 +19,18 @@ export default function About() {
   const { language } = useLanguage();
   const location = useLocation();
   const windowWidth = useWindowWidth();
-  const lenis = useLenis();
 
   useEffect(() => {
-    if (lenis && location.hash) {
+    if (location.hash) {
       const hash = location.hash.substring(1);
       const targetElement = document.getElementById(hash);
 
       if (targetElement) {
         const offsetTop = windowWidth >= 768 ? targetElement.offsetTop - 125 : targetElement.offsetTop - 90;
-        lenis.stop();
+
         window.scrollTo({
           top: offsetTop,
         });
-        lenis.start();
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

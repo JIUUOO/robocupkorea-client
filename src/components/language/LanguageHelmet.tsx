@@ -7,7 +7,7 @@ export default function LanguageHelmet() {
 
   if (language === "ko-KR")
     return (
-      <Helmet>
+      <Helmet prioritizeSeoTags>
         <meta
           name="description"
           content="사단법인 한국로보컵협회는 로봇을 연구하는 학생들을 위해 국가적 및 국제적 로봇 이벤트인 로보컵 리그를 주최하며, 프로젝트 중심의 교육을 증진하는 비영리 단체입니다."
@@ -34,7 +34,7 @@ export default function LanguageHelmet() {
     );
   else if (language === "en-US")
     return (
-      <Helmet>
+      <Helmet prioritizeSeoTags>
         <meta
           name="description"
           content="RoboCup Korea Association (RCKA) is a non-profit organization that hosts national and international RoboCup League events, fostering project-based robotics education for students."
