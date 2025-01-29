@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 import Card from "@/components/common/card/Card";
 import CardContainer from "@/components/common/card/CardContainer";
-import CardGroup from "@/components/common/card/CardItem";
+import CardItem from "@/components/common/card/CardItem";
 import LinkButton from "@/components/common/button/LinkButton";
 import { leaguesData, LeagueDetailData } from "@/data/leagues/leaguesData";
 import SectionToggle from "@/components/common/SectionToggle";
@@ -61,16 +61,16 @@ export default function Leagues() {
               exit={{ opacity: 0 }}
             >
               <CardContainer gridcols="lg:grid-cols-2">
-                <CardGroup colspan="col-span-1" gap="sm">
-                  {items.map(([leagueId, leagueDetailData]) => (
+                {items.map(([leagueId, leagueDetailData]) => (
+                  <CardItem colspan="col-span-1" gap="sm">
                     <Card
                       key={leagueId}
                       title={leagueDetailData.title}
                       content={leagueDetailData.preview}
                       footer={<LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon={true} />}
                     />
-                  ))}
-                </CardGroup>
+                  </CardItem>
+                ))}
               </CardContainer>
             </motion.div>
           </SectionToggle>
@@ -99,16 +99,16 @@ export default function Leagues() {
               exit={{ opacity: 0 }}
             >
               <CardContainer gridcols="lg:grid-cols-2">
-                <CardGroup colspan="col-span-1" gap="sm">
-                  {items.map(([leagueId, leagueDetailData]) => (
+                {items.map(([leagueId, leagueDetailData]) => (
+                  <CardItem colspan="col-span-1" gap="sm">
                     <Card
                       key={leagueId}
                       title={leagueDetailData.title}
                       content={leagueDetailData.preview}
                       footer={<LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon={true} />}
                     />
-                  ))}
-                </CardGroup>
+                  </CardItem>
+                ))}
               </CardContainer>
             </motion.div>
           </SectionToggle>
