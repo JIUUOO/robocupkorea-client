@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { motion } from "motion/react";
 
 import Card from "@/components/common/card/Card";
-import CardContainer from "@/components/common/card/CardContainer";
-import CardItem from "@/components/common/card/CardItem";
+import CardGrid from "@/components/common/card/CardGrid";
+import CardColumn from "@/components/common/card/CardColumn";
 import LinkButton from "@/components/common/button/LinkButton";
 import { leaguesData, LeagueDetailData, LeagueKeys } from "@/data/leagues/leaguesData";
 import SectionToggle from "@/components/common/SectionToggle";
 import { useLanguage } from "@/hooks/useLanguage";
+import SEOTitle from "@/components/common/seo/SEOTitle";
+import PageHeader from "@/components/common/PageHeader";
 
 export default function Leagues() {
   const { language } = useLanguage();
@@ -45,109 +46,121 @@ export default function Leagues() {
     groupedLeagues[parent].push([leagueId, leagueDetailData]);
   });
 
-  if (language === "ko-KR")
-    return (
-      <>
-        <Helmet>
-          <title>Leagues | 한국로보컵협회</title>
-        </Helmet>
+  switch (language) {
+    case "ko-KR":
+      return (
+        <>
+          <SEOTitle title="LEAGUES" />
 
-        {Object.entries(groupedLeagues).map(([parent, items]) => (
-          <SectionToggle key={parent} title={parent} isOpen={toggleStates[parent]} onClick={() => handleToggle(parent)}>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: toggleStates[parent] ? 1 : 0,
-                transition: {
-                  duration: 0.4,
-                  ease: "easeOut",
-                },
-              }}
-              exit={{ opacity: 0 }}
-              className="h-full w-full"
+          <PageHeader title="RoboCup Leagues" />
+
+          {Object.entries(groupedLeagues).map(([parent, items]) => (
+            <SectionToggle
+              key={parent}
+              title={parent}
+              isOpen={toggleStates[parent]}
+              onClick={() => handleToggle(parent)}
             >
-              <CardContainer gridcols="lg:grid-cols-2">
-                {items.map(([leagueId, leagueDetailData]) => {
-                  const league = leaguesData[leagueId as LeagueKeys];
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: toggleStates[parent] ? 1 : 0,
+                  transition: {
+                    duration: 0.4,
+                    ease: "easeOut",
+                  },
+                }}
+                exit={{ opacity: 0 }}
+                className="h-full w-full"
+              >
+                <CardGrid gridcols="lg:grid-cols-2">
+                  {items.map(([leagueId, leagueDetailData]) => {
+                    const league = leaguesData[leagueId as LeagueKeys];
 
-                  return (
-                    <CardItem key={leagueId} colspan="col-span-1" gap="sm">
-                      <Card
-                        title={leagueDetailData.title}
-                        content={
-                          <>
-                            {leagueDetailData.preview}
-                            <p>{league.content[language].props?.children?.[0]?.props?.children.slice(0, 52)}...</p>
-                          </>
-                        }
-                        footer={
-                          <LinkButton
-                            to={`/leagues/${leagueId}${location.search}`}
-                            title="종목 살펴보기"
-                            icon="arrow-right"
-                          />
-                        }
-                      />
-                    </CardItem>
-                  );
-                })}
-              </CardContainer>
-            </motion.div>
-          </SectionToggle>
-        ))}
-      </>
-    );
+                    return (
+                      <CardColumn key={leagueId} colspan="col-span-1" gap="sm">
+                        <Card
+                          title={leagueDetailData.title}
+                          content={
+                            <>
+                              {leagueDetailData.preview}
+                              <p>{league.content[language].props?.children?.[0]?.props?.children.slice(0, 52)}...</p>
+                            </>
+                          }
+                          footer={
+                            <LinkButton
+                              to={`/leagues/${leagueId}${location.search}`}
+                              title="종목 살펴보기"
+                              icon="arrow-right"
+                            />
+                          }
+                        />
+                      </CardColumn>
+                    );
+                  })}
+                </CardGrid>
+              </motion.div>
+            </SectionToggle>
+          ))}
+        </>
+      );
 
-  if (language === "en-US")
-    return (
-      <>
-        <Helmet>
-          <title>Leagues | RCKA</title>
-        </Helmet>
+    case "en-US":
+      return (
+        <>
+          <SEOTitle title="LEAGUES" />
 
-        {Object.entries(groupedLeagues).map(([parent, items]) => (
-          <SectionToggle key={parent} title={parent} isOpen={toggleStates[parent]} onClick={() => handleToggle(parent)}>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: toggleStates[parent] ? 1 : 0,
-                transition: {
-                  duration: 0.4,
-                  ease: "easeOut",
-                },
-              }}
-              exit={{ opacity: 0 }}
-              className="h-full w-full"
+          <PageHeader title="RoboCup Leagues" />
+
+          {Object.entries(groupedLeagues).map(([parent, items]) => (
+            <SectionToggle
+              key={parent}
+              title={parent}
+              isOpen={toggleStates[parent]}
+              onClick={() => handleToggle(parent)}
             >
-              <CardContainer gridcols="lg:grid-cols-2">
-                {items.map(([leagueId, leagueDetailData]) => {
-                  const league = leaguesData[leagueId as LeagueKeys];
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: toggleStates[parent] ? 1 : 0,
+                  transition: {
+                    duration: 0.4,
+                    ease: "easeOut",
+                  },
+                }}
+                exit={{ opacity: 0 }}
+                className="h-full w-full"
+              >
+                <CardGrid gridcols="lg:grid-cols-2">
+                  {items.map(([leagueId, leagueDetailData]) => {
+                    const league = leaguesData[leagueId as LeagueKeys];
 
-                  return (
-                    <CardItem key={leagueId} colspan="col-span-1" gap="sm">
-                      <Card
-                        title={leagueDetailData.title}
-                        content={
-                          <>
-                            {leagueDetailData.preview}
-                            <p>{league.content[language].props?.children?.[0]?.props?.children.slice(0, 52)}...</p>
-                          </>
-                        }
-                        footer={
-                          <LinkButton
-                            to={`/leagues/${leagueId}${location.search}`}
-                            title="Explore League"
-                            icon="arrow-right"
-                          />
-                        }
-                      />
-                    </CardItem>
-                  );
-                })}
-              </CardContainer>
-            </motion.div>
-          </SectionToggle>
-        ))}
-      </>
-    );
+                    return (
+                      <CardColumn key={leagueId} colspan="col-span-1" gap="sm">
+                        <Card
+                          title={leagueDetailData.title}
+                          content={
+                            <>
+                              {leagueDetailData.preview}
+                              <p>{league.content[language].props?.children?.[0]?.props?.children.slice(0, 52)}...</p>
+                            </>
+                          }
+                          footer={
+                            <LinkButton
+                              to={`/leagues/${leagueId}${location.search}`}
+                              title="Explore League"
+                              icon="arrow-right"
+                            />
+                          }
+                        />
+                      </CardColumn>
+                    );
+                  })}
+                </CardGrid>
+              </motion.div>
+            </SectionToggle>
+          ))}
+        </>
+      );
+  }
 }

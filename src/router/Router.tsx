@@ -1,9 +1,8 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-import LanguageHelmet from "@/components/language/LanguageHelmet";
-import LanguageRedirect from "@/components/language/LanguageRedirect";
-import Layout from "@/components/layout/Layout";
+import LanguageRedirect from "@/router/LanguageRedirect";
+import Layout from "@/components/common/Layout";
 import NotFound from "@/components/notfound/NotFound";
 
 const Home = lazy(() => import("@/pages/home/Home"));
@@ -21,7 +20,6 @@ const router = createBrowserRouter(
       path: "/",
       element: (
         <>
-          <LanguageHelmet />
           <LanguageRedirect>
             <Layout />
           </LanguageRedirect>

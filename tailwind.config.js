@@ -22,7 +22,7 @@ export default {
         black: "#080504",
         gray: "#e1e1e1",
         dark: "#6C757D",
-        neutral: "#F9F9F9",
+        neutral: "#F7F7F7",
         white: "#ffffff",
       },
       spacing: {

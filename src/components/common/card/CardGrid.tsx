@@ -1,13 +1,13 @@
 import React from "react";
 import clsx from "clsx";
 
-interface CardContainerProps {
+interface CardGridProps {
   grid?: "md:grid" | "lg:grid";
   gridcols?: string;
   children: React.ReactNode;
 }
 
-export default function CardContainer({ grid = "lg:grid", gridcols, children }: CardContainerProps) {
+export default function CardGrid({ grid = "lg:grid", gridcols, children }: CardGridProps) {
   return (
     <div className="container h-full w-full">
       <div

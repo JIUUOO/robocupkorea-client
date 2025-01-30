@@ -2,10 +2,11 @@ import { Outlet, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
-import Header from "@/components/layout/header/Header";
-import Footer from "@/components/layout/footer/Footer";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 import Landing from "@/components/home/landing/Landing";
 import ScrollToTop from "@/components/common/ScrollToTop";
+import LanguageHelmet from "@/components/common/seo/SEOHelmet";
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -13,6 +14,7 @@ export default function Layout() {
 
   return (
     <>
+      <LanguageHelmet />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{

@@ -18,12 +18,7 @@ export default function SectionToggle({ title, isOpen, onClick, children }: Sect
           <div className="flex justify-between text-2xl font-semibold md:text-3xl">
             <div>{title}</div>
             <div className="flex items-center justify-center">
-              <FontAwesomeIcon
-                icon={faCaretDown}
-                className={clsx("aspect-square cursor-pointer transition-transform duration-300", {
-                  "rotate-180": isOpen,
-                })}
-              />
+              <FontAwesomeIcon icon={faCaretDown} className={clsx("aspect-square cursor-pointer")} />
             </div>
           </div>
         </div>
