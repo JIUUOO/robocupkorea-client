@@ -1,4 +1,4 @@
-import LanguageHelmetTitle from "../language/LanguageHelmetTitle";
+import LanguageHelmetTitle from "../common/seo/SEOTitle";
 
 export default function NotFound() {
   return (

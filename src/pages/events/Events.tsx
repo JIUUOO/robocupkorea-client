@@ -3,14 +3,15 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import clsx from "clsx";
 
-import CardContainer from "@/components/common/card/CardContainer";
-import CardGroup from "@/components/common/card/CardItem";
+import CardGrid from "@/components/common/card/CardGrid";
+import CardColumn from "@/components/common/card/CardColumn";
 import Card from "@/components/common/card/Card";
 import LinkButton from "@/components/common/button/LinkButton";
 import { useFetchEvents } from "@/hooks/events/useFetchEvents";
-import SectionHeader from "@/components/common/SectionHeader";
+import CardHeader from "@/components/common/card/CardHeader";
 import { useLanguage } from "@/hooks/useLanguage";
-import LanguageHelmetTitle from "@/components/language/LanguageHelmetTitle";
+import SEOTitle from "@/components/common/seo/SEOTitle";
+import PageHeader from "@/components/common/PageHeader";
 
 export default function Events() {
   const { data, isLoading, isError } = useFetchEvents();
@@ -27,97 +28,71 @@ export default function Events() {
   if (isLoading || isError)
     return (
       <>
-        <LanguageHelmetTitle title="Events" />
+        <SEOTitle title="EVENTS" />
 
-        <SectionHeader title="Upcoming Event">
-          <CardContainer grid="md:grid" gridcols="md:grid-cols-2">
-            <CardGroup colspan="col-span-1">
-              <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
-            </CardGroup>
-            <CardGroup colspan="col-span-1">
-              <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
-            </CardGroup>
-          </CardContainer>
-        </SectionHeader>
+        <PageHeader title="Events" />
 
-        <SectionHeader title="Past Events">
-          <CardContainer grid="md:grid" gridcols="md:grid-cols-2">
-            <CardGroup colspan="col-span-1">
+        <CardGrid grid="md:grid" gridcols="md:grid-cols-2">
+          <CardColumn colspan="col-span-1">
+            <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
+          </CardColumn>
+          <CardColumn colspan="col-span-1">
+            <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
+          </CardColumn>
+        </CardGrid>
+
+        <CardHeader title="Past Events">
+          <CardGrid grid="md:grid" gridcols="md:grid-cols-2">
+            <CardColumn colspan="col-span-1">
               <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
-            </CardGroup>
-            <CardGroup colspan="col-span-1">
+            </CardColumn>
+            <CardColumn colspan="col-span-1">
               <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
-            </CardGroup>
-          </CardContainer>
-        </SectionHeader>
+            </CardColumn>
+          </CardGrid>
+        </CardHeader>
       </>
     );
 
   return (
     <>
-      <LanguageHelmetTitle title="Events" />
+      <SEOTitle title="EVENTS" />
 
-      <SectionHeader title="Upcoming Event">
-        <CardContainer grid="md:grid" gridcols="sm:grid-cols-2">
-          <CardGroup colspan="col-span-1">
-            <Card
-              title={data?.events[0]?.title}
-              content={
-                <div className="aspect-[210/297] w-full">
-                  {!isImageLoaded(0) && <Skeleton className="h-full w-full rounded" />}
-                  <img
-                    src={data?.events[0]?.images[0]}
-                    alt=""
-                    className={clsx("h-full w-full rounded object-cover transition-opacity duration-500", {
-                      "opacity-100": isImageLoaded(0),
-                      "opacity-0": !isImageLoaded(0),
-                    })}
-                    onLoad={() => handleImageLoad(0)}
+      <PageHeader title="RCKA Events" />
+
+      <CardGrid grid="md:grid" gridcols="sm:grid-cols-2">
+        {data &&
+          data.events.map((event, index) => (
+            <CardColumn key={event.id} colspan="col-span-1">
+              <Card
+                title={event.title}
+                content={
+                  <div className="aspect-[210/297] w-full">
+                    {!isImageLoaded(index) && <Skeleton className="h-full w-full rounded" />}
+                    <img
+                      src={event.images[index]}
+                      alt=""
+                      className={clsx("h-full w-full rounded object-cover transition-opacity duration-500", {
+                        "opacity-100": isImageLoaded(index),
+                        "opacity-0": !isImageLoaded(index),
+                      })}
+                      onLoad={() => handleImageLoad(index)}
+                    />
+                  </div>
+                }
+                footer={
+                  <LinkButton
+                    to={`/events/robocup-open-2025${location.search}`}
+                    title={language === "ko-KR" ? "자세히 보기" : "Read More"}
+                    icon="arrow-right"
                   />
-                </div>
-              }
-              footer={
-                <LinkButton
-                  to={`/events/robocup-open-2025${location.search}`}
-                  title={language === "ko-KR" ? "자세히 보기" : "Read More"}
-                  icon="arrow-right"
-                />
-              }
-              compact={true}
-            />
-          </CardGroup>
-        </CardContainer>
-      </SectionHeader>
-
-      <SectionHeader title="Past Events">
-        <CardContainer grid="md:grid" gridcols="sm:grid-cols-2">
-          {data &&
-            data?.events.length > 1 &&
-            data.events.slice(1).map((event, index) => (
-              <CardGroup key={event.id} colspan="col-span-1">
-                <Card
-                  title={event.title}
-                  content={
-                    <div className="aspect-[210/297] w-full">
-                      {!isImageLoaded(index + 1) && <Skeleton className="h-full w-full rounded" />}
-                      <img
-                        src={event.images[0]}
-                        alt=""
-                        className={clsx("h-full w-full rounded object-cover transition-opacity duration-500", {
-                          "opacity-100": isImageLoaded(0),
-                          "opacity-0": !isImageLoaded(0),
-                        })}
-                        onLoad={() => handleImageLoad(index + 1)}
-                      />
-                    </div>
-                  }
-                  compact={true}
-                  varient="default"
-                />
-              </CardGroup>
-            ))}
-        </CardContainer>
-      </SectionHeader>
+                }
+                compact={true}
+                varient="default"
+              />
+            </CardColumn>
+          ))}
+      </CardGrid>
     </>
   );
 }

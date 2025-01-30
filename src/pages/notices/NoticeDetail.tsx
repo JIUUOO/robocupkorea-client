@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 
-import CardContainer from "@/components/common/card/CardContainer";
-import CardItem from "@/components/common/card/CardItem";
+import CardGrid from "@/components/common/card/CardGrid";
+import CardColumn from "@/components/common/card/CardColumn";
 import Card from "@/components/common/card/Card";
 import { useFetchNoticeDetail } from "@/hooks/notices/useFetchNoticeDetail";
 import LinkButton from "@/components/common/button/LinkButton";
 import buildApiBaseUrl from "@/utils/buildApiBaseUrl";
 import Skeleton from "react-loading-skeleton";
-import LanguageHelmetTitle from "@/components/language/LanguageHelmetTitle";
+import SEOTitle from "@/components/common/seo/SEOTitle";
 
 export default function NoticeDetail() {
   const { id } = useParams();
@@ -16,20 +16,20 @@ export default function NoticeDetail() {
   if (isLoading || isError)
     return (
       <>
-        <LanguageHelmetTitle title="Notice" />
+        <SEOTitle title="NOTICE" />
 
-        <CardContainer>
+        <CardGrid>
           <Skeleton className="h-52 w-full rounded" enableAnimation={!isError} />
-        </CardContainer>
+        </CardGrid>
       </>
     );
 
   return (
     <>
-      <LanguageHelmetTitle title="Notice" />
+      <SEOTitle title="NOTICE" />
 
-      <CardContainer>
-        <CardItem>
+      <CardGrid>
+        <CardColumn>
           <Card
             title={data?.title}
             subtitle={
@@ -54,8 +54,8 @@ export default function NoticeDetail() {
               </>
             }
           />
-        </CardItem>
-      </CardContainer>
+        </CardColumn>
+      </CardGrid>
     </>
   );
 }

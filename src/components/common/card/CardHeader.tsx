@@ -1,15 +1,15 @@
 import React from "react";
 
-interface SectionHeaderProps {
+interface CardHeaderProps {
   title: string;
   children: React.ReactNode;
 }
 
-export default function SectionHeader({ title, children }: SectionHeaderProps) {
+export default function CardHeader({ title, children }: CardHeaderProps) {
   return (
     <div className="flex flex-col gap-2.5 xl:gap-3">
       <div className="container">
-        <div className="r-text-3xl font-semibold">{title}</div>
+        <div className="r-text-4xl font-semibold">{title}</div>
       </div>
       {children}
     </div>
