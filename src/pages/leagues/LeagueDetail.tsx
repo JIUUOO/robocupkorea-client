@@ -33,11 +33,10 @@ export default function LeagueDetail() {
                       {leagueDetailData.preview}
                       {leagueDetailData.content[language]}
                       <div className="r-text-xl font-semibold">규정</div>
-                      {data?.attachments[0].name}
                       {!isLoading &&
                         !isError &&
-                        data?.attachments.map((attachment) => (
-                          <LinkButton to={attachment.href} title={attachment.name} />
+                        data?.attachments.map((attachment, index) => (
+                          <LinkButton key={index} to={attachment.rule} title="규정 살펴보기" external={true} />
                         ))}
                     </>
                   }
@@ -66,8 +65,8 @@ export default function LeagueDetail() {
                       <div className="r-text-xl font-semibold">Rule</div>
                       {!isLoading &&
                         !isError &&
-                        data?.attachments.map((attachment) => (
-                          <LinkButton to={attachment.href} title={attachment.name} />
+                        data?.attachments.map((attachment, index) => (
+                          <LinkButton key={index} to={attachment.rule} title="Read Rule" external={true} />
                         ))}
                     </>
                   }

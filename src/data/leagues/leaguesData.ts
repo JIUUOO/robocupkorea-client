@@ -34,10 +34,10 @@ export const leaguesData = {
   "rcj-soccer": soccerData,
   "rcj-onstage": onstageData,
   "rcj-rescue": rescueData,
-  "rcap-cospace-autonomous-driving-data": cospaceAutonomousDrivingData,
-  "rcap-cospace-rescue-data": cospaceResuceData,
-  "rcap-rescuebasic-data": rescuebasicData,
-  "rcap-rescue-mazebasic-data": rescueMazebasicData,
+  "rcap-cospace-autonomous-driving": cospaceAutonomousDrivingData,
+  "rcap-cospace-rescue": cospaceResuceData,
+  "rcap-rescuebasic": rescuebasicData,
+  "rcap-rescue-mazebasic": rescueMazebasicData,
 };
 
 export type LeagueKeys = keyof typeof leaguesData;
