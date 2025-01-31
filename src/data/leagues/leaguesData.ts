@@ -1,41 +1,55 @@
 import { humanoidData } from "@/data/leagues/rcs/humanoidData";
-import { soccerLightweightData } from "./rcj/soccerLightweightData";
-import { soccerOpenData } from "./rcj/soccerOpenData";
-import { rescueLineData } from "./rcj/rescueLineData";
-import { onstageData } from "./rcj/onstageData";
-import { cospaceAutonomousDrivingFSData } from "./rcap/cospaceAutonomousDrivingFSData";
-import { cospaceAutonomousDrivingU12Data } from "./rcap/cospaceAutonomousDrivingU12Data";
-import { cospaceAutonomousDrivingU19Data } from "./rcap/cospaceAutonomousDrivingU19Data";
-import { cospaceRescueU12Data } from "./rcap/cospaceRescueU12Data";
-import { cospaceRescueU19Data } from "./rcap/cospaceRescueU19Data";
-import { rescueBasicU12Data } from "./rcjk/rescueBasicU12Data";
-import { rescueBasicU19Data } from "./rcjk/rescueBasicU19Data";
-import { rescueMazeBasicU12Data } from "./rcjk/rescueMazeBasicU12Data";
-import { rescueMazeBasicU19Data } from "./rcjk/rescueMazeBasicU19Data";
+import { standardPlatformData } from "@/data/leagues/rcs/standardPlatformData";
+import { middleSizeData } from "@/data/leagues/rcs/middleSizeData";
+import { smallSizeData } from "@/data/leagues/rcs/smallSizeData";
+import { rcsSimulationData } from "@/data/leagues/rcs/rcsSimulationData";
+import { robotData } from "@/data/leagues/rcr/robotData";
+import { rcrSimulationData } from "@/data/leagues/rcr/rcrSimulationData";
+import { openPlatformData } from "@/data/leagues/rch/openPlatformData";
+import { domesticStandardPlatformData } from "@/data/leagues/rch/domesticStandardPlatformData";
+import { socialStandardPlatformData } from "@/data/leagues/rch/socialStandardPlatformData";
+import { roboCupAtWorkData } from "@/data/leagues/rci/roboCupAtWorkData";
+import { logisticsData } from "@/data/leagues/rci/logisticsData";
+import { soccerData } from "@/data/leagues/rcj/soccerData";
+import { onstageData } from "@/data/leagues/rcj/onstageData";
+import { rescueData } from "@/data/leagues/rcj/rescueData";
+import { cospaceAutonomousDrivingData } from "@/data/leagues/rcap/cospaceAutonomousDrivingData";
+import { cospaceResuceData } from "@/data/leagues/rcap/cospaceResuceData";
+import { rescuebasicData } from "@/data/leagues/rcjk/rescuebasicData";
+import { rescueMazebasicData } from "@/data/leagues/rcjk/rescueMazebasicData";
 
 export const leaguesData = {
   "rcs-humanoid": humanoidData,
-  "rcj-soccer-lightweight": soccerLightweightData,
-  "rcj-soccer-open": soccerOpenData,
-  "rcj-rescue-line": rescueLineData,
+  "rcs-standard-platform": standardPlatformData,
+  "rcs-middle-size": middleSizeData,
+  "rcs-small-size": smallSizeData,
+  "rcs-simulation": rcsSimulationData,
+  "rcr-robot": robotData,
+  "rcr-simulation": rcrSimulationData,
+  "rch-open-platform": openPlatformData,
+  "rch-domestic-standard-platform": domesticStandardPlatformData,
+  "rch-social-standard-platform": socialStandardPlatformData,
+  "rci-robocup-at-work": roboCupAtWorkData,
+  "rci-logistics": logisticsData,
+  "rcj-soccer": soccerData,
   "rcj-onstage": onstageData,
-  "rcap-cospace-autonomous-driving-fs": cospaceAutonomousDrivingFSData,
-  "rcap-cospace-autonomous-driving-u12": cospaceAutonomousDrivingU12Data,
-  "rcap-cospace-autonomous-driving-u19": cospaceAutonomousDrivingU19Data,
-  "rcap-cospace-rescue-u12": cospaceRescueU12Data,
-  "rcap-cospace-rescue-u19": cospaceRescueU19Data,
-  "rcjk-rescue-basic-u12": rescueBasicU12Data,
-  "rcjk-rescue-basic-u19": rescueBasicU19Data,
-  "rcjk-rescue-mazebasic-u12": rescueMazeBasicU12Data,
-  "rcjk-rescue-mazebasic-u19": rescueMazeBasicU19Data,
-} as const;
+  "rcj-rescue": rescueData,
+  "rcap-cospace-autonomous-driving": cospaceAutonomousDrivingData,
+  "rcap-cospace-rescue": cospaceResuceData,
+  "rcap-rescuebasic": rescuebasicData,
+  "rcap-rescue-mazebasic": rescueMazebasicData,
+};
 
 export type LeagueKeys = keyof typeof leaguesData;
+
+interface Content {
+  "ko-KR": React.ReactNode;
+  "en-US": React.ReactNode;
+}
 
 export interface LeagueDetailData {
   parent: string;
   title: string;
-  thumbnail: string;
-  content: string[];
-  rule: string;
+  preview: React.ReactNode;
+  content: Content;
 }

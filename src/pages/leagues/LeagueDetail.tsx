@@ -1,44 +1,80 @@
 import { useParams } from "react-router-dom";
-import LinkButton from "@/components/common/button/LinkButton";
+
 import Card from "@/components/common/card/Card";
-import CardContainer from "@/components/common/card/CardContainer";
-import CardGroup from "@/components/common/card/CardItem";
+import CardGrid from "@/components/common/card/CardGrid";
+import CardColumn from "@/components/common/card/CardColumn";
 import { leaguesData, LeagueKeys, LeagueDetailData } from "@/data/leagues/leaguesData";
-import SectionHeader from "@/components/common/SectionHeader";
-import Thumbnail from "@/components/leagues/Thumbnail";
+import CardHeader from "@/components/common/card/CardHeader";
+import { useLanguage } from "@/hooks/useLanguage";
+import SEOTitle from "@/components/common/seo/SEOTitle";
+import LinkButton from "@/components/common/button/LinkButton";
+import { useLeagueAttachmentsMeta } from "@/hooks/leagues/useLeagueAttachmentsMeta";
 
 export default function LeagueDetail() {
   const { id } = useParams<{ id: LeagueKeys }>();
+  const leagueDetailData: LeagueDetailData = leaguesData[id!];
+  const { data, isLoading, isError } = useLeagueAttachmentsMeta(id!);
+  const { language } = useLanguage();
 
-  if (!id) {
-    return <div>Page not found</div>;
+  switch (language) {
+    case "ko-KR":
+      return (
+        <>
+          <SEOTitle title={leagueDetailData.title} />
+
+          <CardHeader title={leagueDetailData.parent}>
+            <CardGrid>
+              <CardColumn>
+                <Card
+                  title={leagueDetailData.title}
+                  content={
+                    <>
+                      <div className="r-text-xl font-semibold">개요</div>
+                      {leagueDetailData.preview}
+                      {leagueDetailData.content[language]}
+                      <div className="r-text-xl font-semibold">규정</div>
+                      {!isLoading &&
+                        !isError &&
+                        data?.attachments.map((attachment, index) => (
+                          <LinkButton key={index} to={attachment.rule} title="규정 살펴보기" external={true} />
+                        ))}
+                    </>
+                  }
+                />
+              </CardColumn>
+            </CardGrid>
+          </CardHeader>
+        </>
+      );
+
+    case "en-US":
+      return (
+        <>
+          <SEOTitle title={leagueDetailData.title} />
+
+          <CardHeader title={leagueDetailData.parent}>
+            <CardGrid>
+              <CardColumn>
+                <Card
+                  title={leagueDetailData.title}
+                  content={
+                    <>
+                      <div className="r-text-xl font-semibold">Introduction</div>
+                      {leagueDetailData.preview}
+                      {leagueDetailData.content[language]}
+                      <div className="r-text-xl font-semibold">Rule</div>
+                      {!isLoading &&
+                        !isError &&
+                        data?.attachments.map((attachment, index) => (
+                          <LinkButton key={index} to={attachment.rule} title="Read Rule" external={true} />
+                        ))}
+                    </>
+                  }
+                />
+              </CardColumn>
+            </CardGrid>
+          </CardHeader>
+        </>
+      );
   }
-
-  const leagueDetailData: LeagueDetailData = leaguesData[id];
-
-  return (
-    <>
-      <SectionHeader title={leagueDetailData.parent}>
-        <CardContainer>
-          <CardGroup>
-            <Card
-              title={leagueDetailData.title}
-              content={
-                <>
-                  <div className="r-text-xl font-semibold">개요</div>
-                  <Thumbnail src={leagueDetailData.thumbnail} />
-                  {leagueDetailData.content.map((item) => (
-                    <p>{item}</p>
-                  ))}
-
-                  <div className="r-text-xl font-semibold">규정</div>
-                  <LinkButton to="" external={true} title="규정 살펴보기" />
-                </>
-              }
-            />
-          </CardGroup>
-        </CardContainer>
-      </SectionHeader>
-    </>
-  );
 }

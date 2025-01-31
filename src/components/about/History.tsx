@@ -1,12 +1,21 @@
 import { historyData } from "@/data/about/historyData";
+import { useLanguage } from "@/hooks/useLanguage";
 
-export default function History() {
+interface HistoryProps {
+  count?: undefined | number;
+}
+
+export default function History({ count }: HistoryProps) {
+  const { language } = useLanguage();
+
+  const historyRecords = count ? historyData[language].slice(0, count) : historyData[language];
+
   return (
     <div className="flex flex-col gap-12 lg:gap-16">
-      {historyData.map((record) => (
-        <div key={record.year} className="flex gap-8 lg:gap-16">
-          <div className="r-text-2xl flex justify-end break-keep font-bold">{record.year}년</div>
-          <div className="flex flex-wrap gap-8 lg:gap-16">
+      {historyRecords.map((record) => (
+        <div key={record.year} className="flex w-full lg:gap-20">
+          <div className="r-text-2xl flex justify-end pl-2 pr-6 font-semibold">{record.year}</div>
+          <div className="gird-cols-1 grid w-full gap-8 md:grid-cols-2 lg:gap-16 xl:grid-cols-3">
             {record.events.map((event) => (
               <div key={event.title} className="flex w-56 flex-col gap-1 md:w-64 xl:w-80">
                 <div className="r-text-base font-semibold">

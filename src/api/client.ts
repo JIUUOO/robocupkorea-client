@@ -8,6 +8,15 @@ export const instance = axios.create({
   },
 });
 
+instance.interceptors.request.use(function (config) {
+  const params = new URLSearchParams(location.search);
+  const lang = params.get("lang");
+
+  config.params = { lang: lang };
+
+  return config;
+});
+
 instance.interceptors.response.use(
   function (response) {
     console.log(response.data);
