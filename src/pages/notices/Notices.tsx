@@ -21,7 +21,7 @@ export default function Notices() {
 
         <PageHeader title="Notices" />
 
-        <CardGrid grid="md:grid" gridcols="md:grid-cols-2 lg:grid-cols-3">
+        <CardGrid grid="md:grid" gridcols="md:grid-cols-2 xl:grid-cols-3">
           <Skeleton className="h-52 w-full rounded" enableAnimation={!isError} />
           <Skeleton className="h-52 w-full rounded" enableAnimation={!isError} />
         </CardGrid>
@@ -34,7 +34,7 @@ export default function Notices() {
 
       <PageHeader title="Notices" />
 
-      <CardGrid grid="md:grid" gridcols="md:grid-cols-2 lg:grid-cols-3">
+      <CardGrid grid="md:grid" gridcols="md:grid-cols-2 xl:grid-cols-3">
         {data?.notices.map((notice) => (
           <CardColumn key={notice.id} colspan="col-span-1">
             <Card
