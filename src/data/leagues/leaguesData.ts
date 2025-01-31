@@ -36,8 +36,8 @@ export const leaguesData = {
   "rcj-rescue": rescueData,
   "rcap-cospace-autonomous-driving": cospaceAutonomousDrivingData,
   "rcap-cospace-rescue": cospaceResuceData,
-  "rcap-rescuebasic": rescuebasicData,
-  "rcap-rescue-mazebasic": rescueMazebasicData,
+  "rcjk-rescuebasic": rescuebasicData,
+  "rcjk-rescue-mazebasic": rescueMazebasicData,
 };
 
 export type LeagueKeys = keyof typeof leaguesData;
