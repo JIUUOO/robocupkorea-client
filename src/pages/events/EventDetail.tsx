@@ -134,7 +134,11 @@ export default function EventDetail() {
                         footer={
                           <>
                             <div className="flex gap-2">
-                              <LinkButton to={`/leagues/${leagueId}`} title="종목 살펴보기" icon="arrow-right" />
+                              <LinkButton
+                                to={`/leagues/${leagueId}${location.search}`}
+                                title="종목 살펴보기"
+                                icon="arrow-right"
+                              />
                               {/* <LinkButton to={`/leagues/${leagueId}`} title="규정 다운로드" icon="file-pdf" /> */}
                             </div>
                           </>
@@ -251,7 +255,11 @@ export default function EventDetail() {
                         footer={
                           <>
                             <div className="flex gap-2">
-                              <LinkButton to={`/leagues/${leagueId}`} title="Explore More" icon="arrow-right" />
+                              <LinkButton
+                                to={`/leagues/${leagueId}${location.search}`}
+                                title="Explore More"
+                                icon="arrow-right"
+                              />
                               {/* <LinkButton to={`/leagues/${leagueId}`} title="Download Rules" icon="file-pdf" /> */}
                             </div>
                           </>
