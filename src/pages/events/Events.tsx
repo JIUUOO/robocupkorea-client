@@ -8,7 +8,6 @@ import CardColumn from "@/components/common/card/CardColumn";
 import Card from "@/components/common/card/Card";
 import LinkButton from "@/components/common/button/LinkButton";
 import { useFetchEvents } from "@/hooks/events/useFetchEvents";
-import CardHeader from "@/components/common/card/CardHeader";
 import { useLanguage } from "@/hooks/useLanguage";
 import SEOTitle from "@/components/common/seo/SEOTitle";
 import PageHeader from "@/components/common/PageHeader";
@@ -30,27 +29,19 @@ export default function Events() {
       <>
         <SEOTitle title="EVENTS" />
 
-        <PageHeader title="Events" />
+        <PageHeader title="RCKA Events" />
 
         <CardGrid grid="md:grid" gridcols="md:grid-cols-2">
           <CardColumn colspan="col-span-1">
-            <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
-          </CardColumn>
-          <CardColumn colspan="col-span-1">
-            <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
+            <Card
+              title="&nbsp;"
+              content={<Skeleton className="aspect-[210/297] w-full rounded" enableAnimation={!isError} />}
+              footer="&nbsp;"
+              compact={true}
+              varient="default"
+            />
           </CardColumn>
         </CardGrid>
-
-        <CardHeader title="Past Events">
-          <CardGrid grid="md:grid" gridcols="md:grid-cols-2">
-            <CardColumn colspan="col-span-1">
-              <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
-            </CardColumn>
-            <CardColumn colspan="col-span-1">
-              <Skeleton className="aspect-[177/297] w-full rounded" enableAnimation={!isError} />
-            </CardColumn>
-          </CardGrid>
-        </CardHeader>
       </>
     );
 

@@ -39,15 +39,10 @@ export default function Notices() {
           <CardColumn key={notice.id} colspan="col-span-1">
             <Card
               title={notice.title}
-              subtitle={
-                <div className="flex h-7 w-7 items-center justify-center rounded bg-black">
-                  <span className="text-white">{notice.attachmentsCount}</span>
-                </div>
-              }
               content={
                 <>
                   <div className="r-text-sm">{notice.date}</div>
-                  {notice.content}
+                  {notice.content.slice(0, 26)}...
                 </>
               }
               footer={
