@@ -27,7 +27,7 @@ export default function LandingText({ data }: LandingTextProps) {
           <div className="flex items-end">
             <div className="flex gap-4 max-md:justify-center">
               <LinkButton
-                to={`/events/${data.id}`}
+                to={`/events/${data.id}${location.search}`}
                 title={language === "ko-KR" ? "자세히 알아보기" : "Read More"}
                 icon="arrow-right"
               />
