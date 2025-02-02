@@ -4,7 +4,7 @@
 
 <img width="100%" src="https://github.com/JIUUOO/robocupkorea-client/blob/main/public/images/banner.jpg?raw=true">
 
-## 개발자
+## 💻 Developers
 
 | PM & FE | BE |
 | --- | --- |
@@ -12,3 +12,37 @@
 | 민지우 | 이재혁 |
 | [@JIUUOO](https://github.com/JIUUOO) | [@jaehyuk2-lee](https://github.com/jaehyuk2-lee) |
 
+## 🛠️ System Architecture
+
+<img width="100%" src="https://private-user-images.githubusercontent.com/90130563/408849356-79ae43fc-c8e3-497f-9cd5-4cca710154cb.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzg0ODAxNjksIm5iZiI6MTczODQ3OTg2OSwicGF0aCI6Ii85MDEzMDU2My80MDg4NDkzNTYtNzlhZTQzZmMtYzhlMy00OTdmLTljZDUtNGNjYTcxMDE1NGNiLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjAyVDA3MDQyOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU0NWJhMzQwOTgzYzZjNDRiZGY4YWIxNjVkY2ViM2MwNmU2NGJmOWExZTU2OWJhNTJkOTRmODI4ZjYyNTQ4YWMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.H6BOORSpdCFwkY1vZh-QVlMm8osYbwC_4vnaqBlWT84">
+
+## 📦 Frontend Libraries
+
+| 라이브러리               | 버전    | 설명                                          |
+| ------------------------ | ------- | --------------------------------------------- |
+| react                    | 18.3.1  | 인터페이스를 구축하기 위한 라이브러리         |
+| react-dom                | 18.3.1  | React 컴포넌트의 DOM 렌더링 도구              |
+| react-router-dom         | 6.28.1  | React 기반의 라우팅 라이브러리                |
+| @tanstack/react-query    | 5.63.0  | 서버 상태 관리를 위한 라이브러리              |
+| zustand                  | 5.0.3   | 간단하고 빠른 전역 상태 관리 라이브러리       |
+| axios                    | 1.7.9   | HTTP 요청을 처리하는 라이브러리               |
+| clsx                     | 2.1.1   | 조건부 클래스를 쉽게 처리하는 유틸리티 라이브러리 |
+| motion                   | 12.0.5  | 애니메이션 및 트랜지션을 처리하는 라이브러리   |
+| @fortawesome/react-fontawesome | 0.2.2 | Font Awesome 아이콘을 React에서 사용하기 위한 라이브러리 |
+| react-helmet-async       | 2.0.5   | 페이지 메타 태그 관리를 위한 라이브러리       |
+| react-loading-skeleton   | 3.5.0   | 로딩 스켈레톤 UI를 쉽게 구현하는 라이브러리    |
+| react-player             | 2.16.0  | 다양한 형식의 미디어 파일을 처리하는 플레이어 라이브러리 |
+| msw                      | 2.7.0   | API Mocking 라이브러리                        |
+
+## 🎯 Commit Rules
+
+🎨 Style: 코드 형식 수정, 기능 변경이 없는 경우  
+🔥 Remove: 코드 파일 제거  
+🐛 Fix: 버그 수정  
+✨ Feat: 새로운 기능 추가  
+📝 Docs: 문서 수정  
+💄 Design: 디자인 변경  
+✅ Test: 테스트 코드  
+♻️ Refactor: 코드 구조 재구성  
+🔧 Chore: 빌드, 패키지 매니저 수정 등 기타 작업  
+🚚 Rename: 리소스 이동, 이름 변경
