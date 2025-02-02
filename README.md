@@ -1,50 +1,14 @@
-# React + TypeScript + Vite
+# 한국로보컵협회의 공식 웹사이트 프론트엔드 레포지토리입니다.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+사단법인 한국로보컵협회는 로봇을 연구하는 학생들을 위해 국가적 및 국제적 로봇 이벤트인 로보컵 리그를 주최하며, 프로젝트 중심의 교육을 증진하는 비영리 단체입니다.
 
-Currently, two official plugins are available:
+<img width="100%" src="https://github.com/JIUUOO/robocupkorea-client/blob/main/public/images/banner.jpg?raw=true">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 개발자
 
-## Expanding the ESLint configuration
+| PM & FE | BE |
+| --- | --- |
+| <img src="https://github.com/JIUUOO.png" width="200"/> | <img src="https://github.com/jaehyuk2-lee.png" width="200"/> |
+| 민지우 | 이재혁 |
+| [@JIUUOO](https://github.com/JIUUOO) | [@jaehyuk2-lee](https://github.com/jaehyuk2-lee) |
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
