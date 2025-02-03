@@ -8,13 +8,13 @@
 
 | PM & FE | BE |
 | --- | --- |
-| <img src="https://github.com/JIUUOO.png" width="200"/> | <img src="https://github.com/jaehyuk2-lee.png" width="200"/> |
+| <img src="https://github.com/JIUUOO.png" width="200"/> | <img src="https://github.com/Hyuk-II.png" width="200"/> |
 | 민지우 | 이재혁 |
-| [@JIUUOO](https://github.com/JIUUOO) | [@jaehyuk2-lee](https://github.com/jaehyuk2-lee) |
+| [@JIUUOO](https://github.com/JIUUOO) | [@Hyuk-II](https://github.com/Hyuk-II) |
 
 ## 🛠️ System Architecture
 
-<img width="100%" src="https://private-user-images.githubusercontent.com/90130563/408849356-79ae43fc-c8e3-497f-9cd5-4cca710154cb.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzg0ODAxNjksIm5iZiI6MTczODQ3OTg2OSwicGF0aCI6Ii85MDEzMDU2My80MDg4NDkzNTYtNzlhZTQzZmMtYzhlMy00OTdmLTljZDUtNGNjYTcxMDE1NGNiLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjAyVDA3MDQyOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU0NWJhMzQwOTgzYzZjNDRiZGY4YWIxNjVkY2ViM2MwNmU2NGJmOWExZTU2OWJhNTJkOTRmODI4ZjYyNTQ4YWMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.H6BOORSpdCFwkY1vZh-QVlMm8osYbwC_4vnaqBlWT84">
+<img width="100%" src="https://private-user-images.githubusercontent.com/90130563/409133457-ee43233f-318e-4c89-ac49-d226886f3b38.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mzg1OTE0MjcsIm5iZiI6MTczODU5MTEyNywicGF0aCI6Ii85MDEzMDU2My80MDkxMzM0NTctZWU0MzIzM2YtMzE4ZS00Yzg5LWFjNDktZDIyNjg4NmYzYjM4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjAzVDEzNTg0N1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQ5ZDBlODAzMWUwYWViODYyYzhmNjkzYjYyYzgxZDc1NGQwMmM5N2Q0Y2RmYmNkNGU1OWViOTBhZDg2YzQ5MmQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.EnAHxEzlPc55NEPNPXq_SKEly46EhynQu3AhSImrEmU">
 
 ## 📦 Frontend Libraries
 
