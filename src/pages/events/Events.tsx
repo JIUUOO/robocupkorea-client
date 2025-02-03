@@ -65,7 +65,7 @@ export default function Events() {
                       alt=""
                       className={clsx("h-full w-full rounded object-cover transition-opacity duration-500", {
                         "opacity-100": isImageLoaded(index),
-                        "opacity-0": !isImageLoaded(index),
+                        "hidden opacity-0": !isImageLoaded(index),
                       })}
                       onLoad={() => handleImageLoad(index)}
                     />
@@ -73,7 +73,7 @@ export default function Events() {
                 }
                 footer={
                   <LinkButton
-                    to={`/events/robocup-open-2025${location.search}`}
+                    to={`/events/${event.id}${location.search}`}
                     title={language === "ko-KR" ? "자세히 보기" : "Read More"}
                     icon="arrow-right"
                   />
