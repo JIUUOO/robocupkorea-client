@@ -11,4 +11,5 @@ export interface EventDetailResponse {
   }[];
   images: string[];
   leagues: string[];
+  volunteer: string;
 }
