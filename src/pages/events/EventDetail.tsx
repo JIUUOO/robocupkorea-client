@@ -151,6 +151,24 @@ export default function EventDetail() {
               })}
             </CardGrid>
           </CardHeader>
+
+          {data?.volunteer && (
+            <CardGrid>
+              <CardColumn>
+                <Card
+                  title="행사준비 및 진행 안전요원"
+                  content={
+                    <>
+                      <p className="r-text-base">행사장 안전 관리 및 진행 보조 봉사자를 모집합니다.</p>
+                    </>
+                  }
+                  footer={
+                    <LinkButton to={data?.volunteer} title="자원봉사 신청하기" external={true} icon="arrow-up-right" />
+                  }
+                />
+              </CardColumn>
+            </CardGrid>
+          )}
         </>
       );
 
