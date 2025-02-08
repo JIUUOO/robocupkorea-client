@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import clsx from "clsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import Card from "@/components/common/card/Card";
 import CardGrid from "@/components/common/card/CardGrid";
@@ -31,6 +33,8 @@ export default function EventDetail() {
         </CardGrid>
       </>
     );
+
+  const officialLink = data?.others.find((o) => o.official)?.official;
 
   switch (language) {
     case "ko-KR":
@@ -89,6 +93,15 @@ export default function EventDetail() {
                         <div>국제적인 무대로의 출전권 획득</div>
                       </div>
                     </div>
+
+                    {officialLink && (
+                      <div className="pt-4 font-medium underline">
+                        <a href={officialLink} target="_blank" rel="noopener noreferrer">
+                          <span>공식 로보컵 협회</span>
+                          <FontAwesomeIcon icon={faArrowRight} className="-rotate-45" />
+                        </a>
+                      </div>
+                    )}
                   </>
                 }
                 footer={
@@ -228,6 +241,15 @@ export default function EventDetail() {
                         <div>An opportunity to qualify for international competitions.</div>
                       </div>
                     </div>
+
+                    {officialLink && (
+                      <div className="pt-4 font-medium underline">
+                        <a href={officialLink} target="_blank" rel="noopener noreferrer">
+                          <span>RoboCup Federation Official</span>
+                          <FontAwesomeIcon icon={faArrowRight} className="-rotate-45" />
+                        </a>
+                      </div>
+                    )}
                   </>
                 }
                 footer={

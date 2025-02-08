@@ -5,11 +5,12 @@ export interface EventDetailResponse {
   location: string;
   map: string;
   register: string;
-  others: {
-    title: string;
-    description: string;
-  }[];
+  others: OtherDetail[];
   images: string[];
   leagues: string[];
   volunteer: string;
+}
+
+interface OtherDetail {
+  official?: string;
 }
