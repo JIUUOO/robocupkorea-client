@@ -3,26 +3,45 @@
   <url>
     <loc>https://robocupkorea.org/</loc>
     <priority>1.0</priority>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2025-02-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://robocupkorea.org/?lang=ko-KR" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://robocupkorea.org/?lang=en-US" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robocupkorea.org/" />
   </url>
   <url>
     <loc>https://robocupkorea.org/about</loc>
     <priority>0.8</priority>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2025-02-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://robocupkorea.org/about?lang=ko-KR" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://robocupkorea.org/about?lang=en-US" />
   </url>
   <url>
     <loc>https://robocupkorea.org/leagues/</loc>
     <priority>0.8</priority>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2025-02-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://robocupkorea.org/leagues/?lang=ko-KR" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://robocupkorea.org/leagues/?lang=en-US" />
   </url>
   <url>
     <loc>https://robocupkorea.org/events/</loc>
     <priority>0.8</priority>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2025-02-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://robocupkorea.org/events/?lang=ko-KR" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://robocupkorea.org/events/?lang=en-US" />
+  </url>
+  <url>
+    <loc>https://robocupkorea.org/news/</loc>
+    <priority>0.8</priority>
+    <lastmod>2025-02-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://robocupkorea.org/news/?lang=ko-KR" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://robocupkorea.org/news/?lang=en-US" />
   </url>
   <url>
     <loc>https://robocupkorea.org/notices/</loc>
     <priority>0.8</priority>
-    <lastmod>2025-02-01</lastmod>
+    <lastmod>2025-02-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://robocupkorea.org/notices/?lang=ko-KR" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://robocupkorea.org/notices/?lang=en-US" />
   </url>
+
 </urlset>

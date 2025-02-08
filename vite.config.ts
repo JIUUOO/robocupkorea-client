@@ -10,6 +10,10 @@ export default defineConfig({
   base: "/",
   server: {
     port: 5173,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "font/woff2", // MIME 타입 설정
+    },
   },
   resolve: {
     alias: {
