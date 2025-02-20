@@ -2,13 +2,19 @@ import { useLayoutEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCaretDown, faEllipsis, faGlobe, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faCaretDown,
+  // faEllipsis,
+  faGlobe,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
 import logoRcka from "@/assets/images/logos/rcka.png";
 import logoRobocup from "@/assets/images/logos/robocup.png";
-import logoRobocupJunior from "@/assets/images/logos/robocup-junior.png";
-import logoRcap from "@/assets/images/logos/rcap.png";
+// import logoRobocupJunior from "@/assets/images/logos/robocup-junior.png";
+// import logoRcap from "@/assets/images/logos/rcap.png";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Lang } from "@/types/Lang";
@@ -17,7 +23,7 @@ export default function Header() {
   const [isMainMenuEntered, setIsMainMenuEntered] = useState(false);
   const [isMainMenuOpen, setIsMainMenuOpen] = useState(true);
   const [isAboutMenuOpen, setIsAboutMenuOpen] = useState(false);
-  const [isMoreOpen, setIsMoreOpen] = useState(false);
+  // const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
   const windowWidth = useWindowWidth();
@@ -58,7 +64,7 @@ export default function Header() {
 
     if (isAboutMenuOpen) setIsAboutMenuOpen(false);
 
-    if (isMoreOpen) setIsMoreOpen(false);
+    // if (isMoreOpen) setIsMoreOpen(false);
 
     if (isLangOpen) setIsLangOpen(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -210,7 +216,7 @@ export default function Header() {
           </motion.div>
 
           <div className="flex items-center gap-4">
-            <div
+            {/* <div
               onMouseEnter={() => windowWidth >= 768 && setIsMoreOpen(true)}
               onMouseLeave={() => windowWidth >= 768 && setIsMoreOpen(false)}
             >
@@ -256,7 +262,15 @@ export default function Header() {
                   </a>
                 </div>
               </motion.div>
-            </div>
+            </div> */}
+
+            <a href="https://www.robocup.org/" target="_blank">
+              <img
+                src={logoRobocup}
+                className="cursor-pointer rounded-full bg-neutral object-contain px-1 py-1 max-lg:h-12 lg:h-14"
+                alt="ROBOCUP_FEDERATION"
+              />
+            </a>
 
             <div
               onMouseEnter={() => windowWidth >= 768 && setIsLangOpen(true)}
@@ -271,7 +285,7 @@ export default function Header() {
                 onClick={() => {
                   if (windowWidth < 768) {
                     setIsMainMenuOpen(false);
-                    setIsMoreOpen(false);
+                    // setIsMoreOpen(false);
                     setIsLangOpen((prev) => !prev);
                   }
                 }}
@@ -321,7 +335,7 @@ export default function Header() {
               icon={isMainMenuOpen ? faTimes : faBars}
               className="flex w-7 cursor-pointer justify-center text-3xl md:hidden md:md:hover:text-accent"
               onClick={() => {
-                setIsMoreOpen(false);
+                // setIsMoreOpen(false);
                 setIsLangOpen(false);
                 setIsMainMenuOpen((prev) => !prev);
               }}
