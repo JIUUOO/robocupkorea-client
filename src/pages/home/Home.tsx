@@ -9,7 +9,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 import SEOTitle from "@/components/common/seo/SEOTitle";
 import { certificateData } from "@/data/about/certificateData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCertificate } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faSchool } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -114,20 +114,29 @@ export default function Home() {
                 title="Certificate of Education"
                 content={
                   <>
-                    <div className="text-gray-700 mb-8 text-lg leading-relaxed">
+                    <div className="text-gray-700 mb-4 text-lg leading-relaxed">
                       본 교육원은 한국로보컵협회의 다양한 로봇 및 AI 교육 기회를 제공하고, 청소년들이 로보컵을 통해 로봇
                       및 AI 기술 관련 능력과 역량을 형성할 수 있도록 한국로보컵협회가 지원하는 로봇 교육원입니다.
                     </div>
-                    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 md:gap-y-5 lg:grid-cols-5 lg:gap-y-5 xl:grid-cols-6 xl:gap-y-6">
                       {certificateData.map((item) => (
-                        <div
-                          key={item.name}
-                          className="flex flex-col items-center gap-2 rounded border border-gray bg-white p-4 shadow-sm"
-                        >
-                          <div className="r-text-3xl flex items-center justify-center text-primary">
-                            <FontAwesomeIcon icon={faCertificate} />
+                        <div key={item.id} className="flex justify-center">
+                          <div className="flex w-36 flex-col justify-between gap-2 border border-gray bg-neutral px-2 py-3 lg:w-40">
+                            <div className="flex flex-col items-center gap-1.5">
+                              <FontAwesomeIcon icon={faSchool} className="r-text-4xl text-accent" />
+                              <div className="r-text-base text-center">
+                                <div className="break-keep font-medium">{item.name}</div>
+                              </div>
+                            </div>
+                            <div className="flex justify-center gap-2">
+                              <div
+                                className="flex cursor-pointer items-center justify-center rounded bg-gray px-1.5 py-1"
+                                onClick={() => alert(`주소: ${item.address}`)}
+                              >
+                                <FontAwesomeIcon icon={faLocationDot} className="r-text-xl" />
+                              </div>
+                            </div>
                           </div>
-                          <div className="r-text-lg text-gray-800 break-keep text-center font-medium">{item.name}</div>
                         </div>
                       ))}
                     </div>
