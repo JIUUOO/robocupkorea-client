@@ -1,6 +1,16 @@
 export const historyData = {
   "ko-KR": [
     {
+      year: "2025",
+      events: [
+        {
+          date: ["2025.02.15", "2025.02.16"],
+          title: "제13회 한국로보컵오픈",
+          location: "평창 알펜시아리조트",
+        },
+      ],
+    },
+    {
       year: "2024",
       events: [
         {
@@ -113,6 +123,16 @@ export const historyData = {
   ],
 
   "en-US": [
+    {
+      year: "2025",
+      events: [
+        {
+          date: ["2025.02.15", "2025.02.16"],
+          title: "RoboCup Korea Open 2025",
+          location: "Alpensia Ski Resort, Pyeongchang",
+        },
+      ],
+    },
     {
       year: "2024",
       events: [
